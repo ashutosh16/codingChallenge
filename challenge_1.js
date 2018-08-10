@@ -3,6 +3,7 @@
 // whose sum is equal to second parameter of function.
 // @param {Array} 'a' array of numbers
 // @param {Number} 'sum' number 
+// Time complexity of this function is O(n)
 function sum(a, sum) {
   let temp = {};
   for (let i = 0; i <= a.length; i++) {
