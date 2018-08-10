@@ -14,7 +14,9 @@ Write a function which will return array of objects from 'A' which are not macin
 Given array representing one day share value of compony.
 Array index represent the time within that day.
 Find the maximum profit will beachived if we buy and sell shares at what time.
+
 Shares = [5,10,20,1,6,8,18]
+
 output { 
   buy: {
     time: 4,
