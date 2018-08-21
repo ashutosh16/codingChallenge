@@ -26,7 +26,7 @@ conside below is given link list.
 10 --> 4 --> 3 --> 17 --> 50 --> 100
 
 removeNthNodeFromEnd(head, n){
-//...
+//Write the code.
 }
 
 removeNthNodeFromEnd(head, 2);
