@@ -32,6 +32,5 @@ removeNthNodeFromEnd(head, n){
 removeNthNodeFromEnd(head, 2);
 //10 --> 4 --> 3 --> 17 --> 100
 
-
 # Challenge 5
 Find closest common ancester node of given two nodes of binery tree.
