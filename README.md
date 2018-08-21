@@ -35,4 +35,12 @@ removeNthNodeFromEnd(head, 2);
 //10 --> 4 --> 3 --> 17 --> 100
 
 # Challenge 5
+Sort a Rotated Sorted Array
+Input : [3, 4, 1, 2] 
+Output : [1, 2, 3, 4]
+
+Input : [2, 3, 4, 1]
+Output : [1, 2, 3, 4]
+
+# Challenge 6
 Find closest common ancester node of given two nodes of binery tree.
