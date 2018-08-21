@@ -20,9 +20,11 @@ Shares = [10, 100, 500, 8, 20]
 output { buyIndex: 0, sellIndex: 2 }
 
 # Challenge 4
-Write a function which will remove the nth node from end of the link-list.
+Write a function which will remove the nth node from end of the link-list. With O(n) complexity.
+
 eg.
 conside below is given link list.
+
 10 --> 4 --> 3 --> 17 --> 50 --> 100
 
 removeNthNodeFromEnd(head, n){
