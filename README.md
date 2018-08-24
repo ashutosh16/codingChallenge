@@ -43,5 +43,9 @@ Output : [1, 2, 3, 4]
 Input : [2, 3, 4, 1]
 Output : [1, 2, 3, 4]
 
+
 # Challenge 6
+Find shotest path from source to destination in multistage graph.
+
+# Challenge 7
 Find closest common ancester node of given two nodes of binery tree.
