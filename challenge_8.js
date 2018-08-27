@@ -1,5 +1,6 @@
 // Dijstra's Algorithm
 // given grapth we need to find shortest distem between source to destination.
+// drawback of Dijstra's Algorithm is - This may or may not work for graph having -ve edges.
 
 function dijstraAlgo (g, source, destination) {
   let current = source,
