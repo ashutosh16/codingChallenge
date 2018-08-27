@@ -72,6 +72,22 @@ Try to color given graph with given color such that all adjacent vertex will hav
 
 Time complexity of this program is O(c^n) 'c' = no of colors and 'n' no of vertex.
 
+Time complexity 
+
+T(n) = c[1 + T(n + 1)]
+
+T(n) = c + c[c + c*T(n + 2)]
+
+T(n) = c + c^2 + c^2 * T(n + 2)
+
+T(n) = c + c ^ 2 + c ^ 2 + ... c^k * T(n + k)
+
+T(n) = c ^ 1 + c ^ 2 + c ^ 2 + ... + c ^ k
+
+GP series = (c^(k-1)) - 1
+
+Object(c^k);
+
 
 # Challenge 11
 Find closest common ancester node of given two nodes of binery tree.
