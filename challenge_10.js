@@ -58,4 +58,11 @@ let colorGraphProblem = new ColorGraph(g, ['R', 'B', 'G']);
 colorGraphProblem.colorGraph();
 console.log(`Graph can be colored with ${colorGraphProblem.colorPattern}`);
 
-
+// Time complexity 
+// T(n) = c[1 + T(n + 1)]
+// T(n) = c + c[c + c*T(n + 2)]
+// T(n) = c + c^2 + c^2 * T(n + 2)]
+// T(n) = c + c ^ 2 + c ^ 2 + ... c^k * T(n + k)
+// T(n) = c ^ 1 + c ^ 2 + c ^ 2 + ... + c ^ k
+// GP series = (c^(k-1)) - 1
+// Object(c^k);
