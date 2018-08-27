@@ -51,4 +51,7 @@ Find shotest path from source to destination in multistage graph.
 Solve Nqueen problem with backtracking method.
 
 # Challenge 8
+Dijstras algoritham to find shotest path from source to destination.
+
+# Challenge 9
 Find closest common ancester node of given two nodes of binery tree.
