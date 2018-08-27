@@ -67,7 +67,9 @@ Drawback: wll not work if there is -ve weight cycle in graph.
 
 # Challenge 10
 Graph coloring problem.
+
 Try to color given graph with given color such that all adjacent vertex will have the different color.
+
 Time complexity of this program is C^n 'C' = no of colors and 'n' no of vertex.
 
 
