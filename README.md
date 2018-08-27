@@ -52,6 +52,14 @@ Solve Nqueen problem with backtracking method.
 
 # Challenge 8
 Dijstras algoritham to find shotest path from source to destination.
+O(n^2)
+Drawback: May or may not work for -ve edge graph.
 
 # Challenge 9
+Bellman ford algoritham.
+Find shortest path from source to all other vertex even there is -ve edge in graph.
+O(n^3)
+Drawback: wll not work if there is -ve weight cycle in graph.
+
+# Challenge 10
 Find closest common ancester node of given two nodes of binery tree.
