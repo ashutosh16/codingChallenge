@@ -70,7 +70,7 @@ Graph coloring problem.
 
 Try to color given graph with given color such that all adjacent vertex will have the different color.
 
-Time complexity of this program is C^n 'C' = no of colors and 'n' no of vertex.
+Time complexity of this program is O(c^n) 'c' = no of colors and 'n' no of vertex.
 
 
 # Challenge 11
