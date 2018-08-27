@@ -1,6 +1,7 @@
 // Bellman ford algoritham.
+// Relax all edges n-1 times, where n is no of vertex.
 // Find shortest path from source to all other vertex.
-// if there is -ve weight cycle this will fail.
+// Drawback: If there is -ve weight cycle this will fail.
 
 
 /**
