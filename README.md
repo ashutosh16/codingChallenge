@@ -93,4 +93,4 @@ Object(c^k);
 Find closest common ancester node of given two nodes of binery tree.
 
 # Tower of Hanoi
-Move 3 disks from Tower A to Tower B using Tower C. We can move only 1 disk at a time.
+Move 3 disks from Tower A to Tower B using Tower C. We can move only 1 disk at a time. small disk can not keep on top of large disk.
