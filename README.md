@@ -133,4 +133,11 @@ pop2() –> pops an element from second stack and return the popped element
 
 Implementation of twoStack should be space efficient.
 
+# Delete all occurrences of a given key in a linked list
+Given a singly linked list, delete all occurrences of a given key in it. 
 
+For example, consider the following list.
+
+Input: 2 -> 2 -> 1 -> 8 -> 2 ->  3 ->  2 -> 7
+       Key to delete = 2
+Output:  1 -> 8 -> 3 -> 7 
