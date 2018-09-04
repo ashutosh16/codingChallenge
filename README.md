@@ -96,6 +96,20 @@ Find closest common ancester node of given two nodes of binery tree.
 Move 3 disks from Tower A to Tower B using Tower C. We can move only 1 disk at a time. small disk can not keep on top of large disk.
 
 # Egg Dropping Puzzle
+The following is a description of the instance of this famous puzzle involving n=2 eggs and a building with k=36 floors.
+Suppose that we wish to know which stories in a 36-story building are safe to drop eggs from, and which will cause the eggs to break on landing. We make a few assumptions:
+
+1.An egg that survives a fall can be used again.
+
+2.A broken egg must be discarded.
+
+3.The effect of a fall is the same for all eggs.
+
+4.If an egg breaks when dropped, then it would break if dropped from a higher floor.
+
+5.If an egg survives a fall then it would survive a shorter fall.
+
+6.It is not ruled out that the first-floor windows break eggs, nor is it ruled out that the 36th-floor do not cause an egg to break.
 
 # Largest Sum Contiguous Subarray
 Largest Sum Contiguous Subarray
