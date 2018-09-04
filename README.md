@@ -98,6 +98,10 @@ Move 3 disks from Tower A to Tower B using Tower C. We can move only 1 disk at a
 # Egg Dropping Puzzle
 
 # Largest Sum Contiguous Subarray
+Largest Sum Contiguous Subarray
+Write an efficient program to find the sum of contiguous subarray within a one - dimensional array of numbers which has the largest sum.
+ 
+ Time complexity O(n)
 
 # Next greater Element for an element in array
 Given an array, print the Next Greater Element (NGE) for every element.
