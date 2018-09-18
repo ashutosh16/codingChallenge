@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="wrapper" style="height: 100px; width: 100px">
+      <div class="img img1" style="height: 100px; width: 100px; background: red; display: block"></div>
+      <div class="img img2" style="height: 100px; width: 100px; background: yellow; display: none"></div>
+      <div class="img img3" style="height: 100px; width: 100px; background: blue; display: none"></div>
+    </div>
+
+</body>
+<script>
+  $(document).ready(function () {
+
+    function startImageShow(){
+      let arr = $('.wrapper .img'),
+        currentItem = arr[1],
+        prevItem = arr[0],
+        indexCurrent = 1;
+
+      function changeImage() {
+        $(prevItem).css('display', 'none');
+        $(currentItem).css('display', 'block');
+        prevItem = currentItem;
+        indexCurrent++;
+        if (indexCurrent === arr.length) {
+          indexCurrent = 0;
+        }
+        currentItem = arr[indexCurrent];
+      }
+      var ImageChangeInterval = setInterval(changeImage, 1000);
+    }
+    startImageShow();
+
+  });
+</script>
+</html>
