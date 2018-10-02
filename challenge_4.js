@@ -1,3 +1,5 @@
+// Remove nth node from end of the linkList
+// Time Complexity O(n)
 class Node {
   constructor(data){
     this.data = data;
