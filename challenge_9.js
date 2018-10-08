@@ -1,8 +1,15 @@
-// Bellman ford algoritham.
-// Relax all edges n-1 times, where n is no of vertex.
-// Find shortest path from source to all other vertex.
-// Drawback: If there is -ve weight cycle this will fail.
-
+/**
+ * Bellman ford algoritham.
+ * Relax all edges n-1 times, where n is no of vertex.
+ * Find shortest path from source to all other vertex.
+ * Drawback -  If there is -ve weight cycle this will fail. (No vertex should relax if you perform relaxation after (n-1) times but in case of -ve weight cycle its continue to relax the edges.)
+ * 
+ * Time Complexity
+ * 1. To relax 1 edge we need n Loop
+ * 2. To relax n edges we need n * n loops
+ * 3. To relax n edges for (n-1) times we need n * n * (n-1) => O(n^3)  
+ * 
+ */
 
 /**
  * 
