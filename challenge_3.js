@@ -15,7 +15,6 @@ function maxProfit(price) {
       minIndex = i;
     } else
       if ((price[i] - price[minIndex]) > currentProfit) {
-        maxVal = price[i];
         maxIndex = i;
         currentProfit = price[i] - price[minIndex];
         profit.buyIndex = minIndex;
