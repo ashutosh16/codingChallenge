@@ -1,4 +1,5 @@
 // Generate Expression Tree
+// Time COmplexity O(n);
 
 { 
   function Node(data) {
