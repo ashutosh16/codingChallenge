@@ -47,4 +47,7 @@
 
   root = calculate(root);
   console.log(root);
+
+  // input In-order {1, 2, 3, 4, 5, 6 , 7}
+  // output In-order {2, 9, 3, 11, 4, 13, 3}
 }
