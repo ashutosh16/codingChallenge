@@ -1,4 +1,5 @@
 // Find n-th node of inorder traversal
+// Time Complexity O(n)
 {
   function Node(data) {
     this.data = data;
