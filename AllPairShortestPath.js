@@ -1,4 +1,5 @@
 // All pair shortest path.
+// Time complexity O(n^3)
 
 {
   function allPairShortestPath(g) {
