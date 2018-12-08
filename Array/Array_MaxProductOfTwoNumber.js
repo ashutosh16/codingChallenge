@@ -2,7 +2,7 @@
 
 // 1. firstMax & secondMax
 // 2. firstMin & secondMin
-// Time complexity O(n)
+// Time complexity  O(n)
 
 function findMaxProduct(arr) {
   let positiveMax1 = null,
