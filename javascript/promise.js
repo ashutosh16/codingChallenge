@@ -73,6 +73,7 @@
 }
 
 {
+    //Nested promise example.
     var promise1 = new Promise(function(resolve, reject) {
     setTimeout(function() {
       reject('foo err');
