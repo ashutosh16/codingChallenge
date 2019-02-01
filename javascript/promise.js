@@ -71,3 +71,31 @@
   asyncCall();
 
 }
+
+{
+    var promise1 = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      reject('foo err');
+      }, 300);
+    });
+
+    function service(){
+      return promise1.then(function(res){
+          debugger;
+          return res;
+        }, function (err){
+          debugger;
+          return null;
+        })
+    }
+    function callService(){
+      service().then(function(res){
+        console.log('s=', res);
+      },
+       function(err){
+        console.log('e=', err);	
+      });
+    }
+    callService();
+
+}
