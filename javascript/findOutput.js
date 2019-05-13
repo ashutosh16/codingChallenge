@@ -1,3 +1,24 @@
+function b() {
+  console.log(value);
+}
+
+function a() {
+  var value= 2;
+  b();
+}
+
+var value = 1;
+a();
+
+//output : 1
+/** Scope chain:
+    console.log(value); will start searching the variable 'value' in current execution context which is execution context of b.
+    It cant find 'value', Then it will start searching 'value' in outer environment,
+    outer env is always point to the the lexical scope. here lexical scope of function b is Global.
+    This will find value variable in global scope and print as 1.
+
+
+// ------------------------------------------------------------------------------------------------------------
 {
   let num1 = 12;
   let num2 = new Number(12);
@@ -231,7 +252,6 @@
           console.log('i=' + i);
         }
       })(i);
-      debugger;
       setTimeout(temp, 300);
     }
   }
