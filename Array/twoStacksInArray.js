@@ -10,6 +10,54 @@
  */
 
 
+function DoubleStack() {
+  var stack = {
+    list : [],
+    st1 : {
+      index : -1,
+      push: (data) =>{
+        stack.list.unshift(data);
+        stack.st1.index ++;
+        if(stack.st2.index !== -1 ) {
+          stack.st2.index ++;
+        }
+      },
+      pop: () =>{
+        if(stack.st1.index !== -1) {
+          stack.list.shift();
+          stack.st1.index --;
+
+          if(stack.st2.index !== -1) {
+            stack.st2.index --;
+          }
+        }
+      }
+    },
+    st2 : {
+      index : -1,
+      push: (data) =>{
+        stack.list.push(data);
+        if(stack.st2.index === -1) {
+          stack.st2.index = stack.list.length -1;
+        }
+      },
+      pop: () =>{
+        if(stack.st2.index !== -1) {
+          stack.list.pop();
+          if(stack.st2.index === stack.list.length) {
+            stack.st2.index = -1;
+          }
+        }
+      }
+    }
+  }
+
+
+  return stack;
+}
+/**
+* solution 2
+*/
  function TwoStack(){
    let _P2StartIndex = null,
     _a = [];
