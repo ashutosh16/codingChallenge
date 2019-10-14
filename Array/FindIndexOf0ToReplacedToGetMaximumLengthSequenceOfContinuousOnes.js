@@ -6,7 +6,7 @@
     let count = 0,
       max_index = -1,
       max_count = 0,
-      last0Index = 0;
+      last0Index = -1;
 
       for(let i=0; i < a.length; i++) {
         if(a[i] === 1) {
