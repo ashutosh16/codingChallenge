@@ -1,5 +1,7 @@
-// Find majority element in an array(Boyer–Moore majority vote algorithm)
-// Majority element apear moret than n/2 times
+// Find majority element in an array
+// Majority element apear more than n/2 times
+// (Boyer–Moore majority vote algorithm)
+// This method only woprks if there is majority element present.
 {
   function findMajority(a){
     let m,
