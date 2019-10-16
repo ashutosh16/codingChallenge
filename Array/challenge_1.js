@@ -6,6 +6,7 @@
 // @param {Number} 'sum' number 
 // @returns {Array} array of two number
 // Time complexity of this function is O(n)
+// Space complexity of this function is O(n) 
 function find(a, sum) {
   let temp = {};
   for (let i = 0; i <= a.length; i++) {
@@ -27,3 +28,7 @@ let A = [1,4,7,2,15,67];
 let sum = 17;
 find(A, sum);
 // expected output: [15,2] or [2,15]
+
+
+//Time Complexity O(n log(n)) & space complexity is O(1)
+// Sort the array
