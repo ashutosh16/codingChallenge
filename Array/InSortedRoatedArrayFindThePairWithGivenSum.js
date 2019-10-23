@@ -12,7 +12,7 @@
 // Output: false
 // There is no pair with sum 45.
 
-
+//Time complexity O(n)
 function find(a, sum) {
   let n = a.length;
   //find the pivot point in the array.
