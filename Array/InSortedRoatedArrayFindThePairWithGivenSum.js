@@ -22,6 +22,7 @@ function find(a, sum) {
     }
   }
   
+  //Once yopu find the pivot element you can continue with the approch of sorted array with cyclic rotation increment and decremental of l and h;
   let h = i,
       l = (n+i+1) % n;
   
