@@ -1,4 +1,5 @@
-// A program to check if a binary tree is BST or not
+// A program to check if a binary tree is Binary Search Tree or not
+// Each left node should be less than or equal to or right node is greater than equal to the current node.
 // Time complexity O(n)
 {
   function Node(data) {
