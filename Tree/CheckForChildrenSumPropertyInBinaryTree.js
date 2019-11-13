@@ -1,4 +1,5 @@
 // Check for Children Sum Property in a Binary Tree
+//Sum of the left and right child should be equal to head.
 
 {
   function Node (data) {
