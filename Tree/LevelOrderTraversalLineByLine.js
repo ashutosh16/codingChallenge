@@ -23,7 +23,7 @@
       } else {
         console.log(nodeList);
         nodeList = '';
-        queue.push(null);
+        (queue.length > 0) && queue.push(null);// If we didnt check the length here it will go to infinite loop.
       }
     }
   }
