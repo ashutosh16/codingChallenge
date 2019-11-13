@@ -6,7 +6,7 @@
     this.right = null;
   }
 
-  function _printInorderSuccessor(root, p) {
+  function printInorderSuccessorForAllNodes(root, p={ next: null }) {
     debugger;
     if(root) {
       _printInorderSuccessor(root.right, p);
@@ -15,11 +15,6 @@
       _printInorderSuccessor(root.left, p);
     }
   }
-
-  function printInorderSuccessorForAllNodes(root) {
-    _printInorderSuccessor(root, { next: null }); //next value need to passed by reference hence wrap in object.
-  }
-
 
   let root = new Node(1);
   root.left = new Node(2);
