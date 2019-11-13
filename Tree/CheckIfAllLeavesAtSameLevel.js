@@ -13,35 +13,40 @@ Bt.left = new Node(5);
 Bt.right = new Node(20);
 
 Bt.left.left = new Node(1);
-Bt.left.right = new Node(7);
+
+Bt.right.right = new Node(30);
 
 Bt.left.left.left = new Node(0);
+Bt.right.right.right = new Node(40);
 
 
-function LeafNodeLevel(node, level = 0) {
-  if(!node || (!node.left && !node.right)) {
-    return level;
-  } else {
-    let leftLevel = LeafNodeLevel(node.left, level+1),
-      rightLevel = LeafNodeLevel(node.right, level+1);
-
-    if(leftLevel !== -1 && rightLevel !== -1 && leftLevel === rightLevel) {
-      return leftLevel;
+function LeafNodeLevel(node, level=0, leafLevel=[]) {
+  if(!node) return true;
+  if(!node.left && !node.right){
+    console.log(level,node);
+    if(!leafLevel.length) {
+      leafLevel.push(level);
+      return true;
     } else {
-      return -1;
+      return level === leafLevel[0];
     }
+  } else {
+    return (LeafNodeLevel(node.left, level+1, leafLevel) &&
+    LeafNodeLevel(node.right, level+1, leafLevel));
   }
+
+  return leafLevel;
 }
 
-let result = LeafNodeLevel(Bt);
+var result = LeafNodeLevel(Bt);
+console.log(level);
 
-console.log(result);
 
 
 //         10
 //        /  \
 //       5    20
-//      /
-//     1
-//    /
-//   0
+//      /      \
+//     1       30
+//    /          \
+//   0           40
