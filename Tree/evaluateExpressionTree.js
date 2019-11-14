@@ -51,5 +51,13 @@
 
   tree.left.right = new Node(4);
   tree.left.left = new Node(5);
+  
+  
+//                 +
+//               /    \
+//              *      -
+//             / \    /  \
+//            5   4 100  20
+  
   console.log(Evaluation(tree));
 }
