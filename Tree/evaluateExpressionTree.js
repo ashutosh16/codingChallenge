@@ -35,9 +35,12 @@
     }
 
     if(!!root.left && !!root.right) {
-      let a = Evaluation(root.left);
-      let b = Evaluation(root.right);
-      return calculate(root.data, a, b);
+      let leftResult = Evaluation(root.left),
+        rightResult = Evaluation(root.right);
+      
+      return (typeof leftResult === "number" && typeof rightResult === "number") 
+              ? calculate(root.data, leftResult, rightResult)
+              : false;
     } else {
       return false; //Invalid tree
     } 
