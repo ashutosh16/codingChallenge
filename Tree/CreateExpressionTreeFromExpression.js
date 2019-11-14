@@ -1,4 +1,4 @@
-// Generate Expression Tree
+// Generate Expression Tree with given expression
 // Time COmplexity O(n);
 
 { 
@@ -8,7 +8,7 @@
     this.data = data;
   }
 
-  function CreateEpressionTree(expStr) {debugger;
+  function CreateEpressionTree(expStr) {
     let stack = [],
       currentNode = null,
       str = expStr.split(' ');
