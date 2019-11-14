@@ -8,15 +8,17 @@
   }
 
   function inOrder(root, n, obj = { count : 0 }) {
+    let result = null;
     if(root.left !== null) {
-      inOrder(root.left, n, obj);
+      result = inOrder(root.left, n, obj);
     }
+    if(result) return result; // found the N'th node
     obj.count = obj.count + 1;
     if (obj.count === n ) {
-      return root.data;
+      return root.data; // current node is N'th node
     }
     if (root.right !== null) {
-      inOrder(root.right, n, obj);
+      return inOrder(root.right, n, obj);
     }
   }
 
@@ -27,5 +29,5 @@
   root.left.right = new Node(50);
 
 
-  console.log(inOrder(root, 4));
+  console.log(inOrder(root, 3));
 }
