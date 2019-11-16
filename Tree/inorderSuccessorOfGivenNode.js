@@ -28,7 +28,7 @@
   root.right.left = new Node(6);
   root.right.right = new Node(7);
 
-  printInorderSuccessorForAllNodes(root);
+  findInorderSuccessor(root, 6);
 }
 
 //Input
