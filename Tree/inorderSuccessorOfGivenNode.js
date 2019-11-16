@@ -1,4 +1,4 @@
-{
+ {
   function Node(data) {
     this.data = data;
     this.left = null;
@@ -9,14 +9,14 @@
     if (root) {
       let result = findInorderSuccessor(root.right, data, p);
       if (result) {
+        return result;
+      } else {
         if (root.data === data) {
           return p.next;
         }
         p.next = root.data;
         return findInorderSuccessor(root.left, data, p);
       }
-    } else {
-      return p.next;
     }
   }
 
@@ -28,12 +28,14 @@
   root.right.left = new Node(6);
   root.right.right = new Node(7);
 
-  findInorderSuccessor(root, 6);
+  console.log(findInorderSuccessor(root, 3));
+  console.log(findInorderSuccessor(root, 1));
 }
 
-//Input
-/*         1        */
-/*       /   \      */
-/*     2      3     */
-/*    /  \  /   \   */
-/*   4   5  6   7   */
+
+  //Input
+  /*         1        */
+  /*       /   \      */
+  /*     2      3     */
+  /*    /  \  /   \   */
+  /*   4   5  6   7   */
