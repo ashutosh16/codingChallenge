@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .time {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            letter-spacing: 5px;
+
+        }
+        .btn {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            transform: translate(-50%);
+        }
+    </style>
+</head>
+<body>
+    <section class="stop-watch-section">
+        <h1>Stop Watch</h1>
+        <div role="stop watch container" class="stop-watch-container">
+            <span id="min" role="minutes" class="time">00 -- </span>
+            <span id="sec" role="Seconds" class="time">00 -- </span>
+            <span id="milisec" role="Mili seconds" class="time">00</span>
+        </div>
+        <div class="btn-container">
+            <span id="start" role="button" class="btn">Start</span>
+            <span id="stop" role="button" class="btn">Stop</span>
+            <span id="reset" role="button" class="btn">Reset</span>
+        </div>
+        
+    </section>
+    <script>
+    {
+        
+        function Timer(startTime){
+            let interval = setInterval(() =>{
+                let [min, sec, milliSec] = document.querySelectorAll(".stop-watch-container .time");
+                let timer = new Date() - startTime;
+                timer = new Date(timer);
+                min.textContent = `${timer.getMinutes()} -- `;
+                sec.textContent = `${timer.getSeconds()} -- `;
+                milliSec.textContent = `${timer.getMilliseconds().toString().slice(0,2)}`;
+            }, 100);
+                
+            return interval;
+        }
+
+        function CreateStopWatch(){
+            let startTime = null;
+            let startStopWatch = function(event) {
+
+                startTime = (event.target.id !== "reset" && startTime)
+                            ? startTime
+                            : new Date();
+                
+                let stopWatchTimer = Timer(startTime);
+
+                document.querySelector("#stop").addEventListener("click", () => {
+                    clearInterval(stopWatchTimer);
+                });
+
+                document.querySelector("#reset").addEventListener("click", () => {
+                    clearInterval(stopWatchTimer);
+                    stopWatchTimer = Timer(new Date());
+                });
+            
+            }
+            
+            document.querySelector("#start").addEventListener("click", startStopWatch);
+        }
+
+        CreateStopWatch();
+    }
+    </script>
+</body>
+</html>
