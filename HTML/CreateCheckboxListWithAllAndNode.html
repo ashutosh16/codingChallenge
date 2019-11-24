@@ -35,7 +35,7 @@
                 setAll(false);
                 document.querySelector("#all").checked = false;
             } else {
-                let a = true,
+                let allChecked = true,
                     allUnchecked = true,
                     foodSelection = document.querySelectorAll(".food-type");
 
@@ -43,10 +43,10 @@
                 foodSelection.forEach(item => {
                     debugger;
                     allUnchecked = allUnchecked && !item.checked;
-                    a = a && item.checked;
+                    allChecked = allChecked && item.checked;
                 });
 
-                document.getElementById("all").checked = a;
+                document.getElementById("all").checked = allChecked;
                 document.getElementById("none").checked = allUnchecked;
             }
 
