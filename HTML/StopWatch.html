@@ -31,6 +31,60 @@
         
     </section>
     <script>
+    
+    {
+        function StopWatch(el) {
+            let value = null;
+            let watchTimer = null;
+
+            let updateWatch = () => {
+                let [min, sec, milliSec] = el.querySelectorAll(".stop-watch-container .time");
+                 min.textContent = `${timer.getMinutes()} -- `;
+                 sec.textContent = `${timer.getSeconds()} -- `;
+                 milliSec.textContent = `${timer.getMilliseconds().toString().slice(0,2)}`;
+            };
+
+            let start = () => {
+                let startTime = value 
+                                ? new Date(new Date() - new Date(value))
+                                : new Date();
+
+                let runWatch = () => {
+                    watchTimer = setTimeout( ()=> {
+                        value = new Date() - startTime;
+                        updateWatch(new Date(value));
+                        runWatch();
+                    },10);
+                }                            
+
+                runWatch();
+            }
+
+            let stop = () => {
+                watchTimer && clearTimeout(watchTimer);
+            }
+
+            let reset = () => {
+                watchTimer && clearTimeout(watchTimer);
+                updateWatch();
+            }
+
+            return {
+                start,
+                stop,
+                reset
+            }
+        }
+        let stopWatch = StopWatch(documet.querySelector(".stop-watch-container"));
+        document.querySelector("#start").addEventListener("click", stopWatch.start);
+        document.querySelector("#stop").addEventListener("click", stopWatch.stop);
+        document.querySelector("#reset").addEventListener("click", stopWatch.reset);
+    }
+       
+    </script>
+    
+    
+<!--     <script>
     {
         
         function Timer(startTime){
@@ -72,6 +126,7 @@
 
         CreateStopWatch();
     }
-    </script>
+    </script> -->
+    
 </body>
 </html>
