@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .time {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            letter-spacing: 5px;
+        }
+        .btn {
+            margin: 5px;
+            text-align: center;
+            display: inline-flex;
+            border: 2px solid red;
+            border-radius: 10px;
+            padding: 5px;
+            background: linear-gradient(#f7f5e9, #FFEB3B);
+        }
+    </style>
+</head>
+<body>
+    <section class="stop-watch-section">
+        <h1>Stop Watch</h1>
+        <div role="stop watch container" class="stop-watch-container">
+            <span id="min" role="minutes" class="time">00 -- </span>
+            <span id="sec" role="Seconds" class="time">00 -- </span>
+            <span id="milisec" role="Mili seconds" class="time">00</span>
+        </div>
+        <div class="btn-container">
+            <span id="start" role="button" class="btn">Start</span>
+            <span id="stop" role="button" class="btn">Stop</span>
+            <span id="reset" role="button" class="btn">Reset</span>
+        </div>
+        
+    </section>
+    <script>
+    
+    {
+        function StopWatch(el) {
+            let value = null;
+            let watchTimer = null;
+            let updateWatch = (timer) => {
+                if(!timer) {
+                    timer = new Date(0);
+                }
+                let [min, sec, milliSec] = el.querySelectorAll(".stop-watch-container .time");
+                 min.textContent = `${timer.getMinutes()} -- `;
+                 sec.textContent = `${timer.getSeconds()} -- `;
+                 milliSec.textContent = `${timer.getMilliseconds().toString().slice(0,2)}`;
+            };
+            let start = () => {
+                let startTime = value 
+                                ? new Date(new Date() - new Date(value))
+                                : new Date();
+                let runWatch = () => {
+                    watchTimer = setTimeout( ()=> {
+                        value = new Date() - startTime;
+                        updateWatch(new Date(value));
+                        runWatch();
+                    },100);
+                }                            
+                runWatch();
+            }
+            let stop = () => {
+                watchTimer && clearTimeout(watchTimer);
+            }
+            let reset = () => {
+                watchTimer && clearTimeout(watchTimer);
+                updateWatch();
+            }
+            return {
+                start,
+                stop,
+                reset
+            }
+        }
+        let stopWatch = StopWatch(document.querySelector(".stop-watch-container"));
+        debugger;
+        document.querySelector("#start").addEventListener("click", stopWatch.start);
+        document.querySelector("#stop").addEventListener("click", stopWatch.stop);
+        document.querySelector("#reset").addEventListener("click", stopWatch.reset);
+    }
+       
+    </script>
+</body>
+</html>
