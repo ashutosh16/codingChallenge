@@ -74,7 +74,6 @@
             }
         }
         let stopWatch = StopWatch(document.querySelector(".stop-watch-container"));
-        debugger;
         document.querySelector("#start").addEventListener("click", stopWatch.start);
         document.querySelector("#stop").addEventListener("click", stopWatch.stop);
         document.querySelector("#reset").addEventListener("click", stopWatch.reset);
