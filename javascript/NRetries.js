@@ -1,7 +1,6 @@
 {
     function TryToSuccess(fun, reties) {
-        let attempt = 0,
-            isSuccess = false;
+        let attempt = 0;
 
         let doTry = (...args) => {
             attempt++;
