@@ -1,7 +1,8 @@
 {
-    // Design an API that takes function & executes them only 
-    // when the previous function call in the queue has executed.
-    // How will you know that the previous function has executed?
+    // Q1 : Design an API that takes function & executes them only 
+    //      when the previous function call in the queue has executed.
+    //      How will you know that the previous function has executed?
+    // Q2 : How do you make a function that takes f and returns a function that calls f on a timeout? 
 
     function CreateSyncfunc(fun) {
         let callback = fun;
