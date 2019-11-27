@@ -61,5 +61,57 @@ function findMaxProduct(arr) {
 
 findMaxProduct([10,20,4,2,-19,40,5,27,-4,0]);
 findMaxProduct([10, 15, 100, 400]);
+//------------------------------------------------------------------------------------------------------------
 
+//      Solution 2
+
+//------------------------------------------------------------------------------------------------------------
+
+
+function FindMaxProduct(arr) {
+  let l1 =null, l2 = null, s1 = null, s2 = null, p1 =null, p2 =null, result = null;
+  for(let i =0; i < arr.length; i++) {
+    if(Math.sign(arr[i]) === 1){
+      if(l1 === null){
+        l1 = a[i];
+      } else {
+        if(l2 === null) {
+          l2 = a[i];
+        }
+        if(a[i] > l2) {
+          l2 = a[i];
+          if(l1 < l2) {
+            [l1, l2] = [l2, l1];
+          }
+        } 
+      }
+    } else {
+      if(s1 === null){
+        s1 = a[i];
+      } else {
+        if(s2 === null) {
+          s2 = a[i];
+        }
+        if(a[i] < s2) {
+          s2 = a[i];
+           if(s1 > s2) {
+            [s1, s2] = [s2, s1];
+          }
+        }
+      }
+    }
+  }
+  p1 = (l1 !== null && l2 !== null) ? l1*l2 : null; 
+  p2 = (s1 !== null && s2 !== null) ? s1*s2 : null; 
+  
+  if(p1 !==null && p1 !== null) {
+    result = (p1 > p2) ? p1 : p2;
+  } else {
+    result = p1 ? p1 : p2;
+  }
+  return result;
+}
+
+findMaxProduct([10,20,4,2,-19,40,5,27,-4,0]);
+findMaxProduct([10, 15, 100, 400]);
 
