@@ -1,5 +1,6 @@
 // Find equilibrium index of an array
-// Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes.
+// Equilibrium index of an array is an index such that the sum of elements at lower indexes
+// is equal to the sum of elements at higher indexes.
 // Input : A[] = {-7, 1, 5, 2, -4, 3, 0}
 // Output : 3
 // 3 is an equilibrium index, because:
