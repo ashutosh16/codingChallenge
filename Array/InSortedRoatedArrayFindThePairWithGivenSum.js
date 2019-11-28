@@ -25,7 +25,9 @@ function find(a, sum) {
   //Once yopu find the pivot element you can continue with the approch of sorted array with cyclic rotation increment and decremental of l and h;
   let h = i,
       l = (n+i+1) % n;
-  
+  if (!sum) {
+    return -1;
+  }
   while(l !== h) {
     var currentSum = a[l]+a[h];
     if(currentSum === sum){
@@ -36,8 +38,10 @@ function find(a, sum) {
     } else
     if(currentSum > sum) {
       h = (h-1+n) % n;
+     
     }
   }
+  
   return "Not Found";
 }
-console.log(find([11, 15, 26, 38, 9, 10]));
+console.log(find([11, 15, 26, 38, 9, 10], 26));
