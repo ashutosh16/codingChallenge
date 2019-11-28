@@ -21,7 +21,13 @@
   let result = subArrayWithSumZero([1,4,-7,3,1,3,1,-4,-2,-2]);
   console.log(result);
   // [[4, -7, 3], [-7, 3, 1, 3], [3, 1, -4],[3, 1, 3, 1, -4, -2, -2]]
-
+  // Hint: 
+  // |<----- Sum = X ------->|
+  // i                       j                  k
+  // |<-------- Sum = X ----------------------->|
+  // That Means              |<--- Sum = 0  --->|
+  // Sum from index j to k sub array must be 0;
+  
 }
 
 {
