@@ -21,7 +21,7 @@ function search(a, key, l =0, h=a.length-1){
       return search(a, key, mid+1, h);
     }
   }
-  
+  else
   // As Left array is not sorted, Right array is sorted.
   if(key <= a[h] && key > a[mid]) {
     //If key present in right array
