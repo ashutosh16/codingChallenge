@@ -10,7 +10,7 @@
  * Output: true
  */
  
- // WE CAN ALSO USE THE heap sort to sort array without taking any extra space. space complexity will be O(1) TIME COMPLEXITY O(N LOG(N))
+// WE CAN ALSO USE THE heap sort to sort array without taking any extra space. space complexity will be O(1) TIME COMPLEXITY O(N LOG(N))
 // WE CAN ALSO CREATE THE HASH MAP TO STORE THE VALUE AND LOOK FOR THE DUPLICATE. SPACE COMPLEXITY O(N) TIME COMPLEXITY O(N)
 // BELOW WE USED MERGE SORT HENCE TIME COMPLEXITY IS O(N LOG (N)) SPACE COMPLEXIT IS O(N)
 /**
