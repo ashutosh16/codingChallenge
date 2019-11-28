@@ -17,21 +17,24 @@ var removeDuplicates = function(nums) {
             prev = nums[i];
         }
     }
-    let nullIndex = 1, numberIndex= 1;
+    //nums = [0,null,1,null,null,2,null,3,null,4]
+    
+    let nullIndex = 1, //Store the null index
+        numberIndex= 1; // store the number index
     while( nullIndex < count ) {
-        while(nullIndex < nums.length && nums[nullIndex] !== null){
+        while(nullIndex < nums.length && nums[nullIndex] !== null){ //find null index;
             nullIndex++;      
         }
-        numberIndex = nullIndex + 1;
-        while(numberIndex < nums.length && nums[numberIndex] === null) {
+        numberIndex = nullIndex + 1; //find number index after null index
+        while(numberIndex < nums.length && nums[numberIndex] === null) { // find number index
             numberIndex++;
         }
-        nums[nullIndex] = nums[numberIndex];
+        nums[nullIndex] = nums[numberIndex]; // replace null index with number index
         nums[numberIndex] = null;
         nullIndex++;
     }
     
-    return count;  
+    return count;  // unique number count
 };
 
 removeDuplicates([0,0,1,1,1,2,2,3,3,4]);
