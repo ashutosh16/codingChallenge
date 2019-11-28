@@ -32,11 +32,12 @@ function find(a, sum) {
       return [l,h];
     }
     if(currentSum < sum) {
-      l = (n+l+1) % n;
+      l = (l+1) % n;
     } else
     if(currentSum > sum) {
-      h = (h+1+n) % n;
+      h = (h-1+n) % n;
     }
   }
   return "Not Found";
 }
+console.log(find([11, 15, 26, 38, 9, 10]));
