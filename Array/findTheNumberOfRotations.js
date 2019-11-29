@@ -29,9 +29,9 @@ function findRotation(a, l=0, h=a.length-1) {
     return mid+1;
   }
   
-  if(a[l] <= a[mid]) {
+  if(a[l] <= a[mid]) { // Left array is sorted hence pivot point must be in right array
     return findRotation(a,mid+1,h);
-  } else {
+  } else {  // Right array is sorted hence pivot point must be in left array
     return findRotation(a, l, mid-1);
   }
 }
