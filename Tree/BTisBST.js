@@ -10,7 +10,7 @@
 
   function isBST(root, min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER) {
     if(!root) return true;
-    if(root.data < max && root.data >= min) {
+    if(root.data <= max && root.data > min) {
       return (isBST(root.left, min, root.data) && isBST(root.right, root.data, max + 1));
     } else {
       return false;
