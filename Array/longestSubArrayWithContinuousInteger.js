@@ -27,3 +27,12 @@ function longSubArray(a) {
 let a = [1, 56, 58, 57, 90, 92, 94, 93, 91, 45];
 let result = longSubArray(a);
 console.log(result);
+
+
+// Hint : 
+// 1) Start finding sub array starting from index 0 to n-1, Then index 1 to n-1 and so on.
+// 2) If in subarray keep on updating minElement and maxElement from the sub array.
+//    If diff between MaxElement and MinElement is equal to length of sub array.
+//    ** Then sub array has the element that can be form a sequence.
+// e.g. [8, 4, 6, 5, 3] 
+// Min = 3, Max = 8, lenght = 5 Hence Length = (Max - Min) Then its required sub array.
