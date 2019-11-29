@@ -9,17 +9,12 @@
   }
 
   function checkSum(root) {
-    if(!root || (!root.left && !root.right)) {
+    if(!root || (!root.left && !root.right)) { // Leaf node and null nodes are always true.
       return true;
     }
-    let leftResult, rightResult;
-    leftResult = checkSum(root.left);
-    rightResult = checkSum(root.right);
-
-    if(leftResult && rightResult) {
-      return (root.data === ((root.left ? root.left.data : 0) + (root.right ? root.right.data : 0 )));
-    } else {
-      return false;
+    
+    if(root.data === ((root.left ? root.left.data : 0) + (root.right ? root.right.data : 0 ))) {
+      return checkSum(root.left) && checkSum(root.right);
     }
   }
 
