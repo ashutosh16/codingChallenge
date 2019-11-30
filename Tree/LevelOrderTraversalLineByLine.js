@@ -14,12 +14,8 @@
       let c = queue.shift();
       if(c !== null) {
         nodeList += ' ' + c.data;  
-        if(c.left) {
-          queue.push(c.left);
-        }
-        if(c.right) {
-          queue.push(c.right);
-        }
+        c.left && queue.push(c.left);
+        c.right && queue.push(c.right);
       } else {
         console.log(nodeList);
         nodeList = '';
