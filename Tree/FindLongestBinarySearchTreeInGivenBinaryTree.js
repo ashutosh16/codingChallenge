@@ -38,20 +38,6 @@ class BST {
   }
 }
 
-var bt = new BST(10);
-bt.addNode(5);
-bt.addNode(15);
-bt.addNode(2);
-bt.addNode(20);
-bt.addNode(1);
-bt.travel((node)=> {
-  debugger;
-  let leftHeight = node.left ? (node.left.height + 1) : 0;
-  let rightHeight = node.right ? (node.right.height + 1) : 0;
-  node.height = (leftHeight > rightHeight) ? leftHeight : rightHeight;
-  // console.log(node);
-}, 'post-order');
-
 var bt2 = new BST(50);
 bt2.left = new BST(30);
 bt2.right = new BST(60);
