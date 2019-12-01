@@ -6,12 +6,13 @@ function dijstraAlgo (g, source, destination) {
   let current = source,
     n = g.length - 1,
     min = Number.POSITIVE_INFINITY,
-    d = Array(n + 1).fill(min),
-    visited = Array(n + 1).fill(0),
+    d = Array(n + 1).fill(min), //Store the distence from source to all other vertex initialize with infinity. 
+    visited = Array(n + 1).fill(0), //List of visited nodes.
     path = Array(n + 1).fill(-1);
 
   visited[source] = source;
   d[source] = 0;
+  
   // continue till we reached the current node with shotest path.
   while (current !== destination) {
     // distence from source to all vertex via current vertex.
