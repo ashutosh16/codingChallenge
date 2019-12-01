@@ -1,6 +1,8 @@
 // Dijstra's Algorithm
 // given grapth we need to find shortest distem between source to all other vertex.
 // drawback of Dijstra's Algorithm is - This may or may not work for graph having -ve edges.
+//Use case
+//https://www.youtube.com/watch?v=eSOJ3ARN5FM&t=313s
 
 function dijstraAlgo (g, source, destination) {
   let current = source,
@@ -64,5 +66,3 @@ let g = [
 let source = 1,
   destination = 6;
 console.log(`shortest path from ${source} to ${destination} is ${dijstraAlgo(g, source, destination)}`);
-//Use case
-//https://www.youtube.com/watch?v=eSOJ3ARN5FM&t=313s
