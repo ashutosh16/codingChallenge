@@ -3,7 +3,7 @@
   
   function Graph() {
     const g = {},
-
+        
         addVertex = (vertexName, edgeList) => {
           !g[vertexName] && (g[vertexName] = {});
           edgeList.forEach( edge => g[vertexName][edge] = true);
