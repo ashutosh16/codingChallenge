@@ -72,7 +72,8 @@
   | /    | /
   5 ----- 4
 
-  console.log(G.DFS( (name)=> console.log(name)))
+  console.log(G.DFS( (name)=> console.log(name)));
+  console.log(G.BFS( (name)=> console.log(name)));
   console.log(G.g);
   
   // Graph representaion.
