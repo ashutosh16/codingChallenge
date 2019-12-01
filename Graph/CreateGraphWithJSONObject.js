@@ -8,7 +8,28 @@
           !g[vertexName] && (g[vertexName] = {});
           edgeList.forEach( edge => g[vertexName][edge] = true);
         },
-
+        
+        BFS = (callback) => {
+          const queue = [];
+          let currentNode = null;
+          const v = {};
+    
+          queue.push( Object.keys(g)[0] );
+          v[ Object.keys(g)[0] ] = true;
+          
+          while(queue.length > 0){
+            currentNode = queue.shift();
+            callback(currentNode);
+            
+            Object.keys(g[currentNode]).forEach( vertex => {
+              if(!v[vertex]) {
+                queue.push(vertex);
+                v[vertex] = true;
+              }
+            });
+          }
+        },
+          
         DFS = (callback) => {
           const startVertexName = Object.keys(g)[0];
           const stack = [ startVertexName ]; //Add first vertexName
@@ -32,6 +53,7 @@
         return {
             addVertex,
             DFS,
+            BFS
             g
         }
   }
