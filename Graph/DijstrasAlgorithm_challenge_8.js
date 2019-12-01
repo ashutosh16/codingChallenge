@@ -64,3 +64,5 @@ let g = [
 let source = 1,
   destination = 6;
 console.log(`shortest path from ${source} to ${destination} is ${dijstraAlgo(g, source, destination)}`);
+//Use case
+//https://www.youtube.com/watch?v=eSOJ3ARN5FM&t=313s
