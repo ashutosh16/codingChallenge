@@ -1,5 +1,6 @@
 {
 
+  
   function Graph() {
     const g = {},
 
@@ -10,11 +11,10 @@
 
         DFS = (callback) => {
           const startVertexName = Object.keys(g)[0];
-          const stack = [ startVertexName ], //Add first vertexName
-          const v = {
-              startVertexName : true
-          };
-          const currentVertex = null;
+          const stack = [ startVertexName ]; //Add first vertexName
+          const v = {};
+          v[startVertexName] = true;
+          let currentVertex = null;
 
           while(stack.length > 0) {
             currentVertex = stack.pop();
@@ -28,6 +28,12 @@
             });
           }
         }
+
+        return {
+            addVertex,
+            DFS,
+            g
+        }
   }
 
 
@@ -37,5 +43,41 @@
   G.addVertex( 3, [2,4]);
   G.addVertex( 4, [2,3,5]);
   G.addVertex( 5, [1,2,4]);
+  
+  1 ---- 2
+  |     /| \  
+  |   /  |  3
+  | /    | /
+  5 ----- 4
 
+  console.log(G.DFS( (name)=> console.log(name)))
+  console.log(G.g);
+  
+  // Graph representaion.
+  // {
+  //   1: {
+  //     2:true,
+  //     5:true
+  //   },
+  //   2: {
+  //     1:true,
+  //     3:true,
+  //     4:true,
+  //     5:true
+  //   },
+  //   3: {
+  //     2:true,
+  //     4:true  
+  //   },
+  //   4: {
+  //     2:true,
+  //     3:true,
+  //     5:true
+  //   },
+  //   5: {
+  //     1:true,
+  //     2:true,
+  //     4:true
+  //   }
+  // }
 }
