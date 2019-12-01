@@ -1,4 +1,5 @@
 // All pair shortest path.
+// This will find the shortest path between every pair of vertex.
 // Time complexity O(n^3)
 
 {
