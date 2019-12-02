@@ -26,13 +26,14 @@ function findShotestPath(graph, stage) {
   console.log('direction = ', direction);
 
   // Find path
-  let path = [, 1];
-  for (i = 2; i < stage; i++) {
-    path[i] = direction[path[i - 1]];
-  }
-  path[stage] = n;
+   let path = '1 ----> ';
+   let cn = 1;
+   while(cn !== 8) {
+     path += direction[cn] +' ----> ';
+     cn = direction[cn];
+   }
 
-  return path.shift();
+   return path;
 }
 
 // Nodes start from 1 to 8
