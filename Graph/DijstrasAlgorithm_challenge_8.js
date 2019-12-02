@@ -15,7 +15,7 @@ function dijstraAlgo (g, source, destination) {
   visited[source] = source;
   d[source] = 0;
   
-  // continue till we reached the current node with shotest path.
+  // continue till we reached the destination node with shotest path.
   while (current !== destination) {
     // distence from source to all vertex via current vertex.
     // d[current] is sourcet to current vertex distence.
