@@ -22,7 +22,7 @@ function bellmanFordAlgo (g, source) {
     d = Array(v+1).fill(Number.MAX_SAFE_INTEGER),
     p = Array(v+1).fill(Number.MAX_SAFE_INTEGER);
   d[source] = 0;
-  for (let i = 1; i <= v-1; i++) { //Relax all vertex for v-1 times
+  for (let i = 1; i <= v-1; i++) { //Relax all vertex for v-1 times, we can stop if none of the edge is relax;
     for (let j = 1; j <= v; j++) { //Relax j vertex
       for (let k = 1; k <= v; k++) {
         if (g[j][k] !== 0 && (g[j][k] + d[j]) < d[k]) { //if there is edge from j to k && (edge j to k + d[j] < d[k])
