@@ -46,6 +46,14 @@ let g = [
     [0, 0, 0, 3, 0],//4
 ];
 
+(1)----4----*(2)
+ |            *
+ |            |
+ |5           |-10
+ |            | 
+ *            |
+(3)----3----*(4)
+  
 let result = bellmanFordAlgo(g, 1);
 
 console.log(result);
