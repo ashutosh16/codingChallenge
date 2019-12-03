@@ -48,5 +48,5 @@
     });
     fun(1000).then(res => {
         console.log("res 5000 = ", res);
-    });;
+    });
 }
