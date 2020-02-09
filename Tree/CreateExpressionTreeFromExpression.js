@@ -52,6 +52,17 @@
   }
 
   let tree = CreateEpressionTree('( 5 + 3 + ( 10 * 20 ) + 5 )');
+  
+  //               +
+  //             /   \
+  //            +     5
+  //          /   \
+  //         /     \  
+  //        +       *
+  //      /   \    / \
+  //     5     3  10  20   
+  
+  
   let tree2 = CreateEpressionTree('( 3 + ( ( 5 + 9 ) * 2 ) )');
   console.log(tree2);
 }
