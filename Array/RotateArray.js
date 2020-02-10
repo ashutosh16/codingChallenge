@@ -17,8 +17,8 @@
 var rotate = function(nums, k) {
     var n = nums.length,
         startIndex = 0,
-        currentIndex = startIndex,
-        pre = nums[currentIndex];
+        currentIndex = startIndex;
+     
     for(var count =0; count < nums.length; startIndex++) {
         currentIndex = startIndex;
         pre = nums[currentIndex];
