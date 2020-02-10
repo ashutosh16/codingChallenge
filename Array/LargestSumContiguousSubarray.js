@@ -15,7 +15,7 @@ function LargesSumContiguousSubarray(a) {
   for(let i = 0; i < a.length; i++){
     currentSum += a[i];
     
-    if(currentSum > maxSum || maxSum === null) {
+    if(maxSum === null || currentSum > maxSum) {
       maxSum = currentSum;
     }
     
