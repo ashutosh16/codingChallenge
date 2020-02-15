@@ -10,7 +10,7 @@
     debugger;
     if(root) {
       printInorderSuccessor(root.right, p);
-      console.log('Inorder successor for '+ root.data + ' - '+ p.next.data);
+      console.log('Inorder successor for '+ root.data + ' - '+ (p.next ? p.next.data: null));
       p.next = root;
       printInorderSuccessor(root.left, p);
     }
