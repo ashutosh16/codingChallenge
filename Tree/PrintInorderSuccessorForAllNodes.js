@@ -6,13 +6,13 @@
     this.right = null;
   }
 
-  function printInorderSuccessorForAllNodes(root, p={ next: null }) {
+  function printInorderSuccessor(root, p={ next: null }) {
     debugger;
     if(root) {
-      _printInorderSuccessor(root.right, p);
-      console.log('Inorder successor for '+ root.data + ' - '+ p.next);
-      p.next = root.data;
-      _printInorderSuccessor(root.left, p);
+      printInorderSuccessor(root.right, p);
+      console.log('Inorder successor for '+ root.data + ' - '+ p.next.data);
+      p.next = root;
+      printInorderSuccessor(root.left, p);
     }
   }
 
@@ -24,7 +24,7 @@
   root.right.left = new Node(6);
   root.right.right = new Node(7);
 
-  printInorderSuccessorForAllNodes(root);
+  printInorderSuccessor(root);
 
 
   //Input
