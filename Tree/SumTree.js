@@ -17,7 +17,7 @@
     let leftResult, rightResult;
     leftResult = checkSum(root.left);
     rightResult = checkSum(root.right);
-    debugger;
+
     if(leftResult.isSum && rightResult.isSum) {
       return {
         isSum: (root.data === (leftResult.sum + rightResult.sum)),
