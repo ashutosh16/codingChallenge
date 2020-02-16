@@ -1,7 +1,7 @@
 //Flatten an array with unknown depth (reimplement .flat(Infinity)).
 //a. Write it both recursively and iteratively.
 
-function flat(a, result=[]){debugger;
+function flat(a, result=[]){
     if(typeof a === "object"){
         for(var i=0; i<= a.length-1; i++){
             flat(a[i], result);
