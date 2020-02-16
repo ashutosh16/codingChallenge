@@ -1,9 +1,5 @@
 // Find the lowest common ancester in Binary Tree
 // https://www.youtube.com/watch?v=13m9ZCB8gjw&list=PLrmLmBdmIlpv_jNDXtJGYTPNQ2L1gdHxu&index=17
-
-
-
-
 {
     function Node (data) {
       this.data = data;
@@ -42,7 +38,6 @@
       return (foundA && foundB) ? node.data: rightResult;
     }
     
-    // return leftResult || rightResult || null;
     if(foundA || foundB) {
       return foundA ? a : b;
     }
