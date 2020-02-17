@@ -23,6 +23,9 @@ function reduce(arr, callback, previousValue){
 //Pipe with own reduce function
 const Pipe = (funs) => arg => reduce(funs, (prevFunction, currentFunction) => prevFunction.then(currentFunction), Promise.resolve(arg));
 
+//Pipe with Array reduce method.
+const Pipe2 = (funs) => arg => arg.reduce((prevFunction, currentFunction) => prevFunction.then(currentFunction), Promise.resolve(arg));
+
 
 const pipeFunction = Pipe([
   x => x + 1,
@@ -32,3 +35,13 @@ const pipeFunction = Pipe([
 );
 
 console.log('-----------> ', pipeFunction(5).then( result => console.log("result with reduce ---->", result)));
+
+const pipeFunction2 = Pipe2([
+  x => x + 1,
+  x => new Promise(resolve => setTimeout(() => resolve(x + 2), 1000)),
+  x => x + 3,
+  async x => (await x) + 4]
+);
+
+console.log('-----------> ', pipeFunction2(5).then( result => console.log("result with reduce ---->", result)));
+
