@@ -34,7 +34,7 @@ const pipeFunction = Pipe([
   async x => (await x) + 4]
 );
 
-console.log('-----------> ', pipeFunction(5).then( result => console.log("result with reduce ---->", result)));
+console.log('custom reduce --> ', pipeFunction(5).then( result => console.log("result with reduce ---->", result)));
 
 const pipeFunction2 = Pipe2([
   x => x + 1,
@@ -43,5 +43,5 @@ const pipeFunction2 = Pipe2([
   async x => (await x) + 4]
 );
 
-console.log('-----------> ', pipeFunction2(5).then( result => console.log("result with reduce ---->", result)));
+console.log('Array reduce --> ', pipeFunction2(5).then( result => console.log("result with reduce ---->", result)));
 
