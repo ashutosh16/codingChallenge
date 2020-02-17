@@ -268,7 +268,6 @@ function queue() {
   let list = [];
   return {
     add(n) {
-      debugger;
       list.push(n);
       return list;
     },
