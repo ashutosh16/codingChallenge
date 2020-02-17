@@ -36,6 +36,14 @@ const pipeFunction = Pipe([
 
 console.log('custom reduce --> ', pipeFunction(5).then( result => console.log("result with reduce ---->", result)));
 
+// pipeFunction(5) This line will return output as follows.
+// Promise.resolve(5)
+//   .then( x => x + 1)
+//   .then(x => new Promise(resolve => setTimeout(() => resolve(x + 2), 1000)))
+//   .then(x => x + 3)
+//   .then(async x => (await x) + 4);
+//
+
 const pipeFunction2 = Pipe2([
   x => x + 1,
   x => new Promise(resolve => setTimeout(() => resolve(x + 2), 1000)),
