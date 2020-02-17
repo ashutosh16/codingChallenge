@@ -5,17 +5,17 @@
 // [111,222]
 
 function GroupWith(...args){
-  let groupfunction = args.pop();
-  let resultLength = args[0].length;
+  let groupFunction = args.pop();
   let result = [];
   
-  for(let i=0; i <= resultLength-1; i++){
-    let argumentList = [];
-    args.forEach((arr => argumentList.push(arr[i])));
-    result.push(groupFunction(...argumentList));
+  for(let i=0; i <= args[0].length-1; i++){
+    result.push(groupFunction(...args.map(a => a[i])));
   }
+  
   return result;
 }
 
-GroupWith([1, 2], [10, 20], [100, 200], (a, b, c) => a + b + c);
-//[111, 222]
+var result = GroupWith([1, 2], [10, 20], [100, 400], (a, b, c) => a + b + c);
+
+console.log(result);
+//[111, 422]
