@@ -247,7 +247,7 @@ a();
 
   function prob() {
     for (var i = 0; i < 5; i++) {
-      let temp = (function (i) {
+      let temp = (function () {
         return function (i) {
           console.log('i=' + i);
         }
@@ -255,8 +255,12 @@ a();
       setTimeout(temp, 300);
     }
   }
-  prob(); // 5 times i = undefined
-
+  prob(); 
+   // i = 0
+  // i = 1
+  // i = 2
+  // i = 3
+  // i = 4
 }
 // ------------------------------------------------------------------------------------------------------------
 // Create Queue using Array
