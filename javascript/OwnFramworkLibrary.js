@@ -14,7 +14,7 @@
     }
     Greeter.prototype = {
         greet : function (isFormal){
-            console.log(isFormal ? this.greeting() : this.formalGreeting());
+            console.log(isFormal ? this.formalGreeting() : this.greeting());
             return this;
         },
         greeting: function (){
