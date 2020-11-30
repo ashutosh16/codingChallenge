@@ -30,7 +30,7 @@
             if(supportedLanguages[lang]){
                 this.language = lang;
             } else {
-                throw 'Unsupported language';
+                console.error('Unsupported language');
             }
             return this;
         }
@@ -43,7 +43,7 @@
              this.language = language;
         } else {
             this.language = 'en';
-            throw 'not supported language, defaulting to english';
+            console.error('Unsupported language, defaulting to english');
         }
     }
     Greeter.init.prototype = Greeter.prototype;
