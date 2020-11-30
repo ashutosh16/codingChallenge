@@ -27,7 +27,7 @@
             return `${this.firstName} ${this.lastName}`;
         },
         setLanguage: function (lang) {
-            if(supportedLanguages.indexOf(lang)){
+            if(supportedLanguages.indexOf(lang) > -1){
                 this.language = lang;
             } else {
                 console.error('Unsupported language');
