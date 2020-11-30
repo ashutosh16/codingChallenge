@@ -36,6 +36,7 @@
         }
     };
     
+    // Actual object created here, this is trick to avoid writing new but still creating new object each time.
     Greeter.init = function(firstName, lastName, language) {
         this.firstName = firstName;
         this.lastName = lastName;
