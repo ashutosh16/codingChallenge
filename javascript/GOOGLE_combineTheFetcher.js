@@ -3,7 +3,7 @@
 // return function will be called with callback and prefix
 // fetcher function will be call all fetcher function with prefix value and combine and return the response of all fetcher 
 // with callback function.
-//Here fetcher list is a list of async function which take input as parameter and callback method.
+// Here fetcher list is a list of async function which take input as parameter and callback method.
 
 
 function Fetcher(fetcherList){
