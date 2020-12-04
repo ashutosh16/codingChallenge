@@ -5,13 +5,21 @@
         let timeout = null;
         
         return (...args) => {
-            let callLater = () => {
-                timeout = null;
-                fun(...args);
-            };
             clearTimeout(timeout);
-            timeout = setTimeout(fun, time);
+            timeout = setTimeout(() => fun(...args), time);
         }
     }
+    
+    const debounceFunction = debounce(
+        (a) => console.log('hi-',a),
+        3000
+    );
 
+    debounceFunction(1);
+    debounceFunction(2);
+    debounceFunction(3);
+    
+    //Output
+    //hi-3
+    
 }
