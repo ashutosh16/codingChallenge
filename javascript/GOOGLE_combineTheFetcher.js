@@ -8,16 +8,22 @@
 
 function Fetcher(fetcherList){
   return function(callback, prefix){
-    var resultList =[],
-      fetchCallbck = (result) => {
-      resultList.push(result);
-      if(resultList.length === fetcherList.length){
-        callback(resultList);
-      }
+    let resultList = Array(fetcherList.length);
+    let successCounter = 0;
+    let getfetchCallbck = (fetcherIndex) => {
+      return (result) => {
+        resultList[fetcherIndex] = result;
+        successCounter++;
+        if(successCounter === fetcherList.length){
+         callback(resultList);
+        }
+      };
+    
     };
     
+    
     for(var i=0; i<= fetcherList.length-1; i++){
-      fetcherList[i](fetchCallbck, prefix);
+      fetcherList[i](getfetchCallbck(i), prefix);
     }
   }
 }
