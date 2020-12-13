@@ -24,13 +24,13 @@ var sortedArr = sort([1, 2, 3, 4, 5]);
 console.log(sortedArr);
 
 
-function reverse(str, index = 0) {
+function reverse(str, index = 0) {debugger;
   if ((str.length / 2) > index) {
-    console.log(index);
+    str = str.split('');
     let temp = str[index];
     str[index] = str[str.length - 1 - index];
-    str[str.length - index] = temp;
-    return reverse(str, index + 1);
+    str[str.length - index -1] = temp;  console.log(str);
+    return reverse(str.join(''), index + 1);
   } else {
     return str;
   }
