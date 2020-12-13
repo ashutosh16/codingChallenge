@@ -12,15 +12,8 @@ function find(a, sum) {
   for (let i = 0; i <= a.length; i++) {
     if (typeof temp[a[i]] !== 'undefined') {
       return [a[i], temp[a[i]]];
-    } else
-      {
-        let diff = sum - a[i];
-        if (temp[diff]) {
-          return [a[i], temp[diff]];
-        } else {
-          temp[diff] = a[i];
-        }
-      }
+    }
+    temp[sum - a[i]] = a[i];
   }
   return 'not found';
 }
