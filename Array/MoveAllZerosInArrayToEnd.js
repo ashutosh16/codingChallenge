@@ -3,9 +3,12 @@
 {
   function moveZeroToEnd(a) {
     let n = a.length;
+    let j = -1;
     for(let i=0; i < n; i++) {
       if(a[i] === 0) {
-        let j = i+1;
+        if(j <= i) {
+          j = i+1;
+        }
         while( j < n && a[j] === 0) {
           j++;
         }
