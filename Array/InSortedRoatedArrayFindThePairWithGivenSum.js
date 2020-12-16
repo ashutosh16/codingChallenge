@@ -16,7 +16,7 @@
 function find(a, sum) {
   let n = a.length;
   //find the pivot point in the array.
-  for(var i= 0; i < a.length; i++){
+  for(var i= 0; i < a.length-1; i++){
     if(a[i] > a[i+1]){
       break;
     }
