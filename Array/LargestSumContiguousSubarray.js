@@ -35,6 +35,9 @@ const LargestSumOfContinousSubArrays = (arr) => {
   return result;
 };
 
+LargestSumOfContinousSubArrays([-2, -3, 4, -1, -2, 1, 5, -3]);
+// result --> {startIndex: 2, lastIndex: 6, sum: 7}
+
 //  Create 2 variabe maxSum and currentSum 
 // add element in currentSum as long as currentSum is +ve
 // if currentSum > maxSum then maxSum = currentSum
