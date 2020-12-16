@@ -16,7 +16,7 @@ function findAllTriplet(a, number){
   return result;
 }
 
-findAllTriplet([12,3,4,1,6,9]);
+findAllTriplet([12,3,4,1,6,9], 14);
 
 /**
  * Can be solved by O(n^2), Space complexity is O(n)
@@ -32,3 +32,21 @@ findAllTriplet([12,3,4,1,6,9]);
  * Step 3 - left = a[i+1] right = a[n-1] while (left < right) left++ & right--;
  * 
  */
+
+function findSumTriplet(arr, sum) {
+  let result = [];
+  for (let i = 0; i < arr.length - 3; i++) {
+    let map = {};
+    let requiredSum = sum - arr[i];
+    for (let j = i + 1; j < arr.length; j++) {
+      if (map[String(arr[j])]) {
+        result.push([arr[i], map[String(arr[j])], arr[j]]);
+      } else {
+        map[requiredSum - arr[j]] = arr[j];
+      }
+    }
+  }
+  return result.length > 0 ? result : null;
+}
+
+findSumTriplet([12,3,4,1,6,9], 14);
