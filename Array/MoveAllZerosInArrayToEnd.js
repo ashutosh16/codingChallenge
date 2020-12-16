@@ -1,4 +1,4 @@
-//Move all zeros present in the array to the end
+//Move all zeros present in the array to the end without changing the sequence of the other element in array.
 // Time complexity is O(n)
 {
   function moveZeroToEnd(a) {
