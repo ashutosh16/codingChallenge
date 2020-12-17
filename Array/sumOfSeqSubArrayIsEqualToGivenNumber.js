@@ -3,6 +3,7 @@
   * Need to find the continous sub array whose total is equal to given result number.
   * Time complexity is O(n)
   */
+//This solution only work for the array with non-negative number.
 function getSeq(a, resultSum) {
   var sum = 0,
     i = 0,
@@ -30,6 +31,9 @@ function getSeq(a, resultSum) {
 getSeq([2,3,4,5,7,2,3], 14);
 
 getSeq([-2, 5, 5, -4],4); // failed with not found
+
+
+//Below solution work for the all +ve and -ve array.
 
 {
   function SubArrayWithGivenSum(a, n) {
