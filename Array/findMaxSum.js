@@ -1,4 +1,7 @@
 // Find maximum value of Sum( i*arr[i]) with only rotations on given array allowed
+// Given an array, only rotation operation is allowed on array.
+// We can rotate the array as many times as we want. Return the maximum possbile of summation of i*arr[i]
+// Time complexsity O(n)
 function maxSum(arr) {
 	let arraySum = 0;
 	let currentSum = 0;
