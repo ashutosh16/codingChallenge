@@ -25,3 +25,7 @@ find(A, sum);
 
 //Time Complexity O(n log(n)) & space complexity is O(1)
 // Sort the array
+// i from 0 to n-1
+// j from n-1 to 0
+// if(a[i]+a[j] > result) j-- else i++
+
