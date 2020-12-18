@@ -24,9 +24,8 @@ class LinkList {
   }
 
   deleteNthNodeFromLast(n){
-    let traversal = this.head ,
+    let traversal = this.head,
       nthNode = this.head,
-      index = 1,
       length = 1,
       removeNode = null;
     
@@ -34,14 +33,17 @@ class LinkList {
       return null;
 
     while (traversal.next !== null) {
-      if(index <= n){
-        index ++;
-      } else {
+      if(length > n) {
         nthNode = nthNode.next;
       }
       traversal = traversal.next; 
       length++;
     }
+    
+    // This nthNode === this.head in 2 cases
+    // Case 1: User want to delete first node which is length node from last.
+    // Case 2: User given n more than length of the link list. 
+    
     if(nthNode === this.head) {
       if(length === n) {
         // delete head node
