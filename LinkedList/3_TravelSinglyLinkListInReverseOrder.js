@@ -44,3 +44,28 @@ l.addNode(4);
 l.addNode(5);
 l.reverseTravel();
 
+//Solution 2
+
+function Node (data) {
+	return {
+	  data : data,
+	  next : null
+	};
+}
+
+function Travel(head) {
+	if(head.next !== null){
+		Travel(head.next);
+  } 
+  console.log(head.data);
+}
+
+
+let head = Node(1);
+head.next = Node(2);
+head.next.next = Node(3);
+head.next.next.next = Node(4);
+head.next.next.next.next = Node(5);
+
+Travel(head);
+
