@@ -26,18 +26,21 @@
       }
     }
     
-    swap(data1, data2) {debugger;
+    swap(data1, data2) {
       let px = null,
         cx = this.head,
         py = null,
         cy = this.head;
 
-      while(cx && cx.data !== data1){
+      //data1 came first in link list then set cx to data1 and cy to data2 and vice versa.
+      while(cx && cx.data !== data1 && cx.data !== data2){
         px = cx;
         cx = cx.next;
       }
-
-      while (cy && cy.data !== data2) {
+      
+      let cyData = (cx.data === data1) ? data2 : data1;
+      
+      while (cy && cy.data !== cyData) {
         py = cy;
         cy = cy.next;
       }
@@ -50,11 +53,10 @@
 
       if(cx === this.head) {
         this.head = cy;
-      }
-
-      if(cy === this.head) {
-        this.head = cx;
-      }
+      } else 
+        if(cy === this.head) {// this condition should be in else of the above condition
+          this.head = cx;
+        }
 
       if (px) {
         px.next = cy;
