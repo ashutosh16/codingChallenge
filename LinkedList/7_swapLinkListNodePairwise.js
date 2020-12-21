@@ -40,7 +40,7 @@
         c.next = c.next.next;
         temp.next = c;
         if (prev) {
-          prev = temp;
+          prev.next = temp;
         }
         prev = c;
         c = c.next; 
