@@ -39,6 +39,8 @@
             isOpenBracket = true;
           }
         }
+        //If loop break because of stack is over.
+        !stack.length && stack.push(currentNode);
     } 
 
     for(let i = 0; i < str.length; i++) {
@@ -53,13 +55,14 @@
       }
     }
     
-    stack.length && ProcessStack();
-
-    return currentNode;
+    if(stack.length > 1) {
+      ProcessStack();
+    }
+    return stack.pop();
   }
 
-  let tree = CreateEpressionTree('( 5 + 3 + ( 10 * 20 ) + 5 )');
-  
+  let tree1 = CreateEpressionTree('( 5 + 3 + ( 10 * 20 ) + 5 )');
+  console.log(tree1);
   //          +
   //         / \
   //        5   +     
@@ -70,7 +73,8 @@
   //           / \
   //          10 20   
    
-  let tree = CreateEpressionTree('( 5 + 3 ) + ( 10 * 20 ) + 5 '); 
+  let tree2 = CreateEpressionTree('( 5 + 3 ) + ( 10 * 20 ) + 5 '); 
+  console.log(tree2);
  
   //           +     
   //         /   \
@@ -80,6 +84,6 @@
   //           / \
   //          10 20 
   
-  let tree2 = CreateEpressionTree('( 3 + ( ( 5 + 9 ) * 2 ) )');
-  console.log(tree2);
+  let tree3 = CreateEpressionTree('( 3 + ( ( 5 + 9 ) * 2 ) )');
+  console.log(tree3);
 }
