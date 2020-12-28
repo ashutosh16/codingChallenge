@@ -45,3 +45,50 @@
   console.log('root2 flodable : ', isFoldable(root2));
 
 }
+
+
+//If we want to upgrade this program to check is tree foldable and match left half with value with right half value. 
+//Or tree is foldable with mirror image.
+
+{
+  function Node(data) {
+    return {
+      data,
+      left: null,
+      right: null
+    }
+  }
+  
+  function _isReverse(a, b){
+    if(!a && !b) return true;
+    if(a && b){
+      if(a.data === b.data 
+        && (!a.left === !b.right) 
+        && (!a.right === !b.left)
+      ){
+        return _isReverse(a.left, b.right) 
+          && _isReverse(a.right, b.left);
+      }
+    }
+    return false;
+  }
+
+  function IsTreeFoldable(root){
+    if(!root) return true;
+    if(!root.left && !root.right) return true;
+    return _isReverse(root.left, root.right);
+  }
+  
+  
+  var root = new Node(10);
+  root.left = new Node(5); root.right = new Node(5);
+  root.left.left = new Node(4); root.right.right = new Node(4);
+  root.left.right = new Node(2); root.right.left = new Node(2);
+  root.left.right.left = new Node(1) ;root.right.left.right = new Node(1);
+  
+  const result = IsTreeFoldable(root);
+  console.log(result);
+  //True
+
+
+}
