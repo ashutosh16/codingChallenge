@@ -19,6 +19,21 @@
       }
     }
   }
+  
+  //Alternate Solution Just formating changes
+  
+  function FindInorderSuccesor(root, key, p = { next : null }){
+     if(!root) return null;
+     let result = null;
+     if(root.right) {
+       result = FindInorderSuccesor(root.right, key, p);
+     }
+     if(result !== null) return result;
+     if(root.data === key)return p.next;
+     p.next = root.data;
+     return FindInorderSuccesor(root.left, key, p);
+  }
+
 
   let root = new Node(1);
   root.left = new Node(2);
