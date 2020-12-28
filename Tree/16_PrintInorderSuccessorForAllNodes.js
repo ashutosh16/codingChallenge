@@ -7,13 +7,11 @@
   }
 
   function printInorderSuccessor(root, p={ next: null }) {
-    debugger;
-    if(root) {
-      printInorderSuccessor(root.right, p);
-      console.log('Inorder successor for '+ root.data + ' - '+ (p.next ? p.next.data: null));
-      p.next = root;
-      printInorderSuccessor(root.left, p);
-    }
+    if(!root) return null;
+    root.right && printInorderSuccessor(root.right, p);
+    console.log('Inorder successor for '+ root.data + ' - '+ (p.next ? p.next.data: null));
+    p.next = root;
+    root.left && printInorderSuccessor(root.left, p);
   }
 
   let root = new Node(1);
