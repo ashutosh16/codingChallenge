@@ -70,7 +70,7 @@
   //           / \
   //          10 20   
    
-  let tree = CreateEpressionTree('( 5 + 3 ) + ( 10 * 20 ) + 5 '); //This program failed here.
+  let tree = CreateEpressionTree('( 5 + 3 ) + ( 10 * 20 ) + 5 '); 
  
   //           +     
   //         /   \
