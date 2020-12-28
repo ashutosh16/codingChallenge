@@ -86,4 +86,13 @@
   
   let tree3 = CreateEpressionTree('( 3 + ( ( 5 + 9 ) * 2 ) )');
   console.log(tree3);
+   
+  //           +     
+  //         /   \
+  //        3     * 
+  //             / \
+  //            +   2
+  //           / \
+  //          5   9 
+  
 }
