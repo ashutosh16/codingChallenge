@@ -39,7 +39,7 @@
             isOpenBracket = true;
           }
         }
-        //If loop break because of stack is over.
+        //If loop break because of stack is over. This required for tree2 in below example.
         !stack.length && stack.push(currentNode);
     } 
 
