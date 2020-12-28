@@ -2,21 +2,20 @@
 
 {
   function findLevel(root, key, currentLevel = 1) {
-    debugger;
-    let foundLevel = -1;
     if(root.data === key) {
       return currentLevel;
-    } else {
-      if (!!root.left) {
-        foundLevel = findLevel(root.left, key, currentLevel + 1);
-      }
-      
-      if (foundLevel === -1 && !!root.right) {
-        foundLevel = findLevel(root.right, key, currentLevel + 1);
-      } 
-
-      return foundLevel;
+    } 
+    let foundLevel = -1;
+    if (!!root.left) {
+      foundLevel = findLevel(root.left, key, currentLevel + 1);
     }
+
+    if (foundLevel === -1 && !!root.right) {
+      foundLevel = findLevel(root.right, key, currentLevel + 1);
+    } 
+
+    return foundLevel;
+    
   }
 
   let root = new Node(26);
