@@ -1,3 +1,19 @@
+function Search(data, title){
+	if(data.title === title) return data;
+	let stack = data.children ? [data] : [];
+	while(stack.length > 1) {
+		let currentNode = stack.shift();
+		for(let i = 0; i < currentNode.children.length; i++){
+			if(currentNode.children[i].title === title){
+				return currentNode.children[i];
+			}
+			currentNode.children[i].children && stack.push(currentNode.children[i]);
+		}
+	}
+	return 'Not Found';
+}
+
+Search(Data[0], 'Name');
 
 var Data = [
         {
