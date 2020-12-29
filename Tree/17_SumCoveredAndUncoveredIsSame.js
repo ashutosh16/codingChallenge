@@ -9,7 +9,7 @@
 // * Claculate the sum of covered node.
 //  1) Calculate the sum of all tree nodes - sum of uncovered node = sum of covered nodes.
 //
-
+// reference : https://www.youtube.com/watch?v=hRk4in1Rg_M
 function Node(data){
   return {
     data,
