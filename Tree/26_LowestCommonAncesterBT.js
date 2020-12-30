@@ -19,10 +19,10 @@
         if (!!leftResult) {
             if (leftResult !== a && leftResult !== b) {
                 return leftResult;
-            } else {
-                (leftResult === a) && (foundA = true);
-                (leftResult === b) && (foundB = true);
             }
+            (leftResult === a) && (foundA = true);
+            (leftResult === b) && (foundB = true);
+            
             if (foundA && foundB) {
                 return node.data;
             }
