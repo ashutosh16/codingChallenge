@@ -1,4 +1,4 @@
-// Minimum Window Subsequence.
+// Minimum Window Subsequence. [https://leetcode.com/problems/minimum-window-subsequence/solution/]
 
 // Given strings S and T, find the minimum (contiguous) substring W of S, so that T is a subsequence of W.
 
