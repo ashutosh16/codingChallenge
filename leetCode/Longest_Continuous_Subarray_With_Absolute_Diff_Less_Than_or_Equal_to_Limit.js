@@ -33,6 +33,7 @@
 // 1 <= nums[i] <= 10^9
 // 0 <= limit <= 10^9
 
+// Reference : https://www.youtube.com/watch?v=LDFZm4iB7tA
 
 /**
  * @param {number[]} nums
@@ -47,17 +48,23 @@ var longestSubarray = function(nums, limit) {
     let result = 0;
     while(end < nums.length) {
       let currentNum = nums[end];
+     
+      // Remove all numbers from back which are greater than or equal to currentNumber.
+      // minQueue[0] should be Min from the queue.
       while(minQueue.length && nums[minQueue[minQueue.length -1]] >= currentNum) { //Important to keep >= just > will fail in example 2.
         minQueue.pop();
       }
       minQueue.push(end);
-      
+
+      // Remove all numbers from back which are less than or equal to currentNumber.
+      // maxQueue[0] should be Max from the queue.
       while(maxQueue.length && nums[maxQueue[maxQueue.length-1]] <= currentNum) {
         maxQueue.pop();
       }
       maxQueue.push(end);
       
       if((nums[maxQueue[0]] - nums[minQueue[0]]) > limit) {
+        // Remove start index if its in min or max queue.
         (minQueue[0] <= start) && minQueue.shift();
         (maxQueue[0] <= start) && maxQueue.shift();
         start++;
