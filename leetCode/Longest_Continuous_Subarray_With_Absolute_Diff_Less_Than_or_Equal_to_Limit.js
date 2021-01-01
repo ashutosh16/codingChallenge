@@ -47,12 +47,12 @@ var longestSubarray = function(nums, limit) {
     let result = 0;
     while(end < nums.length) {
       let currentNum = nums[end];
-      while(minQueue.length && nums[minQueue[minQueue.length -1]] > currentNum) {
+      while(minQueue.length && nums[minQueue[minQueue.length -1]] >= currentNum) { //Important to keep >= just > will fail in example 2.
         minQueue.pop();
       }
       minQueue.push(end);
       
-      while(maxQueue.length && nums[maxQueue[maxQueue.length-1]] < currentNum) {
+      while(maxQueue.length && nums[maxQueue[maxQueue.length-1]] <= currentNum) {
         maxQueue.pop();
       }
       maxQueue.push(end);
@@ -72,6 +72,8 @@ var longestSubarray = function(nums, limit) {
 };
 
 
+//Example 1
+longestSubarray([8,2,4,7], 4); //Output : 2
 
-longestSubarray([8,2,4,7], 4); //Accepted
-longestSubarray([10,1,2,4,7,2], 5) // Wrong Expected : 4, Output :3
+//Example 2
+longestSubarray([10,1,2,4,7,2], 5); //Output :4
