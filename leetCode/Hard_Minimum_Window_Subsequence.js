@@ -20,4 +20,53 @@
 // The length of S will be in the range [1, 20000].
 // The length of T will be in the range [1, 100].
 
+/**
+ * @param {string} S
+ * @param {string} T
+ * @return {string}
+ */
+var minWindow = function(S, T) {
+  let start = 0;
+  let end = 0;
+  let p = 0;
+  let result = '';
+  while(end < S.length){
+    if(T[p] === S[end]) {
+      end ++;
+      if(p === T.length-1){
+        if(!result) {
+          result = S.slice(start, end);
+        } else 
+        if(result.length > (end - start)) {
+          result = S.slice(start, end+1);   
+        }
+        p=0;
+        start = end;
+      } else {
+        p++;
+      }
+      
+    } else {
+      (p === 1 && S[end] == T[0]) && (start = end);
+      end++;
+      (p===0) && start++;
+      
+    }
+  }
+  
+  return result;
+};
+
+
+minWindow("fgrqsqsnodwmxzkzxwqegkndaa", "kzed");
+// Output : "kzxwqegknd"
+
+//Failed
+minWindow("ffynmlzesdshlvugsigobutgaetsnjlizvqjdpccdylclqcbghhixpjihximvhapymfkjxyyxfwvsfyctmhwmfjyjidnfryiyajmtakisaxwglwpqaxaicuprrvxybzdxunypzofhpclqiybgniqzsdeqwrdsfjyfkgmejxfqjkmukvgygafwokeoeglanevavyrpduigitmrimtaslzboauwbluvlfqquocxrzrbvvplsivujojscytmeyjolvvyzwizpuhejsdzkfwgqdbwinkxqypaphktonqwwanapouqyjdbptqfowhemsnsl", 
+          "ntimcimzah");
+
+//Output: "nmlzesdshlvugsigobutgaetsnjlizvqjdpccdylclqcbghhixpjihximvhapymfkjxyyxfwvsfyctmhwmfjyjidnfryiyajmtakisaxwglwpqaxaicuprrvxybzdxunypzofhpclqiybgniqzsdeqwrdsfjyfkgmejxfqjkmukvgygafwokeoeglanevavyrpduigitmrimtaslzboauwbluvlfqquocxrzrbvvplsivujojscytmeyjolvvyzwizpuh"
+//Expected: "nevavyrpduigitmrimtaslzboauwbluvlfqquocxrzrbvvplsivujojscytmeyjolvvyzwizpuhejsdzkfwgqdbwinkxqypaph"
+
+
 
