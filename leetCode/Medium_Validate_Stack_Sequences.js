@@ -21,4 +21,35 @@
 // pushed is a permutation of popped.
 // pushed and popped have distinct values.
 
+/**
+ * @param {number[]} pushed
+ * @param {number[]} popped
+ * @return {boolean}
+ */
+var validateStackSequences = function(pushed, popped) {
+    if(pushed.length !== popped.length) return false;
+    if(pushed.length === 0) return true;
+  
+    let stack = [pushed[0]];
+    let i = 1;
+    let j = 0;
+  
+    while(i < pushed.length && j < popped.length) {
+      if(stack[stack.length-1] === popped[j]) {
+        stack.pop();
+        j++;
+      } else {
+        if(i >= pushed.length) return false;
+        stack.push(pushed[i]);
+        i++;
+      }
+    }
+  
+    while(j < popped.length) {
+      if(popped[j] !== stack.pop()) return false;
+    }
+  
+    return (stack.length === 0);
+};
 
+validateStackSequences([1,2,3,4,5], [4,5,3,2,1]);
