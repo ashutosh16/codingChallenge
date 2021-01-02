@@ -27,9 +27,50 @@
 // logger.shouldPrintMessage(11, "foo"); // 11 >= 11, return true, next allowed timestamp for "foo" is
                                       // 11 + 10 = 21
  
-
 // Constraints:
 // 0 <= timestamp <= 109
 // Every timestamp will be passed in non-decreasing order (chronological order).
 // 1 <= message.length <= 30
 // At most 104 calls will be made to shouldPrintMessage.
+
+
+/**
+ * Initialize your data structure here.
+ */
+var Logger = function() {
+  this.loggerMap = {};
+};
+
+/**
+ * Returns true if the message should be printed in the given timestamp, otherwise returns false.
+        If this method returns false, the message will not be printed.
+        The timestamp is in seconds granularity. 
+ * @param {number} timestamp 
+ * @param {string} message
+ * @return {boolean}
+ */
+Logger.prototype.shouldPrintMessage = function(timestamp, message) {
+    if(typeof this.loggerMap[message] === "undefined" || this.loggerMap[message]+10 <= timestamp) {
+      this.loggerMap[message] = timestamp;
+      return true;
+    }
+  
+    return false;
+};
+
+// Your Logger object will be instantiated and called as such:
+let obj = new Logger();
+let input = [[1,"foo"],[2,"bar"],[3,"foo"],[8,"bar"],[10,"foo"],[11,"foo"]];
+
+input.forEach(input => console.log(`${input} shouldPrint ${obj.shouldPrintMessage(input[0], input[1])}`));
+
+// Output
+// 1,foo shouldPrint true
+// 2,bar shouldPrint true
+// 3,foo shouldPrint false
+// 8,bar shouldPrint false
+// 10,foo shouldPrint false
+// 11,foo shouldPrint true
+
+
+
