@@ -47,6 +47,7 @@ var validateStackSequences = function(pushed, popped) {
   
     while(j < popped.length) {
       if(popped[j] !== stack.pop()) return false;
+      j++;
     }
   
     return (stack.length === 0);
