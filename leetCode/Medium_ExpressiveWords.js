@@ -35,35 +35,35 @@
  * @param {string[]} words
  * @return {number}
  */
-var expressiveWords = function(S, words) {
-    result = 0;
+var expressiveWords = function(S, words) {debugger;
+    if(S.length === 0 ) return 0;
+    let result = 0;
     for(let i=0; i < words.length; i++) {
       let sI = 0;
       let wI = 0;
       let W = words[i];
       let isStretchy = true;
-      while(sI < S.length) {
+      while(sI < S.length || wI < W.length) {
         if(S[sI] === W[wI]) {
           let char = S[sI];
-          let sCount = 0;
-          let wCount = 0;
-          let temp = sI;
-          while(temp < S.length && S[temp] === char) {
-            temp++; sCount++;
+          let sCount = 0; // Count of continues char in S
+          let wCount = 0; // Count of continues char in W
+         
+          while(sI < S.length && S[sI] === char) {
+            sI++; sCount++;
           }
          
-          temp = wI
-          while(temp < W.length && W[temp] === char) {
-            temp++; wCount++;
+          while(wI < W.length && W[wI] === char) {
+            wI++; wCount++;
           }
+         
+          //If count is equal then char is equal.
           if(wCount !== sCount) {
-             if((wCount === 1 && sCount < 3) || !(sCount >= wCount*3)) {
+             if(wCount > sCount || sCount < 3) {
                isStretchy = false;
                break;
              }
           }
-          sI += sCount;
-          wI += wCount;
         } else {
           isStretchy = false;
           break;
