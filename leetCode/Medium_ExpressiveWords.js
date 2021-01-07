@@ -89,3 +89,13 @@ expressiveWords("heeellooo", ["heeelloooworld"]);
 //Expected: 0
 
 expressiveWords("", ["heeelloooworld"]);
+
+
+//Hint
+// Count the number of times continues char occured in in word.
+// Count the number of times continues char occured in in S.
+// if count is same then same char its good case.
+// if wCount > Scount then wrong word itself.
+// if wCount < Scount but sCount < 3 bad as condition for strechy is more than 3
+// if char itself is diffrent then wrong word.
+
