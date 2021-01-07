@@ -31,13 +31,60 @@
 // Person #2 gave person #0 $5.
 
 // Therefore, person #1 only need to give person #0 $4, and all debt is settled.
-
 /**
  * @param {number[][]} transactions
  * @return {number}
  */
 var minTransfers = function(transactions) {
+    let settleMap = {};
+    transactions.forEach(t => {
+      let p1 = t[0], p2 = t[1], amt = t[2];
+      //p2 will return to p1, Lets check is anything pendding return from p1 to p2
+      if(settleMap[p1] && settleMap[p1][p2]) {
+        if(settleMap[p1][p2] > amt) {
+          settleMap[p1][p2] = settleMap[p1][p2] - amt; 
+        } else {
+          settleMap[p2][p1] = amt - settleMap[p1][p2];
+          delete settleMap[p1][p2];
+        }
+      } else {
+        !settleMap[p2] && (settleMap[p2] = {});
+        settleMap[p2][p1] = amt;
+      }
+    });
+  
+    console.log(settleMap);
     
+  Object.keys(settleMap).forEach(p1 => {
+      Object.keys(p1).forEach(p2 => {
+        Object.keys(settleMap[p2]).forEach(mid => {
+          if(settleMap[mid] && settleMap[mid][p1]){
+            if(settleMap[mid][p1] > settleMap[p1][p2]) {
+              settleMap[mid][p1] = settleMap[mid][p1] - settleMap[p1][p2];
+              delete settleMap[p1][p2];
+            } else {
+              settleMap[p1][p2] = settleMap[p1][p2] - settleMap[mid][p1];
+              delete settleMap[mid][p1];
+              delete settleMap[p2][mid];
+            }
+          }
+        })
+      })
+    });
+  
+  console.log(settleMap);
+    
+  let tsCount = 0;
+  Object.keys(settleMap).forEach(p1 => {
+    tsCount += Object.keys(p1).length;
+  });
+  
+  return tsCount;
+  
 };
 
+minTransfers([[0,1,10],[2,0,5]]);
+//2
 
+minTransfers([[0,1,10], [1,0,1], [1,2,5], [2,0,5]]);
+//1 ( 1 to 0 -> $4)
