@@ -74,14 +74,18 @@ var expressiveWords = function(S, words) {
   return result;
 };
 
+// Solution working for all cases.
 
 expressiveWords("heeellooo", ["hello", "hi", "helo"]);
 // Output: 2
 
-
-
 expressiveWords("zzzzzyyyyy", ["zzyy","zy","zyy"]);
-//Output: 1
 //Expected: 3
 
+expressiveWords("aaa", ["aaaa"]);
+// Expected : 0
 
+expressiveWords("heeellooo", ["heeelloooworld"]);
+//Expected: 0
+
+expressiveWords("", ["heeelloooworld"]);
