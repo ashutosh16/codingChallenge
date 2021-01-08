@@ -45,7 +45,6 @@
 // Every open block comment is eventually closed.
 // There are no single-quote, double-quote, or control characters in the source code.
 
-
 /**
  * @param {string[]} source
  * @return {string[]}
@@ -57,26 +56,26 @@ var removeComments = function(source) {debugger;
   
     source.forEach(line => {
       for(let i = 0; i < line.length; i++) {
-        if(isFindClose && line[i] === '*' && line[i+1] === '/') {debugger;
-          saveWord += line.slice(i+2)
-          saveWord.length && output.push(saveWord);
+        //Closing comments
+        if(isFindClose && line[i] === '*' && line[i+1] === '/') {
           isFindClose = false;
-          saveWord = '';
-          i = line.length;
-        } else if(!isFindClose && line[i] === '/' && line[i+1] === '*'){debugger;
+          i++;
+        } else 
+          // Starting multiline comment
+          if(!isFindClose && line[i] === '/' && line[i+1] === '*'){
           isFindClose = true;
-          saveWord = line.slice(0,i);
-          i+=2;
-        } else if(!isFindClose && line[i] === '/' && line[i+1] === '/' ) {debugger;
-           saveWord = line.slice(0,i);
-           saveWord.length && output.push(saveWord);
-           saveWord = '';
+          i++;
+        } else 
+          // Starting single line comments
+          if(!isFindClose && line[i] === '/' && line[i+1] === '/' ) {
            i =  line.length;
+        } else {
+          !isFindClose && (saveWord += line[i]);
         }
-        
-        if(!isFindClose && i === line.length-1) {debugger;
-          output.push(line);
-        }
+      }
+      if(saveWord.length && !isFindClose) {
+          output.push(saveWord);
+          saveWord = '';
       }
     });
   return output;
@@ -88,9 +87,13 @@ removeComments(["/*Test program */", "int main()", "{ ", "  // variable declarat
 
 
 removeComments(["a/*comment", "line", "more_comment*/b"]);
+//["ab"]
 
 
 removeComments(["struct Node{", "    /*/ declare members;/**/", "    int size;", "    /**/int val;", "};"]);
+//["struct Node{","    ","    int size;","    int val;","};"]
+
 
 removeComments(["a/*/b//*c","blank","d/*/e*//f"]);
+//["ae*"]
 
