@@ -59,15 +59,15 @@ var removeComments = function(source) {debugger;
       for(let i = 0; i < line.length; i++) {
         if(isFindClose && line[i] === '*' && line[i+1] === '/') {debugger;
           saveWord += line.slice(i+2)
-          saveWord.length && output.push(saveWord + line.slice(i+2));
+          saveWord.length && output.push(saveWord);
           isFindClose = false;
           saveWord = '';
           i = line.length;
-        } else if(line[i] === '/' && line[i+1] === '*'){debugger;
+        } else if(!isFindClose && line[i] === '/' && line[i+1] === '*'){debugger;
           isFindClose = true;
           saveWord = line.slice(0,i);
           i+=2;
-        } else if(line[i] === '/' && line[i+1] === '/' ) {debugger;
+        } else if(!isFindClose && line[i] === '/' && line[i+1] === '/' ) {debugger;
            saveWord = line.slice(0,i);
            saveWord.length && output.push(saveWord);
            saveWord = '';
@@ -90,4 +90,7 @@ removeComments(["/*Test program */", "int main()", "{ ", "  // variable declarat
 removeComments(["a/*comment", "line", "more_comment*/b"]);
 
 
+removeComments(["struct Node{", "    /*/ declare members;/**/", "    int size;", "    /**/int val;", "};"]);
+
+removeComments(["a/*/b//*c","blank","d/*/e*//f"]);
 
