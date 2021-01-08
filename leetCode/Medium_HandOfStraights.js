@@ -1,7 +1,8 @@
 // Alice has a hand of cards, given as an array of integers.
 // Now she wants to rearrange the cards into groups so that each group is size W, and consists of W consecutive cards.
 // Return true if and only if she can.
-// Note: This question is the same as 1296: https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/
+// Note: This question is the same as "Divide Array in Sets of K Consecutive Numbers"
+// 1296: https://leetcode.com/problems/divide-array-in-sets-of-k-consecutive-numbers/
 
 
 // Example 1:
