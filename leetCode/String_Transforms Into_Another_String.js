@@ -25,5 +25,23 @@
  * @return {boolean}
  */
 var canConvert = function(str1, str2) {
+  if(str1.length !== str2.length) return false;
+  if(str1 === str2) return true;
+  let n = str1.length, 
+      map = {},
+      s2 = {};
+  
+  let swapCount = 0;
+  for(let i = 0; i < n; i++){
+    s2[str2[i]] = 1;
+    if(map[str1[i]]) {
+      if(map[str1[i]] !== str2[i]) return false;
+    } else {
+      map[str1[i]] = str2[i];
+    }
+  }
+  
+  if(str1.length === 26 &&  Object.keys(s2).length === 26) return false;
+  return true;
     
 };
