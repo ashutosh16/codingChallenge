@@ -31,6 +31,9 @@
 // Person #2 gave person #0 $5.
 
 // Therefore, person #1 only need to give person #0 $4, and all debt is settled.
+
+
+// Below solution is not correct please refer to https://www.youtube.com/watch?v=I8lLGTgb9LU
 /**
  * @param {number[][]} transactions
  * @return {number}
