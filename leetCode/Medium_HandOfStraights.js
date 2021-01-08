@@ -31,7 +31,7 @@
  */
 var isNStraightHand = function(hand, W) {
     if(hand.length % W !== 0) return false;
-    hand.sort();
+    hand.sort((a,b) => a-b);
   
     for(let i = 0; i < hand.length; i++){
       if(hand[i] !== null ){
