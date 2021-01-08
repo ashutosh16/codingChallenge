@@ -10,18 +10,42 @@
 // Reference : https://www.youtube.com/watch?v=fWS0TCcr-lE
 //             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
+
 /**
  * @param {number[]} w
  */
 var Solution = function(w) {
-    
+  this.bucket = [];
+  this.bucketWeight = 0;
+  
+  let weight = 0;
+  for(let i=0; i<w.length; i++){
+    weight += w[i];
+    this.bucket[i] = weight;
+  }
+  this.bucketWeight = weight;
 };
 
 /**
  * @return {number}
  */
 Solution.prototype.pickIndex = function() {
+  //this should be the random umber between 0 to total weight sum which is bucketWeight.
+  let randomNumber = Math.floor(Math.random() * (this.bucketWeight + 1));
+  
+  let binarySearch = (randomNumber, l=0, r=this.bucket.length-1) => {
+    let mid = Math.floor((r+l) / 2);
     
+    if(randomNumber === this.bucket[mid]) return mid;
+    
+    if(randomNumber < this.bucket[mid]) {
+       if(mid === 0 || this.bucket[mid-1] < randomNumber) return mid;
+       return binarySearch(randomNumber, l, mid-1);
+    } else {
+      return binarySearch(randomNumber, mid+1, r);
+    }
+  }
+    return binarySearch(randomNumber)
 };
 
 /** 
@@ -29,3 +53,18 @@ Solution.prototype.pickIndex = function() {
  * var obj = new Solution(w)
  * var param_1 = obj.pickIndex()
  */
+
+var obj = new Solution([1,3])
+obj.pickIndex();
+obj.pickIndex();
+obj.pickIndex();
+obj.pickIndex();
+obj.pickIndex();
+
+
+// This will generate the random number between the min and max both min and max number are inclusive.
+//   function getRandomIntInclusive(min, max) {
+//       min = Math.ceil(min);
+//       max = Math.floor(max);
+//       return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+//   }
