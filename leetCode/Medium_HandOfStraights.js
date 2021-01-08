@@ -23,6 +23,9 @@
 // 0 <= hand[i] <= 10^9
 // 1 <= W <= hand.length
 
+//Hint: 
+// Sort the array
+// Use 2 pointer Tech 
 
 /**
  * @param {number[]} hand
