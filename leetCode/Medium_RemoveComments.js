@@ -56,23 +56,24 @@ var removeComments = function(source) {debugger;
   
     source.forEach(line => {
       for(let i = 0; i < line.length; i++) {
-        //Closing comments
+        //Closing comments "*/"
         if(isFindClose && line[i] === '*' && line[i+1] === '/') {
           isFindClose = false;
           i++;
         } else 
-          // Starting multiline comment
+          // Starting multiline comment "/*"
           if(!isFindClose && line[i] === '/' && line[i+1] === '*'){
           isFindClose = true;
           i++;
         } else 
-          // Starting single line comments
+          // Starting single line comments "//"
           if(!isFindClose && line[i] === '/' && line[i+1] === '/' ) {
-           i =  line.length;
+           i =  line.length; // this will ignore all remaining char from the line.
         } else {
           !isFindClose && (saveWord += line[i]);
         }
       }
+      //If we are searching for close comment char then dont add string to output yet. check case 2
       if(saveWord.length && !isFindClose) {
           output.push(saveWord);
           saveWord = '';
@@ -85,7 +86,7 @@ var removeComments = function(source) {debugger;
 removeComments(["/*Test program */", "int main()", "{ ", "  // variable declaration ", "int a, b, c;", "/* This is a test", "   multiline  ", "   comment for ", "   testing */", "a = b + c;", "}"]);
 //["int main()", "{ ", "  ", "int a, b, c;", "a = b + c;", "}"]
 
-
+// Case 2:
 removeComments(["a/*comment", "line", "more_comment*/b"]);
 //["ab"]
 
