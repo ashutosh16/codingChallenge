@@ -18,6 +18,9 @@
 // Explanation: 
 // The missing numbers are [3,5,6,7,...], hence the third missing number is 6.
  
+
+// we can do this using the binary serch. which is O(log(n))
+// this is O(n)
 /**
  * @param {number[]} nums
  * @param {number} k
