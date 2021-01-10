@@ -1,5 +1,5 @@
 // Given a sorted array A of unique numbers, find the K-th missing number starting from the leftmost number of the array.
-
+// https://leetcode.com/problems/missing-element-in-sorted-array/
 // Example 1:
 // Input: A = [4,7,9,10], K = 1
 // Output: 5
@@ -18,8 +18,46 @@
 // Explanation: 
 // The missing numbers are [3,5,6,7,...], hence the third missing number is 6.
  
-
 // we can do this using the binary serch. which is O(log(n))
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var missingElement = function(nums, k) {
+  //This will calculate number of missing elements till possition nums.length-1
+  let missingNumbers = nums[nums.length-1] - nums[0] - (nums.length-1);
+  
+  //Thie is true when missing number is after array last index
+  if(missingNumbers < k) {
+      return nums[nums.length-1] + k - missingNumbers;
+  }
+  
+  let left = 0;
+  let right = nums.length-1;
+  
+  while (left !== right){
+    let mid = Math.floor((right+left) / 2);
+    //Number of missing elements till possition mid.
+    let missNumAtMid = nums[mid] - nums[0] - mid;
+      if(k <= missNumAtMid){
+        right = mid; 
+      } else {
+        left = mid+1;
+      }
+  }
+  let index = left - 1;
+  let missCountAtIndex = nums[index] - nums[0] - index;   
+  return nums[index] + k - missCountAtIndex;
+};
+
+missingElement([4,7,9,10], 1);
+// 5
+
+missingElement([1,2,4], 3);
+// 6
+
+
 // this is O(n)
 /**
  * @param {number[]} nums
