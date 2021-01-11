@@ -1,13 +1,11 @@
 // https://leetcode.com/problems/employee-importance/submissions/
 
-/**
- * Definition for Employee.
- * function Employee(id, importance, subordinates) {
- *     this.id = id;
- *     this.importance = importance;
- *     this.subordinates = subordinates;
- * }
- */
+// Definition for Employee.
+function Employee(id, importance, subordinates) {
+ this.id = id;
+ this.importance = importance;
+ this.subordinates = subordinates;
+}
 
 /**
  * @param {Employee[]} employees
@@ -38,5 +36,5 @@ var GetImportance = function(employees, id) {
 };
 
 
-[[1,5,[2,3]],[2,3,[]],[3,3,[]]]
-1
+GetImportance([{id: 1, importance: 5, subordinates: [2,3] }, {id: 2, importance: 3, subordinates: [] }, {id: 3, importance: 3, subordinates: [4]}, {id: 4, importance: 4, subordinates: []}], 1);
+// 15
