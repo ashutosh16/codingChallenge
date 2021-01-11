@@ -43,6 +43,24 @@
  * @return {number}
  */
 var minSumOfLengths = function(arr, target) {
+
+  // https://www.youtube.com/watch?v=qk4GOI0tvz4
+    
+};
+
+minSumOfLengths([7,3,4,7], 7);
+// This will fail with above code : 
+minSumOfLengths([3,2,2,4,3], 3);
+// 2
+
+minSumOfLengths([2,1,3,3,2,3,1], 6);
+// 5
+
+
+minSumOfLengths([7,3,4,7], 7);
+// This will fail with below code : 
+// Output : 3 / Expected : 2
+var minSumOfLengths = function(arr, target) {
   let output = [[],[]];
   let p1 = 0;
   let p2 = 0;
@@ -82,9 +100,3 @@ var minSumOfLengths = function(arr, target) {
     : -1;
     
 };
-
-minSumOfLengths([3,2,2,4,3], 3);
-// 2
-
-minSumOfLengths([2,1,3,3,2,3,1], 6);
-// 5
