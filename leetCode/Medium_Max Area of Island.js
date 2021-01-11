@@ -82,6 +82,7 @@ var maxAreaOfIsland = function(grid) {
   }
   
   let maxArea = 0;
+  let countIlends = 0;
   for(let row = 0; row < grid.length; row++)
     for(let col = 0; col < grid[0].length; col++) {
       if(grid[row][col]) {
@@ -90,6 +91,7 @@ var maxAreaOfIsland = function(grid) {
         if(area > maxArea) {
           maxArea = area;
         }
+        countIlends++;
       }
     }
   
