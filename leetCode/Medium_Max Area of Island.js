@@ -22,19 +22,28 @@
 // Given the above grid, return 0.
 // Note: The length of each dimension in the given grid does not exceed 50.
 
-//We can solve this using BFS as well as DFS
-
-
-
-
-
-// This solution is using BFS
+// This solution is using BFS as well as DFS
 /**
  * @param {number[][]} grid
  * @return {number}
  */
 var maxAreaOfIsland = function(grid) {
-  let findArea = (row, col) => {
+  
+  let findAreaDFS = (row, col) => {
+    if(row < 0 || row > grid.length-1 || col < 0 || col > grid[row].length-1 || !grid[row][col]) return 0;
+    
+    let area = 1;
+    
+    grid[row][col] = 0;
+    
+    area += findArea(row-1, col);
+    area += findArea(row+1, col);
+    area += findArea(row, col-1);
+    area += findArea(row, col+1);
+    return area;
+  }
+  
+  let findAreaBFS = (row, col) => {
     grid[row][col] = 0;
     let area = 1;
     let list = [{row, col}];
@@ -76,7 +85,8 @@ var maxAreaOfIsland = function(grid) {
   for(let row = 0; row < grid.length; row++)
     for(let col = 0; col < grid[0].length; col++) {
       if(grid[row][col]) {
-        let area = findArea(row, col);
+        let area = findAreaDFS(row, col);
+        // let area = findAreaBFS(row, col);
         if(area > maxArea) {
           maxArea = area;
         }
