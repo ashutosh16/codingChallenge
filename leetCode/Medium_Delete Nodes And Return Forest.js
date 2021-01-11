@@ -30,11 +30,52 @@
  *     this.right = (right===undefined ? null : right)
  * }
  */
+
+ //Definition for a binary tree node.
+ function TreeNode(val, left, right) {
+     this.val = (val===undefined ? 0 : val)
+     this.left = (left===undefined ? null : left)
+     this.right = (right===undefined ? null : right)
+ }
+
 /**
  * @param {TreeNode} root
  * @param {number[]} to_delete
  * @return {TreeNode[]}
  */
 var delNodes = function(root, to_delete) {
+  let toDeletMap = {};
+  let remaining = [];
+  
+  to_delete.forEach(item => {
+    toDeletMap[item] = true;
+  });
+  
+  let removeNode = (root, remaining, toDeletMap) => {
+    if(!root) {
+      return null;
+    }
     
+    let leftTree = removeNode(root.left, remaining, toDeletMap);
+    let rightTree = removeNode(root.right, remaining, toDeletMap)
+    if(!!toDeletMap[root.val]) {
+      leftTree && remaining.push(leftTree);
+      rightTree && remaining.push(rightTree);
+      return null;
+    }
+    root.left = leftTree;
+    root.right = rightTree;
+    return root;
+  }
+  
+  removeNode(root, remaining, toDeletMap);
+   if(!toDeletMap[root.val]) {
+     remaining.push(root);
+   }
+  return remaining;
 };
+
+let root = TreeNode(1, TreeNode(2, 4, 5), TreeNode(3,6, 7));
+let result = delNodes(root, [3,5]);
+console.log(result);
+
