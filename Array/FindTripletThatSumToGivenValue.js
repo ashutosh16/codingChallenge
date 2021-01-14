@@ -51,3 +51,9 @@ function findSumTriplet(arr, sum) {
 }
 
 findSumTriplet([12,3,4,1,6,9], 14);
+
+
+
+
+
+
