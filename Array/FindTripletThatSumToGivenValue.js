@@ -34,7 +34,7 @@ findAllTriplet([12,3,4,1,6,9], 14);
  */
 
 function findSumTriplet(arr, sum) {
-  arr = arr.sort((a,b) => a-b);
+  arr.sort((a,b) => a-b);
   let result = [];
   for (let i = 0; i < arr.length - 3; i++) {
     let map = {};
