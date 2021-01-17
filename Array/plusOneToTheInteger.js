@@ -21,26 +21,23 @@
  * @param {number[]} digits
  * @return {number[]}
  */
-var plusOne = function(digits) {
-  var add = 1;
-   for(var i= digits.length -1 ; i >= 0; i-- ){
-     var result = add + digits[i];
-     result = result.toString().split('');
-     if(result.length > 1){
-       digits[i] = Number(result[1]);
-      add = Number(result[0]);
-     } else {
-       digits[i] = Number(result[0]);
-       add = 0;
-       break;
-     }
-   } 
-  if(add) {
-    digits.unshift(add);
-  }
-  return digits;
-};
 
+function PlusOne(arr){
+  let  add = 1;
+  
+  for(let i = arr.length-1; i>=0; i--){
+    let sum = arr[i] + add;
+    arr[i] = sum % 10;
+    if(Math.floor(sum/10) > 0) {
+      add = Math.floor(sum/10);
+    } else {
+      return arr;
+    }
+  }
+  
+  if(add > 0) arr.unshift(add);
+  return arr;
+}
 
 
 
