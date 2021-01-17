@@ -37,21 +37,21 @@
  * @return {number}
  */
 var numIslands = function(grid) {
-     let clearIslend = (row, col) => {
+  let travelTheIsland = (row, col) => {
     if(row < 0 || row > grid.length-1 || col < 0 || col > grid[row].length-1 || grid[row][col] !== "1") return 0;
-    
-      grid[row][col] = 0;
-      clearIslend(row-1, col);
-      clearIslend(row+1, col);
-      clearIslend(row, col-1);
-      clearIslend(row, col+1);
+
+    grid[row][col] = 0;
+    travelTheIsland(row-1, col);
+    travelTheIsland(row+1, col);
+    travelTheIsland(row, col-1);
+    travelTheIsland(row, col+1);
   }
   
   let count = 0;
   for(let row = 0; row < grid.length; row++)
     for(let col = 0; col < grid[0].length; col++) {
       if(grid[row][col] === "1") {
-        clearIslend(row, col);
+        travelTheIsland(row, col);
         count++;
       }
     }
