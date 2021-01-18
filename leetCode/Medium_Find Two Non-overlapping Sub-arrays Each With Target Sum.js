@@ -36,17 +36,80 @@
 // 1 <= arr[i] <= 1000
 // 1 <= target <= 10^8
 
-
 /**
  * @param {number[]} arr
  * @param {number} target
  * @return {number}
  */
-var minSumOfLengths = function(arr, target) {
 
-  // https://www.youtube.com/watch?v=qk4GOI0tvz4
-    
-};
+var minSumOfLengths = function(arr, target) {debugger;
+  let map = {};
+  let sum = 0;
+  let leftToRight = Array(arr.length).fill(arr.length);
+  let rightToLeft = Array(arr.length).fill(arr.length);
+  
+  for(let i=0; i < arr.length; i++){
+    sum += arr[i];
+    if(sum === target) {
+      leftToRight[i] = (i + 1);
+    } else if(typeof map[sum - target] !== 'undefined'){
+      leftToRight[i] = (i - map[sum - target] +1);
+    } else {
+      map[sum] = i+1;
+    }
+    if(i > 0) {
+      leftToRight[i] = Math.min(leftToRight[i-1],  leftToRight[i]);
+    }
+  }
+  map = {};
+  sum = 0;
+  for(let i=arr.length-1; i >= 0; i--){
+    sum += arr[i];
+    if(sum === target) {
+      rightToLeft[i] = (arr.length-1 - i + 1);
+    } else if(typeof map[sum - target] !== 'undefined'){
+      rightToLeft[i] = (map[sum - target] - i + 1);
+    } else {
+      map[sum] = i-1;
+    }
+    if(i < arr.length-1) {
+      rightToLeft[i] = Math.min(rightToLeft[i+1],  rightToLeft[i]);
+    }
+  }
+  let minLength = -1;
+  for(let i =1; i < arr.length-1; i++){
+    if(leftToRight[i] && rightToLeft[i+1]) {
+      if(minLength === -1) {
+        minLength = leftToRight[i] + rightToLeft[i+1];
+      } else {
+        minLength = Math.min(minLength, leftToRight[i] + rightToLeft[i+1]);
+      }
+    }
+  }
+                                             
+  return minLength > arr.length ? -1 : minLength;
+}
+
+minSumOfLengths([3,2,2,4,3], 3); 
+//Output: 2
+
+minSumOfLengths([4,3,2,6,2,3,4], 6); 
+//Output: 8
+
+minSumOfLengths([11], 11);
+//Output: -1
+
+
+minSumOfLengths([64,5,20,9,1,39], 69);
+//Output: 6
+
+
+minSumOfLengths([43,5,4,4,37,5,3,3,42,9,1,4,30,18,24,4,11,11,1,1,52,33,7,8,2,1,1,21,6], 52);
+// output : 6
+// Expected Output : 4
+
+//-----------------------------------------------------------------------------------------------------------------------
+
 
 minSumOfLengths([7,3,4,7], 7);
 // This will fail with above code : 
