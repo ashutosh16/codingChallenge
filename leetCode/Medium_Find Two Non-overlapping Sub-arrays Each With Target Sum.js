@@ -49,31 +49,40 @@ var minSumOfLengths = function(arr, target) {debugger;
   let rightToLeft = Array(arr.length).fill(arr.length);
   
   for(let i=0; i < arr.length; i++){
-    sum += arr[i];
-    if(sum === target) {
-      leftToRight[i] = (i + 1);
-    } else if(typeof map[sum - target] !== 'undefined'){
-      leftToRight[i] = (i - map[sum - target] +1);
+    if(arr[i] === target) {
+      leftToRight[i] = 1; 
     } else {
-      map[sum] = i+1;
-    }
-    if(i > 0) {
-      leftToRight[i] = Math.min(leftToRight[i-1],  leftToRight[i]);
+      sum += arr[i];
+      if(sum === target) {
+        leftToRight[i] = (i + 1);
+      } else if(typeof map[sum - target] !== 'undefined'){
+        leftToRight[i] = (i - map[sum - target] +1);
+      }
+      !map[sum] && (map[sum] = i+1);
+      
+      if(i > 0) {
+        leftToRight[i] = Math.min(leftToRight[i-1],  leftToRight[i]);
+      }
     }
   }
   map = {};
   sum = 0;
   for(let i=arr.length-1; i >= 0; i--){
-    sum += arr[i];
-    if(sum === target) {
-      rightToLeft[i] = (arr.length-1 - i + 1);
-    } else if(typeof map[sum - target] !== 'undefined'){
-      rightToLeft[i] = (map[sum - target] - i + 1);
+    if(arr[i] === target) {
+      rightToLeft[i] = 1; 
     } else {
-      map[sum] = i-1;
-    }
-    if(i < arr.length-1) {
-      rightToLeft[i] = Math.min(rightToLeft[i+1],  rightToLeft[i]);
+      sum += arr[i];
+      if(sum === target) {
+        rightToLeft[i] = (arr.length-1 - i + 1);
+      } else if(typeof map[sum - target] !== 'undefined'){
+        rightToLeft[i] = (map[sum - target] - i + 1);
+      }
+
+        !map[sum] && (map[sum] = i-1);
+      
+      if(i < arr.length-1) {
+        rightToLeft[i] = Math.min(rightToLeft[i+1],  rightToLeft[i]);
+      }
     }
   }
   let minLength = -1;
@@ -89,7 +98,6 @@ var minSumOfLengths = function(arr, target) {debugger;
                                              
   return minLength > arr.length ? -1 : minLength;
 }
-
 minSumOfLengths([3,2,2,4,3], 3); 
 //Output: 2
 
@@ -105,61 +113,7 @@ minSumOfLengths([64,5,20,9,1,39], 69);
 
 
 minSumOfLengths([43,5,4,4,37,5,3,3,42,9,1,4,30,18,24,4,11,11,1,1,52,33,7,8,2,1,1,21,6], 52);
-// output : 6
-// Expected Output : 4
+//Output : 4
 
-//-----------------------------------------------------------------------------------------------------------------------
-
-
-minSumOfLengths([7,3,4,7], 7);
-// This will fail with above code : 
-minSumOfLengths([3,2,2,4,3], 3);
-// 2
-
-minSumOfLengths([2,1,3,3,2,3,1], 6);
-// 5
-
-
-minSumOfLengths([7,3,4,7], 7);
-// This will fail with below code : 
-// Output : 3 / Expected : 2
-var minSumOfLengths = function(arr, target) {
-  let output = [[],[]];
-  let p1 = 0;
-  let p2 = 0;
-  let sum = 0;
-  sum += arr[p2];
-  while( p2 < arr.length){
-    
-    if(sum === target) {
-      let subArray = arr.slice(p1, p2+1);
-      if(output[0].length === 0) {
-         output[0] = subArray;
-      } else
-        if(output[1].length === 0){
-           output[1] = subArray;
-        }
-      
-      if(output[1].length > 0 && output[1].length >= subArray.length) {
-        output[1] = subArray;
-        if(output[1].length < output[0].length ){
-          [output[1], output[0]] = [output[0], output[1]]
-        }
-      }
-      p1 = p2+1;
-      sum = 0;
-      
-    }
-    if(sum > target) {
-      sum -= arr[p1];
-      p1++;
-    } else {
-      p2++;
-      sum +=arr[p2];
-    }
-  }
-  return (output[0].length &&  output[1].length )
-    ? (output[0].length + output[1].length)
-    : -1;
-    
-};
+minSumOfLengths([12,12,3,1,15,4,2,5,2,12,12,1,6,4,5,4,6,1,1,4,7,11,5,15,12,18,1,1,4,1,1,1,19,3,4], 27);
+// Output : 5
