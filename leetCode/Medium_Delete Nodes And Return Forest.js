@@ -67,7 +67,7 @@ var delNodes = function(root, to_delete) {
   return remaining;
 };
 
-let root = TreeNode(1, TreeNode(2, 4, 5), TreeNode(3,6, 7));
+let root = new TreeNode(1, new TreeNode(2, new TreeNode(4), new TreeNode(5)), new TreeNode(3, new TreeNode(6), new TreeNode(7)));
 let result = delNodes(root, [3,5]);
 console.log(result);
 
