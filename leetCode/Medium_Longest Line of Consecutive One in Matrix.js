@@ -20,7 +20,9 @@
  * @param {number[][]} M
  * @return {number}
  */
-var longestLine = function(M) {debugger;
+
+//Using 3D Dynamic Programming
+var longestLine = function(M) {
     if (!M || !M.length || !M[0].length) return 0;
     let Msize = M.length;
     let resultMatrix = Array(Msize);
