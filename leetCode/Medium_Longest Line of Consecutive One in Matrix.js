@@ -83,3 +83,17 @@ longestLine([[1,1,0,0,1,0,0,1,1,0],
              [1,1,1,0,1,0,1,1,1,1]
             ]);
 //9
+
+
+
+// Complexity Analysis
+// Time complexity : O(mn)O(mn). We traverse the entire matrix once only.
+// Space complexity : O(mn)O(mn). dpdp array of size 4mn4mn is used, where mm and nn are the number of rows ans coloumns of the matrix.
+
+// In the above approach, 
+//     we can observe that the current dpdp entry is dependent only on the entries of the just previous corresponding dpdp row. 
+//     Thus, instead of maintaining a 2-D dpdp matrix for each kind of line of 1's possible, we can use a 1-d array for each one of them, 
+//     and update the corresponding entries in the same row during each row's traversal.
+//     Taking this into account, the previous 3-D dpdp matrix shrinks to a 2-D dpdp matrix now. 
+//     The rest of the procedure remains same as the previous approach.
+
