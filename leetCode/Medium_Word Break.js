@@ -24,6 +24,7 @@
 // https://www.youtube.com/watch?v=hLQYQ4zj0qg
 
 // Solution 1: Recursive 
+// Time complexity O(2^n)
 let checkWord = function (s, wordDict, memo){
     if(!s.length) return true;
   
