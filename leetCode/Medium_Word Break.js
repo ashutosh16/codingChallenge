@@ -56,5 +56,34 @@ var wordBreak = function(s, wordDict) {
 checkWord("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
           ["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"]);
 
+// Expected: false
 
+
+// Solution 2: https://www.youtube.com/watch?v=iWenZCZEBIA
+var wordBreak = function(s, wordDict) {
+  // find the longest word and only search upto that length.
+  let maxWord = 0;
+  let dMap = {};
+  
+  wordDict.forEach(word => {
+    maxWord = Math.max(maxWord, word.length);
+    // dMap[word] = true;
+  })
+  
+  let i = 0;
+  let j = 0;
+  let dp = Array(s.length+1).fill(false);
+  dp[0] = true;
+  for(let i =0; i<= s.length; i++) {
+    for(let j=i-1; j >=0; j--){
+      if((i - j) <= maxWord && dp[j] && wordDict.indexOf(s.substring(j, i)) > -1){
+      // if((i - j) <= maxWord && dp[j] && dMap[s.substring(j, i)]){
+        dp[i] = true;
+      } 
+    }
+  }
+  return dp[dp.length-1];
+}
+
+//Passed all cases in Leetcode.
 
