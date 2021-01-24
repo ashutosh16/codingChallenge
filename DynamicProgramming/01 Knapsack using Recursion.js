@@ -1,7 +1,7 @@
 
 //https://www.youtube.com/watch?v=mGfK-j9gAQA&list=PLEJXowNB4kPxBwaXtRO1qFLpCzF75DYrS&index=4
 
-// with recurssion 
+// Backtracking with recurssion 
 // Time Complexity is O(2^n)
 function Knapsack(wt /*weightList*/, profit /*profitList*/, w /*reamining bagWeight*/, n /*remainingItems*/) {
 
