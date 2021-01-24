@@ -2,6 +2,7 @@
 //https://www.youtube.com/watch?v=mGfK-j9gAQA&list=PLEJXowNB4kPxBwaXtRO1qFLpCzF75DYrS&index=4
 
 // with recurssion 
+// Time Complexity is O(2^n)
 function Knapsack(wt /*weightList*/, profit /*profitList*/, w /*reamining bagWeight*/, n /*remainingItems*/) {
 
   if(n === 0 || w === 0) return 0;
@@ -22,7 +23,7 @@ function Knapsack(wt /*weightList*/, profit /*profitList*/, w /*reamining bagWei
 //Using memorization with recurssion 
 
 // Create the matrix w * n size and initialize with -1
-
+// Time Complexity is O(w * n)
 function Knapsack(wt /*weightList*/, profit /*profitList*/, w /*reamining bagWeight*/, n /*remainingItems*/, memo) {
 
   if(n === 0 || w === 0) return 0;
