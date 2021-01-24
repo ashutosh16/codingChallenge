@@ -21,7 +21,7 @@ function Knapsack(wt /*weightList*/, profit /*profitList*/, w /*reamining bagWei
 
 
 //Using memorization with recurssion 
-
+// https://www.youtube.com/watch?v=dT6dvdbpChA&list=PLEJXowNB4kPxBwaXtRO1qFLpCzF75DYrS&index=5
 // Create the matrix w * n size and initialize with -1
 // Time Complexity is O(w * n)
 function Knapsack(wt /*weightList*/, profit /*profitList*/, w /*reamining bagWeight*/, n /*remainingItems*/, memo) {
@@ -40,5 +40,7 @@ function Knapsack(wt /*weightList*/, profit /*profitList*/, w /*reamining bagWei
   // took the max profit if we skip the item or we include the item
   result  = Math.max( Knapsack(wt, profit, w, n-1), profit[n] + Knapsack(wt, profit, w - wl[n], n-1) );
 
+  // value at the memo[w][n] will give the final result.
   return memo[w][n] = result;
 }
+
