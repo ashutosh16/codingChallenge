@@ -10,7 +10,7 @@ function getSeq(a, resultSum) {
     j = 0;
   sum = sum + a[j];
 
-  while(j < a.length) {
+  while(j < a.length && i < a.length) {
     if(sum === resultSum){
       //result array is from i to j
       return a.slice(i,j+1);
