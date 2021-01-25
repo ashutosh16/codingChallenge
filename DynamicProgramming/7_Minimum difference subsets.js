@@ -38,3 +38,5 @@ function  MinimumDifferenceSubsets(arr){
   return result;
 
 }
+
+MinimumDifferenceSubsets([2,4,2,3])
