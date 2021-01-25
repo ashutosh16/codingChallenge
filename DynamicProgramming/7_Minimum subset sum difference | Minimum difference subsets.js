@@ -1,7 +1,8 @@
 // Minimum subset sum difference | Minimum difference subsets
+// Time Complexity O(n*sum)
 
 function  MinimumDifferenceSubsets(arr){
-  let m = Array(arr.length+1),
+  let m = Array(arr.length+1);
   let sum = 0;
   
   for(let i=0; i < arr.length; i++) {
