@@ -37,3 +37,6 @@ function SubsetsWithGivenDifference(arr, diff) {
   
   return m[row-1][col-1];
 }
+
+SubsetsWithGivenDifference([3,1,2,3], 3);
+
