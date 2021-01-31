@@ -27,46 +27,42 @@
  * @param {number} target
  * @return {number}
  */
+
 var frogPosition = function(n, edges, t, target) {
   if(t <= 0 || !edges.length) return 1; 
-  // if(target === 1) return 1;
   
-  let map = {};
-    for(let i = 0; i < edges.length; i++) {
-      // Tree small value node will always be parent of the higher value node.
-      if(edges[i][0] > edges[i][1]) {
-        [edges[i][0], edges[i][1]] = [edges[i][1], edges[i][0]]
-      }
-      if(!map[edges[i][0]]) {
-        map[edges[i][0]] = [];
-      }
-      map[edges[i][0]].push(edges[i][1]);
+  let graph = {};
+  // convert input into the graph.
+  for(let i = 0; i < edges.length; i++) {
+    // Tree small value node will always be parent of the higher value node.
+    if(edges[i][0] > edges[i][1]) {
+      [edges[i][0], edges[i][1]] = [edges[i][1], edges[i][0]]
     }
-  console.log(map);
+    if(!graph[edges[i][0]]) {
+      graph[edges[i][0]] = [];
+    }
+    graph[edges[i][0]].push(edges[i][1]);
+  }
     
-    let result = findTarget(1 /*currentNode**/, t, target, map, 1 /** Chance */);
-    return result.chance;
+  return findTarget(1 /*currentNode**/, t, target, graph);
 };
 
-function findTarget(currentNode, time, target, map, chance) {
-  if(currentNode === target) return { found: true, 
-                                      chance: (time === 0 || !map[currentNode]) ? chance : 0.0 };
+function findTarget(currentNode, time, target, graph) {
+  if(currentNode === target) {
+    return (time === 0 || !graph[currentNode]) ? 1 : 0;        
+  }
   
-  let child = map[currentNode];
-  if(!child) return  { found: false};
-  // chance = currentNode === 1 ? (chance / child.length) : (chance / (child.length -1));
-  chance = (chance / child.length);
+  let child = graph[currentNode];
+  if(!child) return  0;
   time --;
   if(time >= 0 ){
-    for(let i=0; i< child.length; i++){
-      let result = findTarget(child[i], time, target, map, chance);
-      
-      console.log(result);
-      if(result.found === true) return result;
-    }
+    return Math.max(...child.graph(
+      n => findTarget(n, time, target, graph)
+    )) / child.length;
   }
-  return { found: false, chance: 0.0};
+  return 0;
 }
+
 
 // frogPosition(7, [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]] , 2, 4);
 
@@ -78,5 +74,4 @@ function findTarget(currentNode, time, target, map, chance) {
 // 1
 
 // frogPosition(8, [[2,1],[3,2],[4,1],[5,1],[6,4],[7,1],[8,7]], 7, 7);
-// Output: 0.25000
-// Expected: 0.0
+// 0.0
