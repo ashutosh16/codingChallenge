@@ -49,6 +49,8 @@ var frogPosition = function(n, edges, t, target) {
 
 function findTarget(currentNode, time, target, graph) {
   if(currentNode === target) {
+    // If time is 0 means frog can not go further or if no child of current node then also frog will jump at target point
+    // else return 0 because frog will move to next location and will not be present at target on time t because he pass the target and cant revisite 
     return (time === 0 || !graph[currentNode]) ? 1 : 0;        
   }
   
@@ -58,7 +60,7 @@ function findTarget(currentNode, time, target, graph) {
   if(time >= 0 ){
     return Math.max(...child.graph(
       n => findTarget(n, time, target, graph)
-    )) / child.length;
+    )) / child.length; // Divide by child length to get probability
   }
   return 0;
 }
