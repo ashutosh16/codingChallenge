@@ -78,7 +78,7 @@ btreeGameWinningMove(a, 5, 2);
 // false
 
 
-// Trick is :
+// Trick is : https://www.youtube.com/watch?v=DIXDTh-aOQ4
 // When user one select a node. Tree gets partition into 3 parts.
 // first part is left side of the selected node.
 // second part is right side of the selected node.
