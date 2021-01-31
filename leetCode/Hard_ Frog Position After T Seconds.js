@@ -28,8 +28,8 @@
  * @return {number}
  */
 var frogPosition = function(n, edges, t, target) {
-  if(t <= 0 || !edges.length) return 0; 
-  if(target === 1) return 1;
+  if(t <= 0 || !edges.length) return 1; 
+  // if(target === 1) return 1;
   
   let map = {};
     for(let i = 0; i < edges.length; i++) {
@@ -49,8 +49,8 @@ var frogPosition = function(n, edges, t, target) {
 };
 
 function findTarget(currentNode, time, target, map, chance) {
-  if(currentNode === target) return { found: true, chance: chance};
-  if(time <= 0) return { found: false};
+  if(currentNode === target) return { found: true, 
+                                      chance: (time === 0 || !map[currentNode]) ? chance : 0.0 };
   
   let child = map[currentNode];
   if(!child) return  { found: false};
@@ -65,7 +65,7 @@ function findTarget(currentNode, time, target, map, chance) {
       if(result.found === true) return result;
     }
   }
-  return { found: false};
+  return { found: false, chance: 0.0};
 }
 
 // frogPosition(7, [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]] , 2, 4);
