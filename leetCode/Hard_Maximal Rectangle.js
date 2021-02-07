@@ -20,27 +20,27 @@ var maximalRectangle = function(matrix) {
     let mat = Array(matrix[0].length).fill(0);
     let resultArea = 0;
   
-//   FOr each row sonsider the base of the histagram
+//  For each row sonsider the base of the histagram
     for(let r=0; r < matrix.length; r++) {
       let st = [];
 //    For each col consider fully included in result rectangle
-//       Calculate left range for each column
+//    Calculate left range for each column
       for(let c=0; c< matrix[r].length; c++){
          if(matrix[r][c] === "1") {
-          mat[c] = mat[c] + 1;
+           mat[c] = mat[c] + 1;
           
-          //Calculate the leftRange
-            while(st.length && mat[c] <= mat[st[st.length-1]]) st.pop();
-            left[c] = st.length ? st[st.length-1]+1 : 0;
-          } else {
-            mat[c] = 0;
-          }
+           //Calculate the leftRange
+           while(st.length && mat[c] <= mat[st[st.length-1]]) st.pop();
+             left[c] = st.length ? st[st.length-1]+1 : 0;
+           } else {
+             mat[c] = 0;
+           }
          st.push(c); //Remember need to push in if and else both this cases.
       }
       
       st = [];
       
-      //       Calculate left range for each column
+      //Calculate left range for each column
       for(let c=matrix[r].length-1; c >= 0; c--){
         if(matrix[r][c] === "1"){
           while(st.length && mat[c] <= mat[st[st.length-1]]) st.pop();
@@ -55,4 +55,4 @@ var maximalRectangle = function(matrix) {
     
 };
 
-
+// HINT: https://www.youtube.com/watch?v=dAVF2NpC3j4
