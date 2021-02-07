@@ -21,8 +21,7 @@
 // Example 2:
 // Input: heights = [2,4]
 // Output: 4
-// Hint
-// https://www.youtube.com/watch?v=vcv3REtIvEo&t=0s
+
 /**
  * @param {number[]} heights
  * @return {number}
@@ -61,3 +60,11 @@ var largestRectangleArea = function(heights) {
   return result;
 };
 
+
+// Hint
+// // https://www.youtube.com/watch?v=vcv3REtIvEo&t=0s
+// When we try to calculate the max area. Atlease one bar is fully included in the result area.
+// Hence we calculate the area will be covered when 0 to n bar is filly included at a time.
+// example. When 0 bar is fully included,  1 bar is fully included,  2 bar is fully included etc 
+// to get the are we need to find what is left index and right index can be included in the current bar.
+// then to find area rightIndex-LeftInmdex+1 * hight of the current bar.
