@@ -1,13 +1,16 @@
-Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+// Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+// https://leetcode.com/problems/bitwise-and-of-numbers-range/
+// Example 1:
 
-Example 1:
+// Input: [5,7]
+// Output: 4
+// Example 2:
 
-Input: [5,7]
-Output: 4
-Example 2:
+// Input: [0,1]
+// Output: 0
 
-Input: [0,1]
-Output: 0
+
+//https://www.youtube.com/watch?v=-qrpJykY2gE&list=PLEJXowNB4kPwCPVjDv6KsAsThtDOCQUok&index=23
 
 /**
  * @param {number} m
