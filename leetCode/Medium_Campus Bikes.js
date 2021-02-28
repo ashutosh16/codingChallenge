@@ -29,6 +29,8 @@
  * @return {number[]}
  */
 var assignBikes = function(workers, bikes) {
+  // distence is array of array.
+  // array position represent the distence and array at that position represents the which all worker-bike pair has that distence.
   const distence = [];
   for(let w=0; w < workers.length; w++) {
     for(let b=0; b < bikes.length; b++) {
@@ -44,7 +46,9 @@ var assignBikes = function(workers, bikes) {
   const bikeAssignment = Array(bikes.length).fill(-1);
   const workersAssignment = Array(workers.length).fill(-1);
   
+  // Now here we will travel throw the distence array from 0 to length hence our travel is sorted by distence.
   for(let i=0; i < distence.length; i++) {
+    // There will be distence for which no pair is present. just skip that.
     if(typeof distence[i] === "undefined") continue;
     for(let j=0; j < distence[i].length; j++) {
       const workerId = distence[i][j].w;
@@ -58,4 +62,8 @@ var assignBikes = function(workers, bikes) {
   
   return workersAssignment;
 };
+
+assignBikes([[0,0],[2,1]], [[1,2],[3,3]]);
+// distence = [null,null,[{"w":1,"b":0}],[{"w":0,"b":0},{"w":1,"b":1}],null,null,[{"w":0,"b":1}]]
+// Output: [1, 0]
 
