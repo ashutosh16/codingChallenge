@@ -56,12 +56,7 @@ var btreeGameWinningMove = function(root, n, x) {
 function findNode(root, x){
   if(!root) return false;
   if(root.val === x) return root;
-  let isPresent = findNode(root.left, x) || false;
-  
-  if(isPresent === false){
-    isPresent = findNode(root.right, x);
-  }
-  return isPresent;
+  return findNode(root.left, x) || findNode(root.right, x);
 }
 
 function countNode(root){
