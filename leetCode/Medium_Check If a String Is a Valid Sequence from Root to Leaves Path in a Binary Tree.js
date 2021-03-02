@@ -45,9 +45,7 @@ var isValidSequence = function(root, arr, index=0) {
     if(index === arr.length-1) {
       return !root.left && !root.right;
     }
-    const left = isValidSequence(root.left, arr, index+1);
-    if(left) return true;
-    return isValidSequence(root.right, arr, index+1);
+    return isValidSequence(root.left, arr, index+1) || isValidSequence(root.right, arr, index+1);
   } 
   return false;
 };
