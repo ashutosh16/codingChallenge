@@ -18,15 +18,15 @@
  * @return {number}
  */
 var rangeBitwiseAnd = function(m, n) {
-  m = m.toString(2);
+  m = m.toString(2); // Convert number to binary form
   n = n.toString(2);
   let sum = "";
   while(m && n && m!==n){
-    m = m.slice(0, m.length-1);
-    n = n.slice(0, n.length-1);
-    sum += "0";
+    m = m.slice(0, m.length-1); // Remove the last digit from the number until both numbers are same. Because missmatch digit will convert number to 0.
+    n = n.slice(0, n.length-1); 
+    sum += "0"; // Number of mismatch digit will get converted to 0
   }
-  return Number.parseInt(m+sum, 2);
+  return Number.parseInt(m+sum, 2); // Append the converted number 0 sring to the end of the remaining digit and form the result number.
 };
 
 
