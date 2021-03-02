@@ -57,9 +57,9 @@ function PopFromHeap(arr){
 }
 
 function CreateHeap(arr){
-  arr.unshift(null);
+  arr.unshift(null); // Make array start from 1.
   let n = arr.length-1;
-  for(let i = Math.floor(n/2); i > 0; i--){
+  for(let i = Math.floor(n/2); i > 0; i--) {
     Heapify(arr, i);
   }
   return arr;
