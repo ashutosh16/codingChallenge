@@ -35,8 +35,7 @@ var expand = function(s) {
       let merge = [];
       if(result.length) {
         for(let r=0; r< result.length; r++) {
-          let a = temp.map(str => result[r]+str);
-          merge.push(...a);
+          merge.push(...temp.map(str => result[r]+str));
         }
         result = merge;
       } else {
