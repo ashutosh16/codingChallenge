@@ -55,6 +55,7 @@ var delNodes = function(root, to_delete) {
       rightTree && remaining.push(rightTree);
       return null;
     }
+    // update left and right subTree after deleteNode.
     root.left = leftTree;
     root.right = rightTree;
     return root;
