@@ -50,18 +50,18 @@ var minSumOfLengths = function(arr, target) {debugger;
   
   for(let i=0; i < arr.length; i++){
     if(arr[i] === target) {
-      leftToRight[i] = 1; 
+      leftToRight[i] = 1; // length of the sub array with sum == target
     } else {
       sum += arr[i];
       if(sum === target) {
         leftToRight[i] = (i + 1);
       } else if(typeof map[sum - target] !== 'undefined'){
-        leftToRight[i] = (i - map[sum - target] +1);
+        leftToRight[i] = (i - map[sum - target] +1); // length of the sub array with sum == target
       }
       !map[sum] && (map[sum] = i+1);
       
       if(i > 0) {
-        leftToRight[i] = Math.min(leftToRight[i-1],  leftToRight[i]);
+        leftToRight[i] = Math.min(leftToRight[i-1],  leftToRight[i]); // Min length of the sub array with sum == target
       }
     }
   }
