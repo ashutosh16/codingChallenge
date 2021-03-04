@@ -25,7 +25,7 @@ var canJump = function(nums) {
   if(nums.length === 1) return true;
   let reachable = 0;
   for(let i=0; i<nums.length-1; i++) {
-    if(i>reachable) return false;
+    if(i>reachable) return false; //Current index is never reachable for you.
     let jumpToIndex = i + nums[i];
     if(jumpToIndex >= nums.length-1) return true;
     if(jumpToIndex > reachable) reachable = jumpToIndex;
