@@ -52,6 +52,7 @@ var countSquares = function(matrix) { debugger;
     let resultM = [];
     let count = 0;
   
+    // Create result matrix same size as given matrix fill the first row and first column of result matrix same as given matrix.
     for(let i=0; i<row; i++){
       resultM.push(Array(col));
       resultM[i][0] = matrix[i][0];
