@@ -16,7 +16,7 @@ a();
     It cant find 'value', Then it will start searching 'value' in outer environment,
     outer env is always point to the the lexical scope. here lexical scope of function b is Global.
     This will find value variable in global scope and print as 1.
-
+*/
 
 // ------------------------------------------------------------------------------------------------------------
 {
@@ -73,8 +73,10 @@ a();
   console.log(`temp() ${temp()}`);
 }
 // output
-// obj.details.getFullName() undefined undefined --> 'this' inside obj.details.getFullName function refer to the details object
-// temp() global name global last name --> 'this' inside temp function is refer to the global object.
+// line 70: - undefined undefined
+                      // obj.details.getFullName()  --> 'this' inside obj.details.getFullName function refer to the details object
+
+// line 73: temp() global name undefined
 
 
 // ------------------------------------------------------------------------------------------------------------
@@ -102,6 +104,35 @@ a();
  * obj.getUpdatedName --> new global Name
  * obj.name = sam
  */
+
+
+// ------------------------------------------------------------------------------------------------------------
+
+{
+  var a = 1;
+  function foo() {
+    console.log(1, a); // function body
+    a = 2;
+    function a() {
+      console.log(2, a);
+    }
+    console.log(3, a); // 2
+    a = 3;
+    console.log(4, a); //3
+  }
+
+  foo();
+  console.log(5, a); //1
+}
+
+// 1 ƒ a() {
+//     console.log(2, a);
+//   }
+// 3 2
+// 4 3
+// 5 1
+ 
+
 // ------------------------------------------------------------------------------------------------------------
 
 {
