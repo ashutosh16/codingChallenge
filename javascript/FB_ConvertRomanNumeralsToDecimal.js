@@ -20,6 +20,7 @@ function ConvertRomanNumeral(romanNumeral){
     } else {
       if(map[romanNumeral[i]] <  map[romanNumeral[i+1]]) {
         result += map[romanNumeral[i+1]] - map[romanNumeral[i]];
+        i++;
       } else {
         result += map[romanNumeral[i]];
       }
