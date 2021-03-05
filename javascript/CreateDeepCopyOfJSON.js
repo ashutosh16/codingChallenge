@@ -1,20 +1,24 @@
 
 function DeepCopy(obj, createKeyFun){
+  //obj is array - Use array.map to create deep copy.
   if(Array.isArray(obj)) {
     return obj.map(item => DeepCopy(item, createKeyFun));
-  } else
-    if(obj !== null && typeof obj === 'object'){
-      return Object.keys(obj).reduce((acc, current) => {
-        let key = createKeyFun
-          ? createKeyFun(current)
-          : current;
+  }
+  
+  //Obj is JSON object use .reduce( ,{}) for deep copy.
+  if(obj !== null && typeof obj === 'object'){
+    return Object.keys(obj).reduce((acc, current) => {
+      let key = createKeyFun
+        ? createKeyFun(current)
+        : current;
 
-        acc[key] = DeepCopy(obj[current], createKeyFun);
-        return acc;
-      }, {});
-    } else {
-      return obj;
-    }
+      acc[key] = DeepCopy(obj[current], createKeyFun);
+      return acc;
+    }, {});
+  }
+  
+  // Obj is a primitive type.
+  return obj;
 }
 
 const obj = {
