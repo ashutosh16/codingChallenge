@@ -105,6 +105,24 @@ a();
  * obj.name = sam
  */
 
+// ------------------------------------------------------------------------------------------------------------
+// TODO
+{
+  let obj = {
+    name: 'sam',
+    getUpdatedName:()=>{
+        this.name = "New "+ this.name;
+        return this.name;
+    }
+  }
+
+  let name = 'global Name';
+  console.log(`obj.getUpdatedName --> ${obj.getUpdatedName()}`); 
+  console.log(`obj.name = ${obj.name}`);
+}
+
+// obj.getUpdatedName --> New New new global name
+// obj.name = sam
 
 // ------------------------------------------------------------------------------------------------------------
 
