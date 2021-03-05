@@ -5,6 +5,21 @@
 // with callback function.
 // Here fetcher list is a list of async function which take input as parameter and callback method.
 
+function Fetcher(fetcherList) {
+    const result = [];
+    let count = 0;
+    return (callback, args) => {
+        fetcherList.forEach((fetch, index)=>{
+            fetch((res)=> {
+                result[index] = res;
+                count++;
+                (count === fetcherList.length) && callback(result);
+            }, args);
+        });
+    }
+}
+
+// Elaborated solution 
 
 function Fetcher(fetcherList){
   return function(callback, prefix){
