@@ -1,6 +1,5 @@
-convert roman numerals to number
-
-
+// convert roman numerals to number
+// https://www.calculatorsoup.com/calculators/conversions/roman-numeral-converter.php
 
 const map = {
   I: 1,
@@ -29,4 +28,11 @@ function ConvertRomanNumeral(romanNumeral){
   return result;
 }
 
-ConvertRomanNumeral("MCMXLVIII");
+// Roman Numeral	=	Arabic Number
+// M	=	1000
+// CM	=	900
+// XL	=	40
+// VIII	=	8
+// Total	=	1948
+
+ConvertRomanNumeral("MCMXLVIII"); // 1948
