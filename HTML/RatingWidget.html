@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      ul {
+        list-style: none;
+        display: flex;
+        width: fit-content;
+      }
+      .rating-list .selected {
+        color: green;
+      }
+      .hilight {
+        color: #22ec22;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="widget-container">
+      <ul class="rating-list" data-rating="0">
+        <li class="star" data-id="1">*</li>
+        <li class="star" data-id="2">*</li>
+        <li class="star" data-id="3">*</li>
+        <li class="star" data-id="4">*</li>
+        <li class="star" data-id="5">*</li>
+      </ul>
+    </div>
+    <script>
+      function addClass(count, className) {
+        const stars = document.querySelectorAll(".star");
+
+        for (let i = 0; i < count; i++) {
+          stars[i].classList.add(className);
+        }
+      }
+
+      function clearClass(className) {
+        const stars = document.querySelectorAll(".star").forEach((element) => {
+          element.classList.remove(className);
+        });
+      }
+
+      function clickHandler(target) {
+        if (!target.classList.contains("star")) return;
+        clearClass("selected");
+        addClass(Number(target.dataset.id), "selected");
+      }
+
+      function hoverHandler(target, isMouseEnter) {
+        clearClass("hilight");
+        const stars = document.querySelectorAll(".star");
+        if (isMouseEnter) {
+          addClass(Number(target.dataset.id), "hilight");
+        }
+      }
+
+      document.querySelector(".rating-list").addEventListener("click", (e) => {
+        clickHandler(e.target);
+      });
+
+      document.querySelectorAll(".star").forEach((element) => {
+        element.addEventListener("mouseenter", (e) => {
+          hoverHandler(e.target, true);
+        });
+      });
+
+      document.querySelectorAll(".star").forEach((element) => {
+        element.addEventListener("mouseleave", (e) => {
+          hoverHandler(e.target, false);
+        });
+      });
+    </script>
+  </body>
+</html>
