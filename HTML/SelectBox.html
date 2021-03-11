@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    <section id="food-selection-wrapper">
+        <label for="all">All</label><input id="all" type="checkbox"/>
+        <label for="none">None</label><input id="none" type="checkbox" checked /><br />
+        <section id="foods-selection">
+                <label for="fruits">Fruits</label><input id="fruits" type="checkbox" class="food-type" />
+                <label for="vegi">Vegitable</label><input id="vegi" type="checkbox" class="food-type" />
+                <label for="fish">Fish</label><input id="fish" type="checkbox" class="food-type" />
+        </section>
+    </section>
+</body>
+<script>
+{   
+    function setAll(value) {
+        let checkboxList = document.querySelectorAll("#food-selection-wrapper #foods-selection .food-type");
+        checkboxList = Array.prototype.slice.call(checkboxList, 0);
+
+        checkboxList.forEach(element => {
+            element.checked = value;
+        });
+    }
+
+    function checkBoxHandler(){
+        let checkboxes = document.querySelectorAll("#food-selection-wrapper input[type=checkbox]");
+        document.querySelector("#food-selection-wrapper").addEventListener("click", (e) => {
+            if(e.target.type !== "checkbox") {
+                return false;
+            }
+            if(e.target.id === "all") {
+                setAll(true);
+                document.querySelector("#none").checked = false;
+            } else if(e.target.id === "none") {
+                setAll(false);
+                document.querySelector("#all").checked = false;
+            } else {
+                let allChecked = true,
+                    allUnchecked = true,
+                    foodSelection = document.querySelectorAll(".food-type");
+
+                foodSelection = Array.prototype.slice.call(foodSelection, 0);
+                foodSelection.forEach(item => {
+                    debugger;
+                    allUnchecked = allUnchecked && !item.checked;
+                    allChecked = allChecked && item.checked;
+                });
+
+                document.getElementById("all").checked = allChecked;
+                document.getElementById("none").checked = allUnchecked;
+            }
+
+        });
+    }
+    checkBoxHandler();
+}
+</script>
+</html>
