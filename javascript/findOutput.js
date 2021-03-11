@@ -1,7 +1,7 @@
 
 var length = 10;
 function fn() {
-	console.log(this.length);
+  console.log(this.length);
 }
 
 var obj = {
@@ -93,6 +93,12 @@ typeof undefined == typeof NULL
 
 // The expression will be evaluated to true, since NULL will be treated as any other undefined variable.
 // Note: JavaScript is case-sensitive and here we are using NULL instead of null.
+
+// ------------------------------------------------------------------------------------------------------------
+
+console.log(typeof typeof 1);
+
+// "string"
 
 // ------------------------------------------------------------------------------------------------------------
 
