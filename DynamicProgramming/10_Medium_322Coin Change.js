@@ -39,7 +39,7 @@ var coinChange = function(coins, amount) {
   }
   
   for(let i=1; i<col; i++) {
-    dp[0][i] = Number.MAX_VALUE;
+    dp[0][i] = Number.MAX_VALUE; // Set this to +ve infinity, because we cant make any +ve sum with 0 number of coins.
   }
 
   for(let i=1; i<row; i++) {
