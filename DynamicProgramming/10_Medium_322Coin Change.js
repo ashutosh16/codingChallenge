@@ -56,3 +56,11 @@ var coinChange = function(coins, amount) {
   }
     return dp[row-1][col-1] === Number.MAX_VALUE ? -1 : dp[row-1][col-1];
 };
+
+
+
+coinChange([1,2,5],11);
+// 3
+
+
+
