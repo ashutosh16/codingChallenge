@@ -35,11 +35,11 @@ function Knapsack(wt /*weightList*/, profit /*profitList*/, w /*reamining bagWei
   //Remaining bag size is less than the item weight hence skip
   if(w <= wt[n]) {
     result = Knapsack(wt, profit, w, n-1);
+  } else {
+    // took the max profit if we skip the item or we include the item
+    result  = Math.max( Knapsack(wt, profit, w, n-1), profit[n] + Knapsack(wt, profit, w - wl[n], n-1) );
   }
   
-  // took the max profit if we skip the item or we include the item
-  result  = Math.max( Knapsack(wt, profit, w, n-1), profit[n] + Knapsack(wt, profit, w - wl[n], n-1) );
-
   // value at the memo[w][n] will give the final result.
   return memo[w][n] = result;
 }
