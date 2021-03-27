@@ -7,6 +7,29 @@
 * It doesn't matter what values are set beyond the returned length.
 */
 
+
+function Dup(a){
+  let j=1;
+  let i=0;
+  for(; i<a.length; i++){
+    if(j===a.length) break;
+    while(j<a.length && a[j]===a[i]){
+      a[j]=null;
+      j++
+    }
+    [a[j], a[i+1]] = [a[i+1], a[j]];
+    j++;
+  }
+  return i+1;
+}
+
+console.log(Dup([1,1,1,2,3]));
+console.log(Dup([0,0,1,1,1,2,2,3,3,4]));
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 var removeDuplicates = function(nums) {
     let count = nums.length, prev= nums[0];
     for(let i=1; i < nums.length; i++) {
