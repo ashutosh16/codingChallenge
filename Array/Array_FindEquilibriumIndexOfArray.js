@@ -7,6 +7,8 @@
 // A[0] + A[1] + A[2]  =  A[4] + A[5] + A[6]
 // Time Complexity O(n)
 
+//Hint: Find Left sum and Right sum and campare is equal
+
 {
   function findEquilibriumIndex(a){
     let leftSum = [0],
