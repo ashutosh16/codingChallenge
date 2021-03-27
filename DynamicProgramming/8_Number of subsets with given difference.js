@@ -9,6 +9,8 @@
 // 2 S1 = Diff + Sum
 // S1 = (Diff + Sum) / 2
 
+// HINT ----> Just find the subset with sum = (Diff + sum) /2
+
 function SubsetsWithGivenDifference(arr, diff) {
   let sum = 0;
   
