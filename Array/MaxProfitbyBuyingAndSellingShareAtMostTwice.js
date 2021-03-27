@@ -15,7 +15,7 @@
       if(price[i] > maxPrice) {
         maxPrice = price[i];
       }
-      // This is the max profit can have from i day to n-1 day.
+      // This is the max profit can have from n-1 day to i day.
       profit[i] = Math.max(profit[i+1], maxPrice - price[i]);
     }
     let minPrice = price[0];
