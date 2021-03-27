@@ -27,5 +27,6 @@ function Knapsack(wt, profit, w) {
 
   return memoTable[wt.length][w];
 }
-
-
+const result = findMaxProfit([1,2,3], [2,3,5], 4);
+console.log(result);
+// 7
