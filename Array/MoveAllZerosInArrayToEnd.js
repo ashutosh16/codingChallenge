@@ -25,3 +25,5 @@
   let result = moveZeroToEnd([6,0,8,22,3,0,4,0,1]);
   console.log(result);
 }
+
+
