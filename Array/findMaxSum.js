@@ -25,7 +25,8 @@ function maxSum(arr) {
   }
 }
 
-// Hint  - Each time we do left rotation contribution of each elements from index 1 to n-1 is decresed by 1 (arraySum - arr[i-1]). and contribution of arr[i-1] is incresed by n-1 times
+// Hint  - Each time we do left rotation contribution of each elements from index 1 to n-1 is decresed by 1 (arraySum - arr[i-1]). 
+// Contribution of arr[i-1] is incresed by n-1 times. Consider i as 1 for the first time.
 // next_sum = currentSum - (arraySum - arr[i-1]) + ((n-1) * arr[i-1])
 // next_sum = currentSum - arraySum + arr[i-1] + (n-1) * arr[i-1]
 // next_sum = currentSum - arraySum + arr[i-1] + n * arr[i-1] - arr[i-1]
@@ -38,3 +39,5 @@ function maxSum(arr) {
 // [2,8,3,1] -> 2*0 + 8*1 + 3*2 + 1*3 -> 
 
 // reference https://www.youtube.com/watch?v=3YNs_Ggqb-Q
+
+
