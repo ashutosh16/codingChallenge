@@ -1,6 +1,25 @@
 // Generate Expression Tree with given expression
 // Time COmplexity O(n);
 
+// ( 5 + 3 + ( 10 * 20 ) + 5 )
+// 1. for loop to expression 
+// 2. puch each node in stact untill close bracket
+// 3. If close bracket process the stack.
+// 4. Stack process
+// 4.1. while open bracket or stack.length > 0
+// 
+//
+//             if('+-*/%'.indexOf(b.data) > -1 && b.left === null && b.right === null) {
+//               b.left = currentNode;
+//               b.right = a;
+//               currentNode = b;
+//             } else {
+//               a.right = currentNode;
+//               a.left = b;
+//               currentNode = a;
+//             }
+
+
 { 
   function Node(data) {
     this.left = null;
