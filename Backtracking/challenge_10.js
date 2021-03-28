@@ -1,6 +1,64 @@
 // Graph coloring problem.
 // Try to color given graph with given color such that all adjacent vertex will have the different color.
 // Time complexity of this program is C^n 'C' = no of colors and 'n' no of vertex.
+
+function ColorGraph(g, c){
+  const result = [];
+  const n = g.length;
+  const cp = Array(n);
+
+
+  const isSafeColor = (v, col) =>{
+    for(let k=0; k<v; k++){
+      if(g[k][v] !== 0 && cp[k] === col) {
+        return false
+      }
+    }
+    return true;
+  }
+
+  function paint(v, result){
+    for(let i=0; i<c.length; i++){
+      if(isSafeColor(v, c[i])){
+        cp[v] = c[i];
+        if(v === n-1){
+          result.push([...cp]);
+        } else {
+          paint(v+1, result);
+        }
+      }
+    }
+  }
+
+  paint(0, result);
+  console.log(result);
+  return result;
+}
+
+let g = [
+    [0, 1, 1, 1],
+    [1, 0, 1, 0],
+    [1, 1, 0, 1],
+    [1, 0, 1, 0],
+];
+
+ColorGraph(g,['r','b','g']);
+
+// [["r","b","g","b"],
+//  ["r","g","b","g"],
+//  ["b","r","g","r"],
+//  ["b","g","r","g"],
+//  ["g","r","b","r"],
+//  ["g","b","r","b"]
+// ]
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 class ColorGraph {
   constructor(g, n) {
     this.graph = g;
