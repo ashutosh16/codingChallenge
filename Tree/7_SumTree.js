@@ -1,4 +1,4 @@
-// Check if a given Binary Tree is SumTree
+// Check if a given Binary Tree is Sum Tree
 
 {
   function Node (data) {
