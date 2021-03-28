@@ -1,4 +1,4 @@
-// Merge Sort for Linked Lists
+// Merge Sort Linked Lists
 // Given the head of a linked list, return the list after sorting it in ascending order.
 // Follow up: Can you sort the linked list in O(n logn) time and O(1) memory (i.e. constant space)?
 // https://www.youtube.com/watch?v=j_UNYW6Ap0k
