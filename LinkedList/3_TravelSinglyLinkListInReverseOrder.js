@@ -1,3 +1,44 @@
+// Travel link list in reverse order.
+
+function Travel(ll){
+  if(ll.next) {
+    Travel(ll.next);
+  }
+  console.log(ll.data);
+}
+
+function Node(data) {
+  return {
+    data,
+    next: null
+  }
+}
+
+const ll = Node(1);
+ll.next =  Node(2);
+ll.next.next =  Node(3);
+ll.next.next.next =  Node(4);
+ll.next.next.next.next =  Node(5);
+Travel(ll);
+
+// 5
+// 4
+// 3
+// 2
+// 1
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 class Node {
   constructor(val){
     this.val = val;
