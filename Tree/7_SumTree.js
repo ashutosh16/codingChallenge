@@ -7,14 +7,12 @@
     this.right = null;
   }
 
-  function checkSum(root, total = { sum : 0, isSum : true }) {
-    if(!root) {
-      return { sum: 0, isSum: true };
-    } else 
-      if ((!root.left && !root.right)) {
-        return { sum: root.data, isSum: true };
-      }
+  function checkSum(root) {
+    if(!root) return { sum: 0, isSum: true };
+    if ((!root.left && !root.right)) return { sum: root.data, isSum: true };
+    
     let leftResult, rightResult;
+    
     leftResult = checkSum(root.left);
     rightResult = checkSum(root.right);
 
@@ -23,9 +21,8 @@
         isSum: (root.data === (leftResult.sum + rightResult.sum)),
         sum: (root.data + leftResult.sum + rightResult.sum)
       };
-    } else {
-      return { isSum: false };
     }
+    return { isSum: false };
   }
 
   let root = new Node(26);
