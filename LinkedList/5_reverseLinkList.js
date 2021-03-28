@@ -1,3 +1,32 @@
+
+
+function reverse (head) {
+  let current = head,
+    pre = null,
+    next = null;
+
+  while(current !== null) {
+    next = current.next;
+    current.next = pre;
+    pre = current;
+    current = next;
+  }
+  head = pre;
+  return head;
+}
+
+const ll = Node(1);
+ll.next =  Node(2);
+ll.next.next =  Node(3);
+ll.next.next.next =  Node(4);
+ll.next.next.next.next =  Node(5);
+console.log(reverse(ll));
+
+// 5,4,3,2,1
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
 // Reverse a linked list
 // Time Complexity is O(n)
 // Space Complexity is O(n)
