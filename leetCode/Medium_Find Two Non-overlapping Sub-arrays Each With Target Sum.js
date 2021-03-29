@@ -29,12 +29,16 @@
 // Output: 3
 // Explanation: Note that sub-arrays [1,2] and [2,1] cannot be an answer because they overlap.
  
-
 // Constraints:
-
 // 1 <= arr.length <= 10^5
 // 1 <= arr[i] <= 1000
 // 1 <= target <= 10^8
+
+// HINT:
+// Find target sum sub arr with min length from LeftToRight
+// Find target sum sub arr with min length from RightToLeft
+// Find min of LeftToRight[i] + RightToLeft[i+1]
+ 
 
 /**
  * @param {number[]} arr
