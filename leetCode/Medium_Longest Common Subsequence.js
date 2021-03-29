@@ -24,6 +24,10 @@
 // Output: 0
 // Explanation: There is no such common subsequence, so the result is 0.
 
+// HINT: Create matrix with text1.length+1 by text2.length+1 size.
+// fill 0 row and 0 col with 0
+// if(text1[i-1] === text2[j-1]) 1 + exclude both char.
+// else include char with max length subsequence.
 
 /**
  * @param {string} text1
@@ -47,8 +51,8 @@ var longestCommonSubsequence = function(text1, text2) {
   for(let i=1; i<row; i++){
     for(let j=1; j<col; j++){
       table[i][j] = (text1[i-1] === text2[j-1]) 
-                    ? table[i-1][j-1] + 1
-                    : Math.max(table[i-1][j], table[i][j-1]);
+                    ? table[i-1][j-1] + 1 // Exclude char from both strings
+                    : Math.max(table[i-1][j], table[i][j-1]); // include char which give max length sub sequence
     }
   }
   
