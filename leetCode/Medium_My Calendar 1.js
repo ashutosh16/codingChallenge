@@ -20,6 +20,8 @@
 // The first event can be booked.  The second can't because time 15 is already booked by another event.
 // The third event can be booked, as the first event takes every time less than 20, but not including 20.
 
+// HINT: TREE - Implement a Tree structure each node { start: sTime, end: eTime, left: previousBokkingNode, right: afterBookingNode}
+
 class Node {
   constructor(start, end){
     this.start = start;
