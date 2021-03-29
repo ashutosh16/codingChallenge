@@ -34,6 +34,7 @@
 // 0 <= limit <= 10^9
 
 // Reference : https://www.youtube.com/watch?v=LDFZm4iB7tA
+// HINT: 2 pointer approch with MinQueue and MaxQueue.
 
 /**
  * @param {number[]} nums
