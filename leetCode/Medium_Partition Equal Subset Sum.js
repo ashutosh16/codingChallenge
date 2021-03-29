@@ -16,6 +16,14 @@
 
 // Time complexity O(n * (sum/2))
 
+// HINT:
+// 1. Create Matrix
+//    row = arr length+1
+//    col = sum / 2
+// 2. dp[i][j] = m[i-1][j] || (j >= nums[i-1] && m[i-1][j-nums[i-1]]) || false;
+// 3.  return m[row-1][col-1];
+
+
 /**
  * @param {number[]} nums
  * @return {boolean}
