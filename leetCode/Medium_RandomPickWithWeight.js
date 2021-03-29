@@ -10,7 +10,12 @@
 // Reference : https://www.youtube.com/watch?v=fWS0TCcr-lE
 //             https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-
+// HINT: Create a bucket with sum of the arry from left to right.
+// If arr = [1,2,3] this.bucket = [1,3,6];
+// |<---->|<-------->|<------------>|
+//    1        3             6
+//  (0to1)| (2 to 3) |   ( 4 to 6)
+// index 0| index 1  | index 2
 /**
  * @param {number[]} w
  */
