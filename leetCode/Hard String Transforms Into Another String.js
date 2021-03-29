@@ -2,8 +2,6 @@
 // In one conversion you can convert all occurrences of one character in str1 to any other lowercase English character.
 // Return true if and only if you can transform str1 into str2.
 
- 
-
 // Example 1:
 // Input: str1 = "aabcc", str2 = "ccdee"
 // Output: true
@@ -17,7 +15,6 @@
 // Constraints:
 // 1 <= str1.length == str2.length <= 104
 // str1 and str2 contain only lowercase English letters.
-
 
 /**
  * @param {string} str1
@@ -42,6 +39,6 @@ var canConvert = function(str1, str2) {
   }
   
   if(str1.length === 26 &&  Object.keys(s2).length === 26) return false;
-  return true;
-    
+  return true;  
 };
+
