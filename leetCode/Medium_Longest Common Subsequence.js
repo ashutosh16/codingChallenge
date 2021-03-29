@@ -29,6 +29,8 @@
 // if(text1[i-1] === text2[j-1]) 1 + exclude both char.
 // else include char with max length subsequence.
 
+// Time complexity O(text1.length * text2.length)
+
 /**
  * @param {string} text1
  * @param {string} text2
