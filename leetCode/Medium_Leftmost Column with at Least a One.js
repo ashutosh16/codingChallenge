@@ -47,6 +47,7 @@
 // HINT: Move from right-bottom to top-left like ladder
 // If you got 0 at right means no 1 present left to that as all rows are sorted.
 // Start from right-bottom and if got 0 move up and got 1 move right with result=colNumber untill outof bound either by left or top.
+// Time complexity : O(col+row)
 
 /**
  * @param {BinaryMatrix} binaryMatrix
