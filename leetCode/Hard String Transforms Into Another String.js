@@ -1,3 +1,5 @@
+// https://www.youtube.com/watch?v=JXEBGi3mjfE
+
 // Given two strings str1 and str2 of the same length, determine whether you can transform str1 into str2 by doing zero or more conversions.
 // In one conversion you can convert all occurrences of one character in str1 to any other lowercase English character.
 // Return true if and only if you can transform str1 into str2.
@@ -16,6 +18,10 @@
 // 1 <= str1.length == str2.length <= 104
 // str1 and str2 contain only lowercase English letters.
 
+// Hint: create a map to show the mapping of each char deom strng1 to string2
+// If char repeat it should match the earlier mapping else return false.
+// map S2 is for coener case where st1 & st2 length is 26 and all char in string are unique.
+
 /**
  * @param {string} str1
  * @param {string} str2
@@ -25,7 +31,7 @@ var canConvert = function(str1, str2) {
   if(str1.length !== str2.length) return false;
   if(str1 === str2) return true;
   let n = str1.length, 
-      map = {},
+      map = {}, // show the mapping of str1 char to str2 char
       s2 = {};
   
   let swapCount = 0;
