@@ -15,6 +15,10 @@
 // Output: [[3,-1,0,1],[2,2,1,-1],[1,-1,2,-1],[0,-1,3,4]]
 
 
+// HINT: Start from the Gate BFS
+// Create queue and add all gates in the queue.
+// Then add all empty encontered places in the queue.
+
 /**
  * @param {number[][]} rooms
  * @return {void} Do not return anything, modify rooms in-place instead.
