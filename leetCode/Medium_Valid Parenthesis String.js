@@ -21,6 +21,17 @@
 // https://leetcode.com/problems/valid-parenthesis-string/
 // https://www.youtube.com/watch?v=KuE_Cn3xhxI&list=PLEJXowNB4kPwCPVjDv6KsAsThtDOCQUok&index=16
 
+// HINT: 
+// 1. create stack for openBracket
+// 2. Create stack for *
+// 3. close bracket found then pop the openStack
+// 4. If open stack is 0 the pop the * stack to nbotmalize closing bracket
+// 5. If * stack is also 0 then return false as open bracket is not normalizable.
+// 6. If reach end of the string 
+//    check if open bracket stack is length 0. if yes return true.
+//    else openBracket.pop() and then pop * bracket index > open bracket index.
+
+
 /**
  * @param {string} s
  * @return {boolean}
