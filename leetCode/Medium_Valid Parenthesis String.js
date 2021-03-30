@@ -26,7 +26,7 @@
  * @return {boolean}
  */
 var checkValidString = function(s) {
-    let openB =[];
+  let openB =[];
   let star = [];
   
   for(let i=0; i<s.length; i++){
