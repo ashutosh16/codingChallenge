@@ -7,6 +7,15 @@ function Sum(a) {
 }
 
 
+function sum(a){
+  if(a) {
+    return (b) => {
+        if(b) return sum(a+b);
+        return a;
+      };
+  } 
+}
+
 Sum(1)(2)(3)();
 // 6
 
