@@ -9,7 +9,7 @@ function Throtteling(fun, limit){
         if(isWait) return;
         fun(args);
         isWait = true;
-        setTimeout(()=>{ isWait = false; }, limit)const clickEv = Throtteling(() => console.log("Clicked!!!"), 2000)
+        setTimeout(()=>{ isWait = false; }, limit)
     }
 }
 
