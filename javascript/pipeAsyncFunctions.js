@@ -21,10 +21,13 @@ function reduce(arr, callback, previousValue){
 }
 
 //Pipe with own reduce function
+// HINT:  prevFunction.then(currentFunction) retunn the promise with value return by the currentFunction.
+// Promise.resolve(arg) return the success promise.
+
 const Pipe = (funs) => arg => reduce(funs, (prevFunction, currentFunction) => prevFunction.then(currentFunction), Promise.resolve(arg));
 
 //Pipe with Array reduce method.
-const Pipe2 = (funs) => arg => arg.reduce((prevFunction, currentFunction) => prevFunction.then(currentFunction), Promise.resolve(arg));
+const Pipe2 = (funsArr) => arg => funsArr.reduce((prevFunction, currentFunction) => prevFunction.then(currentFunction), Promise.resolve(arg));
 
 
 const pipeFunction = Pipe([
