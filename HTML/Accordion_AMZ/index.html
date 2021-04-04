@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .accordion-container ul {
+              list-style: none;
+              width: fit-content;
+              min-width: 400px;
+              max-width: 700px;
+              overflow: scroll;
+            }
+            .accordion-container li {
+                margin: 2px;
+                border-radius: 3px;
+                border: 1px solid gray;
+            }
+            .accordion-container p {
+                background-color: #8080802b;
+                margin: 0px;
+                padding: 10px;
+                border-bottom: 1px solid gray;
+                font-weight: bold;
+            }
+            .accordion-container p+div {
+                padding: 10px;
+                overflow: hidden;
+            }
+            .accordion-container p+div.active {
+                /* animation: open 2s; */
+            }
+            @keyframes open {
+                from {
+                    height: 0px;
+                }
+                to {
+                    height: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Accordion</h1>
+        <div id="accordion"></div>
+    </body>
+    <script src="./accordion.js" ></script>
+</html>
