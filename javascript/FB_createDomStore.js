@@ -22,6 +22,11 @@ map.has(document.getElementsByClassName("list-body")[0]); // false
 
 map.get(document.getElementsByClassName("list-body")[1]); // "list-body 1"
 
+// IMPORTANT
+// Set: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
+
+
+
 
 
 
