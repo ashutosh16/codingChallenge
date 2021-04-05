@@ -6,14 +6,12 @@
   * So user not need to provide the callback instead he will use .then to resolve the promise once task is done.
 */
 
-let delay = (sec, callback) => setTimeout(callback, sec);
+let delay = (sec, callback) => setTimeout(()=>callback(false, "Done successfully!!"), sec);
 
 function Promisify (fun) {
-
   return (...arg) => new Promise((resolve, reject) => fun(...arg, (error, result) => error ? reject(error) : resolve(result)));
-
 }
 
 let delayPromise = Promisify(delay);
 
-delayPromise(3000).then(result => console.log("Hi "));
+delayPromise(3000).then(result => console.log(result));
