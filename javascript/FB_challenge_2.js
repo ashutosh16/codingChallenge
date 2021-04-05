@@ -3,17 +3,17 @@
 // B = [['type', 'car'], ['color', 'green'], ['price':'$2000']];
 // Create array of objects from 'A' which are not satisfy condition from 'B' array.
 
-function remove(A, B) {
+function filter(list, option) {
   const map = B.reduce((acc, item) => {
-    acc[item[0]] = item[1];
-    return acc;
-  }, {});
-
-  return A.filter((item) => {
-    return Object.keys(item).reduce((acc, key) => (!acc || (item[key] && item[key] === map[key]) ? false : true), true);
-  });
+      acc[item[0]] = item[1];
+      return acc;
+    }, {});
+   return list.filter((obj)=> Object.keys(obj).reduce((acc, key)=>(acc && (map[key] !== obj[key])), true));
 }
+filter(A,B);
+// {type: 'Tv', price:'$1200', color:'black'}
 
+------------------------------------------------------------------------------------------------------------------------------
 
 
 // @function createMappingObject
