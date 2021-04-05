@@ -14,7 +14,7 @@ function Serialize(domElement){
       curr[path[0]] = value;
     } else {
       // present with arr
-      // present with primitive
+      // present with primitive -> if more value has same name then create the array and add value in arr.
       Array.isArray(curr[path[i]]) ?  curr[path[i]].push(value) : curr[path[i]] = [curr[path[i]] , value];
     }
     return target;
