@@ -11,8 +11,6 @@
   
   }
   
-  
-  
   function Flatern(obj, prefix="", result = {}) {
     var keys = Object.keys(obj);
     result = keys.reduce((acc, key) => {
