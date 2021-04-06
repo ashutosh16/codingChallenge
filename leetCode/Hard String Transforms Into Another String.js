@@ -32,7 +32,7 @@ var canConvert = function(str1, str2) {
   if(str1 === str2) return true;
   let n = str1.length, 
       map = {}, // show the mapping of str1 char to str2 char
-      s2 = {};
+      s2 = {}; // Count number of unique char in string2 for corner case in last if.
   
   let swapCount = 0;
   for(let i = 0; i < n; i++){
@@ -43,7 +43,7 @@ var canConvert = function(str1, str2) {
       map[str1[i]] = str2[i];
     }
   }
-  
+  //for corner case where str1 & atr2 has 26 char and str2 has all unique char then its not possible to match
   if(str1.length === 26 &&  Object.keys(s2).length === 26) return false;
   return true;  
 };
