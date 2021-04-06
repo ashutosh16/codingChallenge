@@ -72,6 +72,31 @@ function findTarget(currentNode, time, target, graph) {
   }
   return 0;
 }
+
+
+// Easy Alternative Solution 
+function findTarget(node, time, target, map, prob=1) {
+  const map = { '1': [ 2, 3, 7 ], '2': [ 4, 6 ], '3': [ 5 ] }
+  // found
+  if(node === target) {
+    //leaf node || timeup 
+    return (!map[node] || time===0) ? prob : false;
+  }
+  // not found & time up
+  if(time === 0 || !map[node]) return false;
+  
+  const child = map[node];
+  prob = prob / child.length; // update prob
+  time--; // update time
+  for(let i = 0; i<child.length; i++) { // travel child nodes untill not found true.
+    const result = FindTarget(child[i], target, time, prob);
+    if(result !== false) {
+      return result;
+    } 
+  }
+  return false;
+}
+
 // 7: number of nodes, [[]]: vertex list, 2: sec, 4: target node 
 frogPosition(7, [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], 2, 4);
 // 0.16667
