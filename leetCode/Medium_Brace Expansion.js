@@ -23,7 +23,7 @@
  * @return {string[]}
  */
 var expand = function(s) {
-    let result = [];
+  let result = [];
   
   for(let i=0; i<s.length;){
     if(s[i] !== '{') {
@@ -32,21 +32,23 @@ var expand = function(s) {
     } else {
       const end = s.indexOf("}", i+1);
       const temp = s.slice(i+1,end).split(",");
-      let merge = [];
+      
       if(result.length) {
+        let merge = [];
         for(let r=0; r< result.length; r++) {
           merge.push(...temp.map(str => result[r]+str));
         }
         result = merge;
       } else {
         result = temp;
-      }
-      
+      }      
       i=end+1;
     }
-    
   }
   return result;
 };
+
+expand("{a,b}c{d,e}f");
+// ["acdf", "acef", "bcdf", "bcef"]
 
 
