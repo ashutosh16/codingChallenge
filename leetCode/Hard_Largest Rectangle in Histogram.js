@@ -44,7 +44,7 @@ var largestRectangleArea = function(heights) {
     
     let j = n - 1 - i;
     while(stR.length && heights[stR[stR.length-1]] >= heights[j]) stR.pop();
-     if(stR.length) {
+    if(stR.length) {
       rR[j] =  stR[stR.length-1] - 1;
     } else {
       rR[j] = n-1;
