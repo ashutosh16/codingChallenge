@@ -55,3 +55,36 @@ var GetImportance = function(employees, id) {
 
 GetImportance([{id: 1, importance: 5, subordinates: [2,3] }, {id: 2, importance: 3, subordinates: [] }, {id: 3, importance: 3, subordinates: [4]}, {id: 4, importance: 4, subordinates: []}], 1);
 // 15
+
+
+
+// Inhancement Calculate the ratting of full hierarchy for given employee id
+
+function FindRate(arr, id){
+  const map = arr.reduce((acc, item)=>{
+    acc[item[0]] = {
+      ratting: item[1],
+      sub: item[2]
+    };
+    return acc;
+  }, {});
+ 
+//  BFS
+  const findRatting = (id) => {
+    const st = [id];
+    let result = 0;
+    while(st.length) {
+      const id = st.pop();
+      result += map[id].ratting; 
+      map[id].sub.length && st.push(...map[id].sub);
+      
+    }
+    return result;
+  }
+  return findRatting(id);
+
+}
+
+FindRate([[1, 5, [2, 3]], [2, 3, [4]], [3, 3, []], [4, 3, []], [5, 3, []]], 1);
+// 14
+
