@@ -19,7 +19,7 @@
 // we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of last stone.
 
 
-
+// Top Down approch: Move high child node to parent and heapify on that new child node.
 function Heapify(arr, i){
   let l = i*2;
   let r = i*2 +1;
@@ -35,6 +35,7 @@ function Heapify(arr, i){
   return arr;
 }
 
+//Bottom up approch: move the newly added elememt the highest top.
 function PushInHeap(arr, item){
   arr.push(item);
   let n = arr.length -1;
@@ -47,6 +48,7 @@ function PushInHeap(arr, item){
   return arr;
 }
 
+// Do heapify on root node.
 function PopFromHeap(arr){
   //Only single element in heap
   if(arr.length == 2) return arr.pop();
@@ -85,7 +87,7 @@ var lastStoneWeight = function(stones) {
 };
 
 lastStoneWeight([2,7,4,1,8,1]);
-
+// 1
 
 
 
