@@ -59,8 +59,8 @@ var largestRectangleArea = (h) => {
 }
 
 largestRectangleArea([2,1,5,6,2,3]);
-// lR = [ 0, 0, 2, 3, 2, 5 ] 
-// rR = [ 0, 5, 3, 3, 5, 5 ]
+// leftIndex = [ 0, 0, 2, 3, 2, 5 ] 
+// rightIndex = [ 0, 5, 3, 3, 5, 5 ]
 // result = 10
 
 // Hint
