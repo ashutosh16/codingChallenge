@@ -72,7 +72,7 @@ function findTarget(currentNode, time, target, graph) {
   }
   return 0;
 }
-
+// 7: number of nodes, [[]]: vertex list, 2: sec, 4: target node 
 frogPosition(7, [[1,2],[1,3],[1,7],[2,4],[2,6],[3,5]], 2, 4);
 // 0.16667
 
