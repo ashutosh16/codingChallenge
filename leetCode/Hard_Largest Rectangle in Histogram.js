@@ -26,40 +26,37 @@
  * @param {number[]} heights
  * @return {number}
  */
-var largestRectangleArea = function(heights) {
-  let n = heights.length;
-  let lR = Array(n); // store the left most included index for each bar.
-  let rR = Array(n); // store the right most included index for each bar.
-  let st = []; // stack to find lR
-  let stR = []; // stack to find rR
+var largestRectangleArea = (h) => {
+  const leftStact = [];// stack to find leftIndex
+  const rightStack = [];// stack to find rightIndex
+  const leftIndex = [];// store the left most included index for each bar.
+  const rightIndex = [];// store the right most included index for each bar.
+  const n = h.length;
+  for(let i=0; i<n; i++) {
+    //calculate leftIndex for i
+    while(leftStact.length && h[leftStact[leftStact.length-1]] >= h[i]){
+      leftStact.pop();
+    }
+    leftIndex[i] = leftStact.length ? leftStact[leftStact.length-1]+1: 0;
+    leftStact.push(i);
 
-  for(let i=0; i < n; i++){
-    while(st.length && heights[st[st.length-1]] >= heights[i]) st.pop();
-    if(st.length) {
-      lR[i] =  st[st.length-1] +1;
-    } else {
-      lR[i] = 0;
+   //calculate rightIndex for i
+    const j = n-1-i;
+    while(rightStack.length && h[rightStack[rightStack.length-1]] >= h[j]){
+      rightStack.pop();
     }
-    st.push(i);
-    
-    let j = n - 1 - i;
-    while(stR.length && heights[stR[stR.length-1]] >= heights[j]) stR.pop();
-    if(stR.length) {
-      rR[j] =  stR[stR.length-1] - 1;
-    } else {
-      rR[j] = n-1;
-    }
-    stR.push(j)
+    rightIndex[j] = rightStack.length ? rightStack[rightStack.length-1]-1 : n-1;
+    rightStack.push(j);
   }
   
-  let result = 0;
-  console.log(lR, rR);
-  // Calculate the rectangle area with each bar included fully.
-  for(let i=0; i < n; i++){
-    result = Math.max(result, (rR[i] - lR[i] + 1) * heights[i]);
+  console.log(leftIndex,rightIndex );
+  let resultArea = 0;
+ // Calculate the rectangle area with each bar included fully.
+  for(let i=0; i<n; i++) {
+    resultArea = Math.max((rightIndex[i] - leftIndex[i] + 1) * h[i], resultArea); 
   }
-  return result;
-};
+  return resultArea;
+}
 
 largestRectangleArea([2,1,5,6,2,3]);
 // lR = [ 0, 0, 2, 3, 2, 5 ] 
