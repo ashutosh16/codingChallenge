@@ -18,7 +18,6 @@
                 } else {
                     isInprogress = 1;
                     callCallback(args).then((res) => {
-                        debugger;
                         isInprogress = 0;
                         resolve(res);
                         if(queue.length > 0) {
@@ -50,3 +49,5 @@
         console.log("res 5000 = ", res);
     });
 }
+
+
