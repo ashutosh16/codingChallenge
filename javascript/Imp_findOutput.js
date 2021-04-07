@@ -325,33 +325,7 @@ console.log(typeof typeof 1);
 }
 
 // ------------------------------------------------------------------------------------------------------------
-
 // 15)
-{
-  // Create polyfill for 'new' keyword
-  // Write a function name as newObject(constructorFunction) return new object just like 'new' keyword
-  function newObject(className, ...args) {
-    let obj = {};
-    className.call(obj, ...args);
-    obj.__proto__ = className.prototype;
-    return obj;
-  }
-
-  function Person(name = 'sam', surname = 'girkar'){
-    this.name = name;
-    this.lastName = surname;
-  }
-
-  let p1 = new Person('tom');
-  console.log(p1); // Person {name: "tom", lastName: "girkar"}
-
-  let p2 = newObject(Person, 'tom');
-  console.log(p2); // Person {name: "tom", lastName: "girkar"}
-}
-
-// ------------------------------------------------------------------------------------------------------------
-
-// 16)
 {
   function prob(){
     for (var i = 0; i < 5; i++) {
@@ -428,30 +402,4 @@ console.log(typeof typeof 1);
   // i = 3
   // i = 4
 }
-// ------------------------------------------------------------------------------------------------------------
-// 17)
-// Create Queue using Array
-function queue() {
-  let list = [];
-  return {
-    add(n) {
-      list.push(n);
-      return list;
-    },
-    remove() {
-      return list.shift();
-    },
-    show(){
-      return list;
-    }
-  }
-}
-t.add(1);
-t.add(2);
-t.add(3);
-t.add(4);
-t.show(); //[1, 2, 3, 4]
-t.remove(); //1
-t.show(); //[2, 3, 4]
-
 // ------------------------------------------------------------------------------------------------------------
