@@ -220,8 +220,10 @@ console.log(typeof typeof 1);
   console.log(`obj.name = ${obj.name}`);
 }
 
-// obj.getUpdatedName --> New New new global name
+// obj.getUpdatedName --> New global name
 // obj.name = sam
+
+//Array function didnot create the this contex it uses the outer contex. 
 
 // ------------------------------------------------------------------------------------------------------------
 
