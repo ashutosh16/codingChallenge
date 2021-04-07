@@ -19,4 +19,21 @@ document.querySelector(".refresh").addEventListener("click", clickEv);
 
 // Debounce function 
 // function call is delay to given time if it gets call again in that time the cansel prev call and place new call to run after given time.
+function Debounce(fun, time) {
+    let timer = null;
+    return (...args) =>{
+        if(timer !== null) {
+            clearTimeout(timer);
+            timer = null;
+        }
+        timer = setTimeout(()=>{
+            fun(args);
+            timer = null;
+        }, time);
+    }
+}
 
+var a = Debounce(()=>console.log("Done!"), 3000);
+a();
+a();
+// Done!
