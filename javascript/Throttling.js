@@ -17,3 +17,6 @@ const clickEv = Throtteling(() => console.log("Clicked!!!"), 2000);
 
 document.querySelector(".refresh").addEventListener("click", clickEv);
 
+// Debounce function 
+// function call is delay to given time if it gets call again in that time the cansel prev call and place new call to run after given time.
+
