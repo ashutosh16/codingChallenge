@@ -13,8 +13,6 @@ var obj = {
 };
 
 obj.method(fn, 1);
-
-
 // 10
 // 2
 
@@ -22,6 +20,10 @@ obj.method(fn, 1);
 
 // In the first place, as fn is passed as a parameter to the function method, the scope (this) of the function fn is window. var length = 10; 
 // is declared at the window level. It also can be accessed as window.length or length or this.length (when this === window.)
+// fun() is not called on any object like "this.fun" . hence its keep on pointing to the global scope of the length variable.
+// But any function call on global space will be call as window.fun hence its always refer this to global object insted its declaration scope.
+// If function called on any object using "." then this refer to that object else this refer to the function declaration context.
+
 
 // method is bound to Object obj, and obj.method is called with parameters fn and 1. 
 // Though method is accepting only one parameter, while invoking it has passed two parameters; the first is a function callback and other is just a number.
@@ -34,6 +36,48 @@ obj.method(fn, 1);
 // Hence arguments[0]() is nothing but calling fn(). Inside fn now, the scope of this function becomes the arguments array,
 // and logging the length of arguments[] will return 2.
 // Hence the output will be as above.
+
+// ------------------------------------------------------------------------------------------------------------
+
+// Find output of given code.
+{
+  let obj = {
+    name : 'sameer',
+    lastName: 'girkar',
+    details: {
+      getFullName(){
+        return `${this.name} ${this.lastName}`;
+      },
+      getCompany(){
+        return `${this.c_name} ${this.c_lastName}`;
+      }
+    }
+  }
+  let name = 'global name',
+    lastName = 'global last name';
+
+  var c_name = "global c name",
+      c_lastName = 'global c last name';
+
+  console.log(`obj.details.getFullName()=  ${obj.details.getFullName()}`);
+
+  let temp = obj.details.getFullName;
+  console.log(`temp() =  ${temp()}`);
+
+  let temp2 = obj.details.getCompany;
+  console.log(`temp2() =  ${temp2()}`);
+}
+// output
+// obj.details.getFullName()= undefined undefined    explanation: obj.details.getFullName()  --> 'this' inside obj.details.getFullName function refer to the details object
+// temp() = undefined
+// temp2() = global c name global c last name
+
+// HINT: var a will mount "a" on window.a but let a will not mount a on window object;
+var a =1;
+let b = 2;
+console.log(window.a); // 1
+console.log(window.b); // undefined
+
 
 // ------------------------------------------------------------------------------------------------------------
 
@@ -133,34 +177,6 @@ console.log(typeof typeof 1);
   // typeof arr1 object
   // typeof arr2 object
 }
-
-// ------------------------------------------------------------------------------------------------------------
-
-// Find output of given gode.
-{
-  let obj = {
-    name : 'sameer',
-    lastName: 'girkar',
-    details: {
-      getFullName(){
-        return `${this.name} ${this.lastName}`;
-      }
-    }
-  }
-  let name = 'global name',
-    lastName = 'global last name';
-
-  console.log(`obj.details.getFullName() ${obj.details.getFullName()}`);
-
-  let temp = obj.details.getFullName;
-  console.log(`temp() ${temp()}`);
-}
-// output
-// line 70: - undefined undefined
-                      // obj.details.getFullName()  --> 'this' inside obj.details.getFullName function refer to the details object
-
-// line 73: temp() global name undefined
-
 
 // ------------------------------------------------------------------------------------------------------------
 
