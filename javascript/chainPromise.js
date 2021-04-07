@@ -7,4 +7,4 @@
 // eg.
 
 // abc(() => new Promise(res => setTimeout( () => resolve('result'), 2000)) ).then(x => x).then(x => x);
-// abc(5).thencatch()
+// abc(5).then().catch().then();
