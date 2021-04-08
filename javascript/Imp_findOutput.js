@@ -1,11 +1,13 @@
 // Walmart question
 const data = 10;
+console.log(data); 
 
-function abc(){
-	console.log(data);
-	const  data = 20;
+function display() {
+    console.log(data);
+    const data = 20;
 }
-abc();
+
+display();
 
 //How to chnage the code to print output as 10.
 
