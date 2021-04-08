@@ -21,6 +21,21 @@
  * @param {number[]} nums
  * @return {boolean}
  */
+
+
+function canJump(arr){
+  let curr = 0;
+  let reachable = 0;
+  while(curr < arr.length || reachable < arr.length) {
+    if(reachable < curr) return false;
+    reachable = Math.max(reachable, curr+arr[curr]);
+	  if(reachable >= arr.length-1) return true;
+    curr++;
+  }
+  return false;
+}
+
+
 var canJump = function(nums) {
   if(nums.length === 1) return true;
   let reachable = 0;
