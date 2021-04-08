@@ -29,6 +29,30 @@
  * @param {number} W
  * @return {boolean}
  */
+
+function isPossibleDivide(arr, W){
+  arr = arr.sort((a,b)=>a-b);
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] === null) continue;
+    let count = 1;
+    let pre = arr[i];
+    let j = i+1;
+    while(j < arr.length && count < W) {
+      while(pre === arr[j] || arr[j] === null) j++;
+      if(j>= arr.length || pre+1 !== arr[j]) return false;
+      pre = arr[j];
+      arr[j] = null;
+      count++;
+      j++;
+    }
+	if(count < W) return false;
+  }
+  return true;
+}
+console.log(HandOfStraight([1,1,2,2,3,3], 3));
+
+----------------------------------------------------------------------------------------------------------------------------------
+
 var isNStraightHand = function(hand, W) {
     if(hand.length % W !== 0) return false;
     hand.sort((a,b) => a-b);
