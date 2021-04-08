@@ -1,3 +1,15 @@
+// Walmart question
+const data = 10;
+
+function abc(){
+	console.log(data);
+	const  data = 20;
+}
+abc();
+
+//How to chnage the code to print output as 10.
+
+// ------------------------------------------------------------------------------------------------------------
 // 1)
 
 var length = 10;
