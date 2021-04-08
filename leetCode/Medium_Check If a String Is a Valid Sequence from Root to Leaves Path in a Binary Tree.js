@@ -39,15 +39,19 @@
  * @param {number[]} arr
  * @return {boolean}
  */
-var isValidSequence = function(root, arr, index=0) {
+function isValidSequence(root, seq, index=0){
   if(!root) return false;
-  if(root.val === arr[index]) {
-    if(index === arr.length-1) {
-      return !root.left && !root.right;
-    }
-    return isValidSequence(root.left, arr, index+1) || isValidSequence(root.right, arr, index+1);
-  } 
-  return false;
-};
+  if(root.val !== seq[index]) return false;
+  //Val is equal and last index: if its leaf node then true else false;
+  if(index === seq.length-1) return (!root.left && !root.right);
+  //Val is equal but not last index: look for the next index in left subTree and if not found in left subTree then find in right subTree
+  return isValidSequence(root.left, seq, index+1) || isValidSequence(root.right, seq, index+1);
+}
 
+
+isValidSequence([0,1,0,0,1,0,null,null,1,0,0], [0,1,0,1]);
+//True
+
+isValidSequence([8,null,5,4,null,4], [8]);
+//false
 
