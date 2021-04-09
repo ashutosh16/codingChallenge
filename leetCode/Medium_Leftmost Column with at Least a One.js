@@ -53,21 +53,26 @@
  * @param {BinaryMatrix} binaryMatrix
  * @return {number}
  */
-var leftMostColumnWithOne = function(binaryMatrix) {
+function leftMostColumnWithOne(binaryMatrix){
   const [row, col] = binaryMatrix.dimensions();
   let i = row-1;
   let j = col-1;
-  let result = col;
-  while(i >= 0){
-    let curr = binaryMatrix.get(i, j);
-    while(j >= 0 && curr === 1) {
-      if(result > j) result=j;
+  let result = -1;
+  
+  while(i<row && i >-1 && j < col && j>-1){
+    if( binaryMatrix.get(i, j) === 1) {
+      result = j;
       j--;
-      curr = binaryMatrix.get(i, j);
+    } else {
+      i--;
     }
-    i--;
   }
-  return result === col ? -1 : result;
-};
+  return result;
+}
+
+leftMostColumnWithOne([[0,0],[1,1]]);
+//0
+
+
 
 
