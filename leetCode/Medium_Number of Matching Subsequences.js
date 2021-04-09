@@ -16,8 +16,17 @@
 
 // https://www.youtube.com/watch?v=PwQnydsKk_I
 
+// HINT: Create a map of the string S.
+// map = {
+//   a: [0,5],
+//   b:[1],
+//   c[2],
+//   d:[3],
+//   e:[4],
+// }
+// Then search in the word char by char in given map and check is lastIndex < current char index.
 
-/
+//
 function IsMatchingSequence(map, word) {
   let lastIndex = -1;
   for(let i=0; i < word.length; i++) {
