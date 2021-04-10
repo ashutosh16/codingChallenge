@@ -49,7 +49,7 @@
  * @param {string[]} source
  * @return {string[]}
  */
-var removeComments = function(source) {debugger;
+var removeComments = function(source) {
     let isFindClose = false;
     let output = [];
     let saveWord = '';
