@@ -61,3 +61,4 @@ var wordsTyping = function(sentence, rows, cols) {
 };
 
 wordsTyping(["f","p","a"], 8, 7);
+// 10
