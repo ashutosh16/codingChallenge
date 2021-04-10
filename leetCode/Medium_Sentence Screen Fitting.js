@@ -54,8 +54,9 @@ var wordsTyping = function(sentence, rows, cols) {
     for(let i = 0; i < rows; i++) {
         idx+=cols;
         if(string[idx%len] !== " ") {
-            while(idx > 0 && string[(idx-1)%len] !== " ") idx--;
-        } else idx++;
+            while(idx > 0 && string[idx%len] !== " ") idx--;
+        } 
+        idx++;
     }
     return Math.floor(idx/len)
 };
