@@ -47,7 +47,8 @@
 // had--
 
 // The character '-' signifies an empty space on the screen.
-
+// Hint: Merge the sentence with space.
+//     : then travel the sentence with column length and find first space before it. then column++; 
 var wordsTyping = function(sentence, rows, cols) {
     let string = sentence.join(" ") + " ";
     let [idx,len] = [0,string.length];
