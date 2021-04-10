@@ -63,20 +63,20 @@ var removeComments = function(source) {
         } else 
           // Starting multiline comment "/*"
           if(!isFindClose && line[i] === '/' && line[i+1] === '*'){
-          isFindClose = true;
-          i++;
-        } else 
-          // Starting single line comments "//"
-          if(!isFindClose && line[i] === '/' && line[i+1] === '/' ) {
-           i =  line.length; // this will ignore all remaining char from the line.
-        } else {
-          !isFindClose && (saveWord += line[i]);
-        }
+            isFindClose = true;
+            i++;
+          } else 
+            // Starting single line comments "//"
+            if(!isFindClose && line[i] === '/' && line[i+1] === '/' ) {
+              i =  line.length; // this will ignore all remaining char from the line.
+            } else {
+              !isFindClose && (saveWord += line[i]);
+            }
       }
       //If we are searching for close comment char then dont add string to output yet. check case 2
       if(saveWord.length && !isFindClose) {
-          output.push(saveWord);
-          saveWord = '';
+        output.push(saveWord);
+        saveWord = '';
       }
     });
   return output;
