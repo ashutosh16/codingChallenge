@@ -41,7 +41,7 @@ var isRobotBounded = function(instructions) {
   
     for(let i=0; i<instructions.length; i++){
       if(instructions[i] === "R") {
-        dir = (dir+1) % 4; // Rotate clockwise
+        dir = (dir+1) % 4; // Rotate clockwise --> dirArr is [north, east, south, west] hence rurn R will increse the index. and L will decrease index.
       } else if(instructions[i] === "L") {
         dir = (dir-1+4) % 4; // Rotate anti clockwise
       } else {
@@ -52,7 +52,3 @@ var isRobotBounded = function(instructions) {
     //If its at origin OR Pointing any other than north
     return ((x===0 && y===0) || dir !== 0) ? true : false;
 };
-
-
-
-
