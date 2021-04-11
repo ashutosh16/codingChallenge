@@ -49,6 +49,9 @@
  * @param {TreeNode} t
  * @return {boolean}
  */
+// HINT: Create a function which only checks is both Tree are same "isValid"
+// call "isValid" function on left and right subtree if root val for and and t are same.
+
 var isSubtree = function(s, t) {
   
   function isValid(s, t){
