@@ -6,7 +6,7 @@
 
 /**
   * Keep on adding to the sum untill sum is greater than 0, 
-  * if sum is greater than 0 then 
+  * if sum is equal to zero than, move start index to i+1, currentSum =0
 */
 const LargestSumOfContinousSubArrays = (arr) => {
   if (arr.length <= 1) return arr;
