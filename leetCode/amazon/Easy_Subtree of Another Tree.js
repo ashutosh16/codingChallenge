@@ -76,5 +76,6 @@ var isSubtree = function(s, t) {
 };
 
 
-
+isSubtree([3,4,5,1,null,2],[3,1,2]);
+// false
 
