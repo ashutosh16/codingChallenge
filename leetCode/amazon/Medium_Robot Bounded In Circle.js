@@ -28,9 +28,11 @@
  * @param {string} instructions
  * @return {boolean}
  */
+// HINT: after one cycle of instruction if robot head is at origin OR Pointing any other than north then return true.
 var isRobotBounded = function(instructions) {
-    const dirArr = [{dx:0,dy:1}, //Pointing North
-                    {dx:1, dy:0}, //Pointing East
+//     Direction Arr represents when robot head is at perticular direction and he is moving how x and y co-ordinates will change. 
+    const dirArr = [{dx:0,dy:1}, //Pointing North --> moving with head North will increase y co-ordinate but no change in x 
+                    {dx:1, dy:0}, //Pointing East --> moving with head yest will increase x co-ordinate but no change in y 
                     {dx:0, dy:-1}, //Pointing South
                     {dx:-1, dy:0}];//Pointing West
     let dir = 0;
