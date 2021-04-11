@@ -38,6 +38,15 @@
 // 1 <= cardPoints[i] <= 10^4
 // 1 <= k <= cardPoints.length
 
+// HINT: Calculate the min sum subArray of length n-k;
+// remaining subarray will be max sum subarray of size k;
+// [1,2,3,4,5,6,1]  k = 3 n-k = 7-3 = 4
+// TotalSum = 22
+// SubArray of length n-k start from 0 to 3  --> result arr [5,6,1] indexes: 4,5,6
+// SubArray of length n-k start from 1 to 4  --> result arr [1,6,1] indexes: 1,5,6
+// SubArray of length n-k start from 2 to 5  --> result arr [1,2,1] indexes: 1,2,6
+// SubArray of length n-k start from 3 to 6  --> result arr [1,2,3] indexes: 1,2,3
+
 
 /**
  * @param {number[]} cardPoints
@@ -66,6 +75,33 @@ var maxScore = function(cardPoints, k) {
   
  return resultSum;
 };
+
+maxScore([1,2,3,4,5,6,1],3);
+// 12
+----------------------------------------------------------------------------------------------------------------------------
+ // Find the sub array with min count with length n-k
+// result = totalCount - minSumSubArrayCount
+ function maxScore(arr, k) {
+    let totalCount = 0;
+    let excludedCount = 0;
+    const n = arr.length;
+    for(let i=0; i<arr.length; i++) {
+      totalCount += arr[i];
+      if(i< n-k) excludedCount += arr[i];
+    }
+    let end = n-k;
+    let start = 0;
+    let sum = excludedCount;
+    while(end < n) {
+      sum = sum-arr[start]+arr[end];
+      excludedCount = Math.min(excludedCount, sum);
+      end++;
+      start++;
+    }
+    return totalCount - excludedCount;
+  }
  
 
+maxScore([1,2,3,4,5,6,1],3);
+// 12
 
