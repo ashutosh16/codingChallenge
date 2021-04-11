@@ -35,8 +35,8 @@ var isRobotBounded = function(instructions) {
                     {dx:1, dy:0}, //Pointing East --> moving with head yest will increase x co-ordinate but no change in y 
                     {dx:0, dy:-1}, //Pointing South
                     {dx:-1, dy:0}];//Pointing West
-    let dir = 0;
-    let x = 0;
+    let dir = 0; //Robot facing north 
+    let x = 0; // Robot starting at 0,0 origin.
     let y=0;
   
     for(let i=0; i<instructions.length; i++){
