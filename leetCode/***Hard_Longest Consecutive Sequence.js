@@ -13,6 +13,10 @@
  * @param {number[]} nums
  * @return {number}
  */
+// HINT: Create map or set with each number from nums array.
+// then travel the arr
+// if(set.has(arr[i-1])) then i is not a starting point. skip
+// Else continue till arr[i+len] is present in Set.
 var longestConsecutive = function(nums) {
   const s = new Set(nums);
   let resultLen = 0;
