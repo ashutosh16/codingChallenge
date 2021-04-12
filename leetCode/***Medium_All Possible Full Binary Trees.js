@@ -63,3 +63,12 @@ var allPossibleFBT = function(n) {
   }
   return findFBT(n);   
 };
+
+allPossibleFBT(7);
+// [[0,0,0,null,null,0,0,null,null,0,0],
+// [0,0,0,null,null,0,0,0,0],
+// [0,0,0,0,0,0,0],
+// [0,0,0,0,0,null,null,null,null,0,0],
+// [0,0,0,0,0,null,null,0,0]]
+
+
