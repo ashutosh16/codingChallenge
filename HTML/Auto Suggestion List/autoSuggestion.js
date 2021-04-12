@@ -23,9 +23,7 @@
       });
     }, 1000);
 
-    const onChangeHandler = (e) => {
-      reqSuggestion(e.target.value);
-    };
+    const onChangeHandler = (e) => reqSuggestion(e.target.value);
     
     const wrapper = document.createElement("div");
     wrapper.classList.add("suggestion-wrapper");
