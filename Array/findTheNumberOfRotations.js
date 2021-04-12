@@ -17,7 +17,7 @@
 // Output: 0
 
 function findRotation(a, l=0, h=a.length-1) {
-  if(a[l] < a[h]) {
+  if(a[l] < a[h]) { //Array from l to h is sorted hence rotation poin will be l.
     return l;
   }
   
