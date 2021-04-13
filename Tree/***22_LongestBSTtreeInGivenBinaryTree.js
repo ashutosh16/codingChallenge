@@ -57,11 +57,11 @@ bt2.travel((node) => {
   let rightLength = node.right ? node.right.length : 0; //Length of right sub tree
   node.length = leftLength + rightLength + node.length; //Length of a tree = 1 + leftSubTree + rightSubTree
 
-  // node.minVal is Min val from tree with root as current node.
+  // node.minVal is Min val from tree with root as current node. find min from left, right and root node.
   node.minVal = (node.left && node.left.minVal < node.val) ? node.left.minVal : node.val; //comapare with left subTree MinVal
   node.minVal = (node.right && node.right.minVal < node.minVal) ? node.right.minVal : node.minVal; //comapare with right subTree MinVal
 
-  // node.maxVal is Max val from tree with root as current node.
+  // node.maxVal is Max val from tree with root as current node. find max from left, right and root node.
   node.maxVal = (node.left && node.left.maxVal > node.val) ? node.left.maxVal : node.val;
   node.maxVal = (node.right && node.right.maxVal > node.maxVal) ? node.right.maxVal : node.maxVal;
 
