@@ -18,6 +18,8 @@ function Node(data){
   }
 }
 
+// HINT: Calculate uncovered left tree and uncovered right tree
+// sumOfAllNodes - uncovered left - uncovered right - root.data
 
 function _sumUncoverdNode(root, side){
   if(!root) return 0; 
