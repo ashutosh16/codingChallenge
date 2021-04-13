@@ -1,14 +1,20 @@
 // Find lowest common ancestor from the giver binary search tree.
 
 function LCA(root, num1, num2) {
+//   if we found num1 or num2 means common ancestor is found node 
+//   because we are travelling top to bottom and both node must be child od the current node.
+//   as we found one node its common ancestor.
   if(root.data === num1 || root.data === num2) return root;
   
+//   if num1 is in left sub tree and num2 is in right sub tree means current node is common ancestor.
   if( Math.min(num1, num2) <= root.data && root.data < Math.max(num1, num2)) return root;
   
+//   Both num1 and num2 are in right subTree hence run LCA on right tree
   if((root.data < Math.min(num1, num2)) && (root.data < Math.max(num1, num2))) {
     return root.right && LCA(root.right, num1, num2);
   }
   
+//   Both num1 and num2 are in left subTree hence run LCA on left tree
   if((root.data > Math.max(num1, num2)) && (root.data > Math.min(num1, num2))) {
     return root.left && LCA(root.left, num1, num2);
   }
