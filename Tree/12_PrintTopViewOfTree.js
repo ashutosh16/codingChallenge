@@ -45,3 +45,7 @@ root.right.left = Tree(6);
 root.right.right = Tree(7);
 
 TopView(root);
+
+
+
+
