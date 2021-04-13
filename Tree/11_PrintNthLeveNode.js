@@ -1,7 +1,7 @@
 // Print all nodes at a given level
 {
   
-   //Alternate solution
+   //Alternate solution DFS
   function FindNthLevelNodes(root, level, currentLevel =1 , resultList =[]) { debugger;
     if(!root) return resultList;
     if(currentLevel === level) return resultList.push(root.data) && resultList;
@@ -14,6 +14,26 @@
     this.data = data;
     this.left = null;
     this.right = null;
+  }
+  
+  //BFS HINT: Keep the null as pointer between each level
+  function PrintNthLevelNode(root,L){
+     const st = [null, root];
+     let level=0;
+     while(st.length) {
+      const item = st.pop();
+      if(item === null) {
+         level ++;
+         if(level === L) {
+           return st;
+         }
+         st.push(null);
+      } else {
+         (item.left !== null) && st.push(item.left);
+         (item.right !== null) && st.push(item.right);
+      }
+     }
+     return [];
   }
   
   let root = new Node(1);
