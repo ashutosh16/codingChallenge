@@ -15,9 +15,12 @@
         (node.data === b) && (foundB = true);
 
         let leftResult = find(node.left, a, b);
-
+        // leftResult is not null
+//         1. either found A (if leftResult === a)
+//         2. or found B (if leftResult === b)
+//         3. found common ancester (if leftResult !== a && leftResult !== b)
         if (!!leftResult) {
-            if (leftResult !== a && leftResult !== b) {
+            if (leftResult !== a && leftResult !== b) { 
                 return leftResult;
             }
             (leftResult === a) && (foundA = true);
@@ -35,13 +38,14 @@
             }
             (rightResult === a) && (foundA = true);
             (rightResult === b) && (foundB = true);
-            return (foundA && foundB) ? node.data : rightResult;
+            // When found both a and b return current node as current node is common ancester.
+            return (foundA && foundB) ? node.data : rightResult; 
         }
 
         if (foundA || foundB) {
-            return foundA ? a : b;
+            return foundA ? a : b; // When found a || b then return found node a or b.
         } else {
-            return null;
+            return null; // When found nothing return null
         }
     }
 
