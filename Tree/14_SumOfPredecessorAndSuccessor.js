@@ -23,13 +23,14 @@
   }
 
   function calculate(root) {
-    debugger;
     let sequence = [0]; // no predecessor for first node in inorder sequence
     DFS(root, (node) => {
       sequence.push(node.data);
     });
     sequence.push(0); // no successor for first node in inorder sequence
-
+    
+    // sequence = [0,4,5,2,1,6,3,7,0]
+    
     let i = 1;
     DFS(root, (node) => {
       node.data = sequence[i-1] + sequence[i+1];
