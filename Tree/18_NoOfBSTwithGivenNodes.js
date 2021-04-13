@@ -18,7 +18,15 @@ function countTrees(n){
 
 console.log(countTrees(4));
 
-// Iterative Method.
+// Iterative Method. 
+// HINT --> Total BST for node 4
+//    left      right
+//     0          3
+//     1          2
+//     2          1
+//     3          0
+    
+
 function countTreeWithIteration(n){
   if(n<=1){
     return 1;
