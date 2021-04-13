@@ -20,30 +20,30 @@ function Node(data){
 
 
 function _sumUncoverdNode(root, side){
-	if(!root) return 0; 
-	let sum = root.data;
-	if(side === 'left') {
-        sum += root.left ? _sumUncoverdNode(root.left, side) : root.right ? _sumUncoverdNode(root.right, side) : 0;
+  if(!root) return 0; 
+  let sum = root.data;
+  if(side === 'left') {
+    sum += root.left ? _sumUncoverdNode(root.left, side) : root.right ? _sumUncoverdNode(root.right, side) : 0;
   }
   if(side === 'right') {
-      sum += root.right ? _sumUncoverdNode(root.right, side) : root.left ? _sumUncoverdNode(root.left, side) : 0;
+    sum += root.right ? _sumUncoverdNode(root.right, side) : root.left ? _sumUncoverdNode(root.left, side) : 0;
   }
   return sum;
 }
 function _TreeSum(root){
-	if(!root) return 0;
+  if(!root) return 0;
   let LSum = root.left ? _TreeSum(root.left) : 0;
   let RSum = root.right ? _TreeSum(root.right) : 0;
   return LSum + RSum + root.data;
 }
 
 function sumOfCoveredAndUncoveredNode(root){debugger;
-	let sumLeftUC = _sumUncoverdNode(root.left, 'left');
-	let sumRightUC = _sumUncoverdNode(root.right, 'right');
-	let uncoveredSum = sumLeftUC + sumRightUC + root.data;
-	
-	let treeSum = _TreeSum(root);
-	return (uncoveredSum === (treeSum - uncoveredSum));
+  let sumLeftUC = _sumUncoverdNode(root.left, 'left');
+  let sumRightUC = _sumUncoverdNode(root.right, 'right');
+  let uncoveredSum = sumLeftUC + sumRightUC + root.data;
+
+  let treeSum = _TreeSum(root);
+  return (uncoveredSum === (treeSum - uncoveredSum));
 }
 
 
