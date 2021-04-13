@@ -2,6 +2,8 @@
 // Time Complexity O(n)
 // Space Complexity O(n)
 
+// Hint: Travel DFS and make sequence arr with inorder sequence starting and ending with 0.
+// Travel DFS again and then sum node.data = sequence[i-1]+sequence[i+1]
 
 {
   function Node(data) {
