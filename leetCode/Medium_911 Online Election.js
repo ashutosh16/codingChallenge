@@ -28,42 +28,58 @@
 // { time: 25, person: 1 },
 // { time: 30, person: 0 }]
 
-var TopVotedCandidate = function(persons, times) {
+/**
+ * @param {number[]} persons
+ * @param {number[]} times
+ */
+var TopVotedCandidate = function (persons, times) {
   const personToVote = {};
   let leading = null;
-  this.votting = persons.map((p, index)=>{
-    if(!personToVote[p]) personToVote[p]=0;
+  this.votting = persons.map((p, index) => {
+    if (!personToVote[p]) personToVote[p] = 0;
     personToVote[p]++;
-    
-    if(!leading) {
+
+    if (!leading) {
       leading = {
         person: p,
-        count: personToVote[p]
-      }
-    } else if(personToVote[p] >= leading.count){
+        count: personToVote[p],
+      };
+    } else if (personToVote[p] >= leading.count) {
       leading.count = personToVote[p];
       leading.person = p;
     }
-    
+
     return {
       time: times[index],
-      person: leading.person
-    }
-  })
+      person: leading.person,
+    };
+  });
   console.log(this.votting);
 };
 
-/** 
+/**
  * @param {number} t
  * @return {number}
  */
-TopVotedCandidate.prototype.q = function(t) {
-//   Implement bonary search here.
-  for(let i=0; i<this.votting.length; i++) {
-    if(this.votting[i].time > t) return this.votting[i-1].person;
-  }
-  return this.votting[this.votting.length-1].person
+TopVotedCandidate.prototype.q = function (t) {
+  if (t > this.votting[this.votting.length - 1].time) return this.votting[this.votting.length - 1].person;
+
+  const find = (t, left = 0, right = this.votting.length - 1) => {
+    const mid = Math.floor((left + right) / 2);
+    if (this.votting[mid].time === t) return this.votting[mid].person;
+    if (mid > 0 && t < this.votting[mid].time && t > this.votting[mid - 1].time) return this.votting[mid - 1].person;
+
+    if (mid > 0 && t <= this.votting[mid - 1].time) return find(t, left, mid - 1);
+    return find(t, mid + 1, right);
+  };
+  return find(t);
 };
+
+/**
+ * Your TopVotedCandidate object will be instantiated and called as such:
+ * var obj = new TopVotedCandidate(persons, times)
+ * var param_1 = obj.q(t)
+ */
 
 // ["TopVotedCandidate",   "q","q","q","q","q","q"]
 // [[
@@ -88,3 +104,14 @@ TopVotedCandidate.prototype.q = function(t) {
  * var obj = new TopVotedCandidate(persons, times)
  * var param_1 = obj.q(t)
  */
+
+// Input
+// ["TopVotedCandidate","q","q","q","q","q","q"]
+// [[[0,1,1,0,0,1,0],
+//   [0,5,10,15,20,25,30]
+// ],
+//        [3], [12], [25], [15], [24], [8]]
+
+// Output
+//  [null, 0,    1,    1,    0,    0,   1]
+
