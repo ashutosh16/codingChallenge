@@ -26,6 +26,9 @@
  * @param {number[][]} heights
  * @return {number}
  */
+
+// TODO: https://www.youtube.com/watch?v=FabSLaGu0NI
+
 // Below solution only work for mode down and right.
 var minimumEffortPath = function(heights) {
   const cols = heights[0].length;
