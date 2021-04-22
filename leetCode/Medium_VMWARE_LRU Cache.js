@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/lru-cache/submissions/
 // Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 
 // Implement the LRUCache class:
@@ -31,13 +32,19 @@
 //https://www.youtube.com/watch?v=akFRa58Svug&t=0s
 // https://leetcode.com/problems/lru-cache/discuss/1066217/Javascript-Solution-Uses-Built-In-Map()-96-Fast
 
+// HINT: Use new Map from JS
+// map.set(key, val)
+// map.get(key);
+// map.delete(key);
+// map.size
+// for(let [key, val] of map)
+
 /**
  * @param {number} capacity
  */
 var LRUCache = function(capacity) {
   this.cache = new Map();
   this.capacity = capacity;
-  this.size = 0;
 };
 
 /** 
@@ -66,17 +73,13 @@ LRUCache.prototype.put = function(key, value) {
     return;
   } 
   
-  if(this.capacity === this.size) {
-    for(let [k, val] of this.cache){ // New Map will allway maintain the sequence in which elements are added. It will return the in sequence for Iterator like for.
-      this.cache.delete(k);//Just delete the first added element.
-      this.size--;
+  if(this.capacity === this.cache.size) {
+    for(let [k, val] of this.cache){
+      this.cache.delete(k);
       break;
     }
   }
   this.cache.set(key, value);
-
-  this.cache.set(key, value);
-  this.size++;
 };
 
 /** 
