@@ -70,3 +70,48 @@ var numOfMinutes = function(n, headID, manager, informTime) {
 
 numOfMinutes(7, 6, [1,2,3,4,5,6,-1], [0,6,5,4,3,2,1]);
 // 21
+
+//  TOP to Bottom BFS
+// Create graph with manager : [subordinate arr]
+// Then travel that in BFS to cal maxTime
+var numOfMinutes = function (n, headID, manager, informTime) {
+  const map = {};
+  for (let i = 0; i < manager.length; i++) {
+    const managerId = manager[i];
+    if (managerId !== -1) {
+      !map[managerId] && (map[managerId] = []);
+      map[managerId].push(i);
+    }
+  }
+  
+  const st = [{ id: headID, time: 0 }]; // Time required to get new to headID is 0;
+  let time = 0;
+  while (st.length) {
+    const emp = st.pop();
+    const sub = map[emp.id];
+    time = Math.max(time, emp.time);
+
+    if (sub) {
+      st.push(
+        ...sub.map((id) => ({
+          id: id,
+          time: emp.time + informTime[emp.id] // Time required get news till this emp
+        }))
+      );
+    }
+  }
+  return time;
+}
+
+numOfMinutes(7, 6, [1,2,3,4,5,6,-1], [0,6,5,4,3,2,1]);
+// 21
+map = {
+  '1': [ 0 ],
+  '2': [ 1 ],
+  '3': [ 2 ],
+  '4': [ 3 ],
+  '5': [ 4 ],
+  '6': [ 5 ]
+}
+
+
