@@ -53,13 +53,11 @@ var wordsTyping = function(sentence, rows, cols) {
     let string = sentence.join(" ") + " ";
     let [idx,len] = [0,string.length];
     for(let i = 0; i < rows; i++) {
-        idx+=cols;
-        if(string[idx%len] !== " ") {
-            while(idx > 0 && string[idx%len] !== " ") idx--;
-        } 
-        idx++;
+      idx+=cols;
+      while(idx > 0 && string[idx%len] !== " ") idx--;
+      idx++;
     }
-    return Math.floor(idx/len)
+    return Math.floor(idx/len);
 };
 
 wordsTyping(["f","p","a"], 8, 7);
