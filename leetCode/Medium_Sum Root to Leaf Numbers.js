@@ -40,11 +40,11 @@
  */
 var sumNumbers = function(root, num = "") {
   if(!root) return 0;
-  num += root.val;
-  if(!root.left && !root.right) {
-    return Number(num);
-  } 
-  return sumNumbers(root.left, num) + sumNumbers(root.right, num);  
+  
+  if(!root.left && !root.right) return Number(`${num}${root.val}`);
+  
+  return sumNumbers(root.left, `${num}${root.val}`) + sumNumbers(root.right, `${num}${root.val}`);   
 };
 
-
+sumNumbers([1,2,3]);
+// 25
