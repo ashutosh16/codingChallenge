@@ -17,7 +17,6 @@
 // Example 3:
 // Input: root = [2,1], p = 2, q = 1
 // Output: 2
-
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -33,5 +32,25 @@
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function(root, p, q) {
-    
+  if(!root) return null;
+  
+  // root is lowestCommonAncestor
+  if(root.val === p.val || root.val === q.val)
+    return root;
+  
+  // root is lowestCommonAncestor
+  if(Math.min(p.val, q.val) <= root.val && Math.max(p.val, q.val) >= root.val) 
+    return root;
+  
+  // lowestCommonAncestor is in leftSubTree 
+  if(Math.min(p.val, q.val) < root.val && Math.max(p.val, q.val) < root.val) 
+    return lowestCommonAncestor(root.left, p, q);
+     
+  // lowestCommonAncestor is in rightSubTree 
+  if(Math.min(p.val, q.val) > root.val && Math.max(p.val, q.val) > root.val) 
+    return lowestCommonAncestor(root.right, p, q);
 };
+
+lowestCommonAncestor([6,2,8,0,4,7,9,null,null,3,5], 2, 8);
+// 6
+
