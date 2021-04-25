@@ -30,17 +30,9 @@
 var maxAreaOfIsland = function(grid) {
   
   let findAreaDFS = (row, col) => {
-    if(row < 0 || row > grid.length-1 || col < 0 || col > grid[row].length-1 || !grid[row][col]) return 0;
-    
-    let area = 1;
-    
-    grid[row][col] = 0;
-    
-    area += findArea(row-1, col);
-    area += findArea(row+1, col);
-    area += findArea(row, col-1);
-    area += findArea(row, col+1);
-    return area;
+     if(row < 0 || row > grid.length-1 || col < 0 || col > grid[row].length-1 || !grid[row][col]) return 0;
+     grid[row][col] = 0;
+     return 1 + findArea(row-1, col) + findArea(row+1, col) + findArea(row, col-1) + findArea(row, col+1);
   }
   
   let findAreaBFS = (row, col) => {
