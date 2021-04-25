@@ -6,27 +6,28 @@
  * @param {character[][]} matrix
  * @return {number}
  */
-var maximalSquare = function(matrix) {
-    let m = Array(matrix.length+1);
-    for(let i=0; i< m.length; i++) {
-      m[i] = Array(matrix[0].length+1);
-      m[i][0] = 0; 
-    }
-    for(let i=0; i < m[0].length; i++) {
-      m[0][i] = 0;
-    }
-    let result = 0;
-    for(let i=1; i < m.length; i++){
-      for(let j=1; j < m[i].length; j++){
-        if(matrix[i-1][j-1] === "0") {
-          m[i][j] = 0;
-        } else {
-          m[i][j] = Math.min(m[i-1][j], m[i][j-1], m[i-1][j-1])+1;
-        }
-        result = Math.max(result, m[i][j]*m[i][j]);
+var maximalSquare = function(M) {
+  const rows = M.length;
+  const cols = M[0].length;
+  let maxSize = 0;
+  const dp = Array(rows+1);
+  for(let i=0; i < dp.length; i++) {
+    dp[i] = Array(cols+1).fill(0);
+  }
+
+  for(let i=1; i<=rows; i++) {
+    for(let j=1; j<=cols; j++) {
+      if(M[i-1][j-1] === "1") {
+        dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1;
+        maxSize = Math.max(maxSize, dp[i][j]);
       }
     }
-  
-  return result;
+  }
+  return maxSize * maxSize;
 };
 
+maximalSquare([["1","0","1","0"],
+               ["1","0","1","1"],
+               ["1","0","1","1"],
+               ["1","1","1","1"]]);
+// 4
