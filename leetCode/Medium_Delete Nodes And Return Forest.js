@@ -36,18 +36,17 @@
  * @return {TreeNode[]}
  */
 var delNodes = function(root, to_delete) {
-  let toDeletMap = {};
-  let remaining = [];
-  
-  to_delete.forEach(item => {
-    toDeletMap[item] = true; //Create map of to_delete value so that we can travel tree once and delete all required nodes.
-  });
+  const toDeletMap = to_delete.reduce((acc, node)=> {
+    acc[node] = true;
+    return acc;
+  }, {});
+  const remaining = [];
   
   let removeNode = (root, remaining, toDeletMap) => {
     if(!root) {
       return null;
     }
-    // Start deleting node in post order traversal, this way we are sure that nothing left in remaining to delete in the remaining.
+    
     let leftTree = removeNode(root.left, remaining, toDeletMap);
     let rightTree = removeNode(root.right, remaining, toDeletMap)
     if(!!toDeletMap[root.val]) {
@@ -55,17 +54,13 @@ var delNodes = function(root, to_delete) {
       rightTree && remaining.push(rightTree);
       return null;
     }
-    // update left and right subTree after deleteNode.
     root.left = leftTree;
     root.right = rightTree;
     return root;
   }
   
-  removeNode(root, remaining, toDeletMap);
-   // Check if root not in to_delete node add root in remaining.
-   if(!toDeletMap[root.val]) {
-     remaining.push(root);
-   }
+  root = removeNode(root, remaining, toDeletMap);
+  root && (remaining.push(root));
   return remaining;
 };
 
