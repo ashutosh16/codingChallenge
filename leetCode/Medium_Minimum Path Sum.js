@@ -13,28 +13,20 @@
 // Input: grid = [[1,2,3],[4,5,6]]
 // Output: 12
 
-
-/**
- * @param {number[][]} grid
- * @return {number}
- */
-var minPathSum = function(grid) {
-  let row = grid.length;
-  let col = grid[0].length;
+var minPathSum = function(g) {
+  const rows = g.length;
+  const cols = g[0].length;
   
-  let dp = Array(row);
-  for(let i=0; i<row; i++) {
-    dp[i] = Array(col);
-    if(i===0) dp[i][0] = grid[i][0];
-    else dp[i][0] = grid[i][0] + dp[i-1][0];
-  }
+  const dp = Array(g[0].length).fill(Number.MAX_SAFE_INTEGER); //We just need to store calculated path prevRow and prevCell.
+  dp[0] = 0;
+  let cell = Number.MAX_SAFE_INTEGER;
   
-  for(let i=1; i<col; i++) dp[0][i] = grid[0][i] + dp[0][i-1]
-  
-  for(let i=1; i<row; i++) {
-    for(let j=1; j<col; j++) {
-      dp[i][j] = Math.min(dp[i][j-1], dp[i-1][j]) + grid[i][j];
+  for(let i=0; i<rows; i++){
+    cell = Number.MAX_SAFE_INTEGER;
+    for(let j=0; j<cols; j++){
+      dp[j] = Math.min(dp[j]+g[i][j], cell+g[i][j]);
+      cell = dp[j] ;
     }
   }
-  return dp[row-1][col-1];
+  return dp[cols-1];
 };
