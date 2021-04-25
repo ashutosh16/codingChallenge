@@ -59,7 +59,7 @@ function leftMostColumnWithOne(binaryMatrix){
   let j = col-1;
   let result = -1;
   
-  while(i<row && i >-1 && j < col && j>-1){
+  while(i >-1 && j>-1){
     if( binaryMatrix.get(i, j) === 1) {
       result = j;
       j--;
