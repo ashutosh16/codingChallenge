@@ -42,23 +42,16 @@ var longestCommonSubsequence = function(text1, text2) {
   let table = Array(row);
   
   for(let i=0; i < row; i++){
-    table[i] = Array(col);
-    table[i][0] = 0;
+    table[i] = Array(col).fill(0);
   }
-  
-  for(let j=1; j < col; j++){
-    table[0][j] = 0;
-  }
-  
+
   for(let i=1; i<row; i++){
     for(let j=1; j<col; j++){
       table[i][j] = (text1[i-1] === text2[j-1]) 
-                    ? table[i-1][j-1] + 1 // Exclude char from both strings
-                    : Math.max(table[i-1][j], table[i][j-1]); // include char which give max length sub sequence
+                    ? table[i-1][j-1] + 1
+                    : Math.max(table[i-1][j], table[i][j-1]);
     }
   }
   
   return table[row-1][col-1];
 };
-
-
