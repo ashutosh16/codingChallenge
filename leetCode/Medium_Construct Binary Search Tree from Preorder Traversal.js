@@ -42,6 +42,7 @@ var bstFromPreorder = function(preorder) {
   return root;
 
 };
+
 function createBST(preorder, curr, pos, min, max){
   if(pos >= preorder.length || preorder[pos] < min || preorder[pos] > max) {
     return pos;
@@ -53,16 +54,17 @@ function createBST(preorder, curr, pos, min, max){
     pos = createBST(preorder, curr.left, pos, min, curr.val);
   }
   
-  if(pos >= preorder.length || preorder[pos] < min || preorder[pos] > max) {
-    return pos;
-  }
+  if(pos >= preorder.length) return pos;
   
-  curr.right = new TreeNode(preorder[pos]);
-  pos++;
-  pos = createBST(preorder, curr.right, pos, curr.val+1, max);
+  if(preorder[pos] > curr.val && preorder[pos] < max){
+    curr.right = new TreeNode(preorder[pos]);
+    pos++;
+    pos = createBST(preorder, curr.right, pos, curr.val+1, max);
+  }
   
   return pos;
 }
+
 
 
 bstFromPreorder([8,5,1,7,10,12]);
