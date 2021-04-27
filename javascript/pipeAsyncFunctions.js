@@ -29,6 +29,12 @@ const Pipe = (funs) => arg => reduce(funs, (prevFunction, currentFunction) => pr
 //Pipe with Array reduce method.
 const Pipe2 = (funsArr) => arg => funsArr.reduce((prevFunction, currentFunction) => prevFunction.then(currentFunction), Promise.resolve(arg));
 
+//Simplify same answer 
+  function PipeSimple(funArr) {
+    return (args)=> funArr.reduce((prevFun, fun)=>{
+      return prevFun.then(fun);
+    }, Promise.resolve(args));
+  }
 
 const pipeFunction = Pipe([
   x => x + 1,
