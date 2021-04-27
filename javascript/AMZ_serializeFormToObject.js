@@ -37,5 +37,6 @@ function Serialize(domElement){
 Serialize(document.querySelector("form"));
 // {"name":"sameer","office":{"name":"AMZ","address":{"street":"palo alto","pincode":54042,"phone":{"cell":1234567890}}}}
 
-
+// We can consider this as input.
 // [["name", "sameer"], ["office.name", "AMZ"], ["office.address.street", "palo alto"], ["office.address.pincode", 54042], ["office.address.cell", 1234567890]]
+
