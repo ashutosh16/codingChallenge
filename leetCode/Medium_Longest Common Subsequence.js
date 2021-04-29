@@ -39,11 +39,7 @@
 var longestCommonSubsequence = function(text1, text2) {
   let row = text1.length+1;
   let col = text2.length+1;
-  let table = Array(row);
-  
-  for(let i=0; i < row; i++){
-    table[i] = Array(col).fill(0);
-  }
+  let table = Array(row).fill().map(()=>Array(col).fill(0)); // This syntax will create the deep copy of each row array.
 
   for(let i=1; i<row; i++){
     for(let j=1; j<col; j++){
