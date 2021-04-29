@@ -22,50 +22,38 @@
  */
 
 //Using 3D Dynamic Programming
-var longestLine = function(M) {
+  var longestLine = function (M) {
     if (!M || !M.length || !M[0].length) return 0;
-    let Msize = M.length;
-    let resultMatrix = Array(Msize);
-    for(let i=0; i < Msize; i++) {
-      resultMatrix[i] = Array(M[i].length).fill(0);
+    const rows = M.length;
+    const cols = M[0].length;
+    const sumM = Array(rows + 1);
+
+    for (let i = 0; i < rows + 1; i++) {
+      sumM[i] = Array(cols + 1)
+        .fill()
+        .map((u) => ({
+          H: 0,
+          V: 0,
+          DL: 0,
+          RD: 0,
+        }));
     }
-    
-    let getMatrixVal = (row, col, direction) => {
-      if(-1 < row && row < Msize && -1 < col && col < M[row].length) {
-        return resultMatrix[row][col][direction] || 0;
-      }
-      return 0;
-    }
-    
+      
     let result = 0;
-  
-    for(let i=0; i < Msize; i++){
-      for(let j =0; j < M[i].length; j++) {
-        resultMatrix[i][j] = {
-          H : 0,
-          V : 0,
-          DL : 0,
-          DR : 0
-        };
-        if(M[i][j] === 1) {
-          resultMatrix[i][j]['H'] = getMatrixVal(i, j-1, 'H') + 1;
-          resultMatrix[i][j]['V'] = getMatrixVal(i-1, j, 'V') + 1;
-          resultMatrix[i][j]['DL'] = getMatrixVal(i-1, j-1, 'DL') + 1;
-          resultMatrix[i][j]['DR'] = getMatrixVal(i-1, j+1, 'DR') + 1;
-          console.log(resultMatrix[i][j]);
-          result = Math.max(
-            resultMatrix[i][j]['H'],
-            resultMatrix[i][j]['V'],
-            resultMatrix[i][j]['DL'],
-            resultMatrix[i][j]['DR'],
-            result
-          );
-        }
-        
+      
+    for (let i = 1; i <= rows; i++) {
+      for (let j = 1; j <= cols; j++) {
+        if (M[i - 1][j - 1]) {
+          sumM[i][j]["H"] = sumM[i][j - 1]["H"] + 1;
+          sumM[i][j]["V"] = sumM[i - 1][j]["V"] + 1;
+          sumM[i][j]["DL"] = sumM[i - 1][j - 1]["DL"] + 1;
+          sumM[i][j]["RD"] = j < cols ? sumM[i - 1][j + 1]["RD"] + 1 : 0;
+          result = Math.max(result, sumM[i][j]["H"], sumM[i][j]["V"], sumM[i][j]["DL"], sumM[i][j]["RD"]);
+        } 
       }
     }
-  return result;
-};
+    return result;
+  };
 
 longestLine([[1,1,1,1],[0,1,1,0],[0,0,0,1]]);
 //4 
