@@ -1,5 +1,6 @@
-// To some string S, we will perform some replacement operations that replace groups of letters with new ones (not necessarily the same size).
+// https://leetcode.com/problems/find-and-replace-in-string/submissions/
 
+// To some string S, we will perform some replacement operations that replace groups of letters with new ones (not necessarily the same size).
 // Each replacement operation has 3 parameters: a starting index i, a source word x and a target word y.  
 // The rule is that if x starts at position i in the original string S, then we will replace that occurrence of x with y.  
 // If not, we do nothing.
