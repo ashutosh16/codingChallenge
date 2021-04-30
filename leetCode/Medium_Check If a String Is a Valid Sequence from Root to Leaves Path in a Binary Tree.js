@@ -40,8 +40,7 @@
  * @return {boolean}
  */
 function isValidSequence(root, seq, index=0){
-  if(!root) return false;
-  if(root.val !== seq[index]) return false;
+  if(!root || root.val !== seq[index]) return false;
   //Val is equal and last index: if its leaf node then true else false;
   if(index === seq.length-1) return (!root.left && !root.right);
   //Val is equal but not last index: look for the next index in left subTree and if not found in left subTree then find in right subTree
