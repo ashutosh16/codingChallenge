@@ -22,7 +22,30 @@
  * @param {string} s
  * @return {string[]}
  */
-var expand = function(s) {
+
+function expand(str){
+    let queue = [];
+    let i=0;
+    while(i<str.length) {
+      if(str[i] !== "{") {
+        queue = (queue.length) ? queue.map(s => s+str[i]) : [str[i]];
+        i++;
+      } else {
+        const end = str.indexOf("}", i);
+        const charOption = str.slice(i+1, end).split(",");
+        queue = queue.length ? charOption.reduce((acc, char)=>{
+              acc.push(...queue.map(s=>s+char));
+              return acc;
+           }, []) : charOption;
+        i = end+1;
+      }
+    }
+    return queue.sort();
+  }
+
+//--------------------------------------------------------------------------------------------------------------
+
+ var expand = function(s) {
   let result = [];
   
   for(let i=0; i<s.length;){
