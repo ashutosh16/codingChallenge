@@ -48,4 +48,7 @@ var lengthOfLongestSubstring = function(s) {
 lengthOfLongestSubstring("abcabcbb");
 // 3
 
+lengthOfLongestSubstring("abba");
+// 2
+
 
