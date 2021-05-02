@@ -55,7 +55,9 @@ var longestStrChain = function(words) {
             maxLen = Math.max(maxLen, map[word]);
         }
     }
-    
     return maxLen;
 };
+longestStrChain(["a","b","ba","bca","bda","bdca"]);
+// 4
+// map = { a: 1, b: 1, ba: 2, bca: 3, bda: 3, bdca: 4 }
 
