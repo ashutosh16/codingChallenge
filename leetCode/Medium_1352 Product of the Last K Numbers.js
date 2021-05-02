@@ -8,8 +8,7 @@
 // 2. getProduct(int k)
 // Returns the product of the last k numbers in the current list.
 // You can assume that always the current list has at least k numbers.
-// At any time, the product of any contiguous sequence of numbers will 
-// fit into a single 32-bit integer without overflowing.
+// At any time, the product of any contiguous sequence of numbers will f  q2it into a single 32-bit integer without overflowing.
 
 // Example:
 // Input
@@ -32,6 +31,13 @@
 // productOfNumbers.add(8);        // [3,0,2,5,4,8]
 // productOfNumbers.getProduct(2); // return 32. The product of the last 2 numbers is 4 * 8 = 32 
 
+// Hint: 
+// Create productArray as 
+// productArray[i] = (arr[i] === 0) ? 1 : arr[i]*productArray[i-1];
+// <----------total product----------->
+// <---p1------><-------p2------------>
+// p2 = total product / p1
+//If you encounter 0 then just add 1 in productArray.
 
 var ProductOfNumbers = function() {
   this.numsArr = [1];
