@@ -18,6 +18,12 @@
 // Input: words = ["xbc","pcxbcf","xb","cxbc","pcxbc"]
 // Output: 5
 
+// Hint:
+// Sort words arr with incresing length of word
+// travel each word and check if one by one char removed from it. Is new formed word is present in map. get its chain length
+// Add current word in the map with chain length+1
+
+
 /**
  * @param {string[]} words
  * @return {number}
