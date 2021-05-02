@@ -1,4 +1,6 @@
 // https://leetcode.com/problems/perform-string-shifts/
+// Key: string rotation array rotation arrayRotation 
+
 // https://www.youtube.com/watch?v=sNH-f_5Gm0I&list=PLEJXowNB4kPwCPVjDv6KsAsThtDOCQUok&index=14
 // You are given a string s containing lowercase English letters, and a matrix shift, where shift[i] = [direction, amount]:
 
