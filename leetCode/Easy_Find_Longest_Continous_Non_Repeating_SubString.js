@@ -29,17 +29,17 @@
 var lengthOfLongestSubstring = function(s) {
   if(s.length < 2) return s.length;
   let left = 0;
-  let right =0;
+  let current =0;
   let w = new Map();
   let len = 0;
   
-  while(right < s.length) {
-    if(w.has(s[right])) {
-      left = Math.max(left, w.get(s[right])+1);
+  while(current < s.length) {
+    if(w.has(s[current])) {
+      left = Math.max(left, w.get(s[current])+1);
     }
-    w.set(s[right], right);
-    len = Math.max(len, right - left +1);
-    right++;
+    w.set(s[current], current);
+    len = Math.max(len, current - left +1);
+    current++;
   }
   return len;
 };
