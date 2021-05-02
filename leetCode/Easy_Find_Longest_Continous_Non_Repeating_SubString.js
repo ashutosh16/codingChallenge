@@ -1,5 +1,6 @@
-// Given a string s, find the length of the longest substring without repeating characters.
+// https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
 
+// Given a string s, find the length of the longest substring without repeating characters.
 // Example 1:
 
 // Input: s = "abcabcbb"
@@ -35,7 +36,7 @@ var lengthOfLongestSubstring = function(s) {
   
   while(current < s.length) {
     if(w.has(s[current])) {
-      left = Math.max(left, w.get(s[current])+1);
+      left = Math.max(left, w.get(s[current])+1); //Important to use max because start can be already ahead of last occurencr of curr the it should remain same position
     }
     w.set(s[current], current);
     len = Math.max(len, current - left +1);
