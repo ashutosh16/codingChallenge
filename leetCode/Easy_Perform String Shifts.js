@@ -34,31 +34,41 @@
  * @return {string}
  */
 var stringShift = function(s, shift) {
-  let l =0;
-  let r=0;
-  for(let i=0; i<shift.length; i++){
-    if(shift[i][0] === 0) {
-      l += shift[i][1];
+  let leftRotation = 0;
+  //Normalize given rotations to leftRotations
+  for(const [dir, amount] of shift) {
+    if(dir === 0) {
+      leftRotation += amount;
     } else {
-      r += shift[i][1];
+      leftRotation -= amount;
     }
   }
- 
-  let leftRotation =( (l > r) ? (l-r) : s.length - (r-l)) % s.length;
-  
+  const n = s.length;
+  //If right rotations are more then conver to leftRotation = n - rightRotation; 
+  // but in our case (-leftRotation) is rightRotations hence
+  // hence leftRotation = n + leftRotation;
+  leftRotation = ((leftRotation > 0) ? leftRotation : s.length+leftRotation)%n;  
   s = s.split("");
-  let count = 0;
-  for(let startIndex = 0; count < s.length; startIndex++) {
-    let nextIndex = startIndex;
-    let prevElement = s[startIndex];
-    do{
-      nextIndex = (nextIndex - leftRotation + s.length) % s.length;
-      [s[nextIndex], prevElement] = [prevElement, s[nextIndex]];
-      count++;
-    } while(count < s.length && startIndex !== nextIndex)
+  
+  //Rotate string to left
+  const rotateLeft = (s, leftRotation) =>{
+    let count = 0;
+    for(let startIndex = 0; count < s.length; startIndex++) {
+      let nextIndex = startIndex;
+      let prevElement = s[startIndex];
+      do{
+        nextIndex = (nextIndex - leftRotation + s.length) % s.length;
+        [s[nextIndex], prevElement] = [prevElement, s[nextIndex]];
+        count++;
+      } while(count < s.length && startIndex !== nextIndex)
+    }
+    return s.join('');
   }
-  return s.join('');
+  return rotateLeft(s, leftRotation);
 };
+  
+  stringShift("xqgwkiqpif", [[1,4],[0,7],[0,8],[0,7],[0,6],[1,3],[0,1],[1,7],[0,5],[0,6]]);
+//"qpifxqgwki"
   
   
   
