@@ -28,6 +28,11 @@
  * @param {number[]} speed
  * @return {number}
  */
+// Hint: 
+// Create array of object as  {timeToDest:12, position:0} and sort arr on position value
+// [{timeToDest:12, position:0}, {timeToDest:7, position:3}, {timeToDest:7, position:5}, {timeToDest:1, position:8},{timeToDest:1, position:10}] 
+// then travel from n-1 to 1 index with fleet count
+
 var carFleet = function(target, position, speed) {
     if(!position.length) return 0;
   
