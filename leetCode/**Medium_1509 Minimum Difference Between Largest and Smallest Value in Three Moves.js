@@ -24,7 +24,11 @@
 // Output: 1
 
 // Hint: https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/discuss/1158213/Javascript-Easy-to-understand
-// 
+// Sort given array find min diff between the fist and last-changeCount elements
+// while(i<=changeCount)
+// i=0 & j = nums.length -1 - changeCount
+// result = Math.min(result, nums[j]-nums[i]);
+// i++; j++;
 
 /**
  * @param {number[]} nums
