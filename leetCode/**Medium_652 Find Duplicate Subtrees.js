@@ -29,23 +29,25 @@
  * @param {TreeNode} root
  * @return {TreeNode[]}
  */
+// Hint : 
+// Serialize each node and push into the map using serialize string as key and ocurrences count as value
+// if key present more then 1 times means its duplicate sub tree.
+
 var findDuplicateSubtrees = function(root) {
-  const map = new Map();
   const result = [];
   
-  const findSubTrees = (root) => {
-    if(!root) return "";
-    let subTree = `${root.val}-${findSubTrees(root.left)}-${findSubTrees(root.right)}`;
+  const findSubTrees = (root, map, result) => {
+    if(!root) return "*";
+    let subTree = `${root.val}-${findSubTrees(root.left, map, result)}-${findSubTrees(root.right, map, result)}`;
   
     map.set(subTree, (map.get(subTree) || 0)+1);
     map.get(subTree) === 2 && result.push(root);
     return subTree;
   }
   
-  findSubTrees(root);
+  findSubTrees(root, new Map(), result);
   return result;
 };
-
 findDuplicateSubtrees([1,2,3,4,null,2,4,null,null,4]);
 // [[4],[2,4]]
 
