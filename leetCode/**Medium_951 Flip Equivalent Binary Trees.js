@@ -55,9 +55,22 @@ var flipEquiv = function(root1, root2) {
   
 };
 
-// Without recursion
-// Hint: Serialize both trees with smaller child first and then other.
+// Hint: Serialize both trees with preorder and smaller child first and push null once left and right child are done.
 // both trees serialized value is same then return true
+// travel(root, list) {
+//   if(root) {
+//     list.push(root.val);
+//     if(root.left.val < root.right.val) { 
+//       travel(root.left, list); 
+//       travel(root.right, list); 
+//     }
+//     else { 
+//       travel(root.right, list); 
+//       travel(root.left, list); 
+//     }
+//   }
+// }
+// 
 
 var flipEquiv = function(root1, root2) {
   const DFS = (node, list)=>{
@@ -83,6 +96,11 @@ var flipEquiv = function(root1, root2) {
 };
 
 flipEquiv([1,2,3,4,5,6,null,null,null,7,8], [1,3,2,null,6,4,5,null,null,null,null,8,7]); // true
+//                          1
+//               2                    3
+//          4           5        6         null
+// null       null   7     8
+
 // list1 and list2 
 // [
 //   1,    2,    4, null, 5,
