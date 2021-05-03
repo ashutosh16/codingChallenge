@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/last-stone-weight/solution/
+
 // We have a collection of stones, each stone has a positive integer weight.
 // Each turn, we choose the two heaviest stones and smash them together.  Suppose the stones have weights x and y with x <= y.  
 // The result of this smash is:
