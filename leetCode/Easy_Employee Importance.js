@@ -56,6 +56,28 @@ var GetImportance = function(employees, id) {
 GetImportance([{id: 1, importance: 5, subordinates: [2,3] }, {id: 2, importance: 3, subordinates: [] }, {id: 3, importance: 3, subordinates: [4]}, {id: 4, importance: 4, subordinates: []}], 1);
 // 15
 
+// DFS
+var GetImportance = function(employees, id) {
+   const map = {};
+     for(let i =0; i<employees.length; i++) {
+        map[employees[i].id] = {
+          imp: employees[i].importance,
+          sub: employees[i].subordinates
+        }
+     }
+     const DFS = (empId, map)=>{
+        let imp = map[empId].imp;
+        for(let i=0; i<map[empId].sub.length; i++){
+          imp += DFS(map[empId].sub[i], map);
+        }
+        return imp;
+     }
+     return DFS(id, map);
+};
+
+GetImportance([{id: 1, importance: 5, subordinates: [2,3] }, {id: 2, importance: 3, subordinates: [] }, {id: 3, importance: 3, subordinates: [4]}, {id: 4, importance: 4, subordinates: []}], 1);
+// 15
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 // Inhancement Calculate the ratting of full hierarchy for given employee id
