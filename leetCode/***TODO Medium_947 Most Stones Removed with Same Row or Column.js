@@ -31,4 +31,57 @@
 // Output: 0
 // Explanation: [0,0] is the only stone on the plane, so you cannot remove it.
 
+/**
+ * @param {number[][]} stones
+ * @return {number}
+ */
+var removeStones = function(stones) {
+  const g = {};
+  const v = Array(stones.length).fill(0);
+  const isConnected = (p1, p2) => {
+    return (p1[0] === p2[0] || p1[1]===p2[1]);
+  }
+  
+  for(let i=0; i< stones.length; i++) {
+    for(let j=i; j<stones.length; j++) {
+      !g[i] && (g[i] = []);
+      !g[j] && (g[j] = []);
+      if(isConnected(stones[i], stones[j])) {
+        g[i].push(j);
+        g[j].push(i);
+      }
+    }
+  }
+  console.log(g);
+  const DFS = (stone)=>{
+    if(v[stone]) return;
+    v[stone] = true;
+    for(let s of g[stone]) {
+      DFS(s);
+    }
+  }
+  
+  const disjointGraphs = Object.keys(g).reduce((totalCount, stone)=> {
+    if(!v[stone]) {
+      totalCount ++;
+      DFS(stone);
+    }
+    return totalCount;
+  }, 0);
+  
+  return stones.length - disjointGraphs;
+  
+};
+
+removeStones([[0,0],[0,1],[1,0],[1,2],[2,1],[2,2]]);
+// 5
+// {
+//   '0': [ 0, 0, 1, 2 ],
+//   '1': [ 0, 1, 1, 4 ],
+//   '2': [ 0, 2, 2, 3 ],
+//   '3': [ 2, 3, 3, 5 ],
+//   '4': [ 1, 4, 4, 5 ],
+//   '5': [ 3, 4, 5, 5 ]
+// }
+
 
